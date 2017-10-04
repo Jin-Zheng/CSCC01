@@ -1,0 +1,8 @@
+1. User stories should be verbose enough that the developer knopws exactly what to do
+2. User stories should be verbose enough that the devloper can estimate how long it will take
+3. You may not get the perfect user story in the first try (probably when you start writing code, some of them will change and reflect points 1 and 2 better)
+4. User stories have priorities (which you already know)
+5. User stories should not be ambiguous or contain more than one story. Else it's called an epic
+6. User stories should reflect a feature such that once implemented you can say "This user story is complete"
+7. Feel free to exhaust all the user stories but don't feel pressured to implement them all
+8. Prioritization of user stories comes with interaction with client and the fact that some features have to exist before others
