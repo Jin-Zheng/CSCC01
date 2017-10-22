@@ -1,5 +1,8 @@
 const styles = {
-
+  title: {
+    fontFamily:'monospace',
+    fontSize:20
+  }
 }
 
-default export styles
+export default styles
