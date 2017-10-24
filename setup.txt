@@ -1,0 +1,5 @@
+1. # Install node, add node.exe to PATH
+2. npm install -g create-react-app # install create-react-app globally
+3. create-react-app dev-env # create a react app called dev-env
+4. # Replace the /src directory with the /src directory found in our group repo
+5. cd dev-env; npm run start # cd into the dev-env directory, then run the start scripts
