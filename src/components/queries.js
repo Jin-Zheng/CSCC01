@@ -17,9 +17,15 @@ connection.connect()
 // }
 // })
 
-connection.query('describe Question', function (error, results, fields) {
-  if (error) throw error;
+//connection.query('describe Question', function (error, results, fields) {
+//  if (error) throw error;
+//  console.log(results)
+//})
+
+connection.query('show tables', (error, results, fields) => {
+  if(error) throw error;
   console.log(results)
 })
+
 
 connection.end()
