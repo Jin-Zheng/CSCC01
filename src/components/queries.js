@@ -18,11 +18,18 @@ connection.connect()
 // }
 // })
 
-connection.query('describe Question', function (error, results, fields) {
-  if (error) throw error;
+//connection.query('describe Question', function (error, results, fields) {
+//  if (error) throw error;
+//  console.log(results)
+//})
+
+connection.query('show tables', (error, results, fields) => {
+  if(error) throw error;
   console.log(results)
-  
+
 })
+
+connection.end()
 
   // INSERT QUESTION
   // Example Add:
@@ -34,14 +41,14 @@ connection.query('describe Question', function (error, results, fields) {
     if (err) throw err;
     // console.log("Number of records deleted: " + result.affectedRows);
   });
-  
+
   // SELECT QUESTION
   // Example Select:
   connection.query("SELECT * FROM Question", function (err, result, fields) {
     if (err) throw err;
     console.log(result);
   });
-  
+
   // DELETE QUESTION
   // Example Delete:
   var sqldelete = "DELETE FROM Question WHERE qKey = '1'";
@@ -50,6 +57,6 @@ connection.query('describe Question', function (error, results, fields) {
     if (err) throw err;
     // console.log("Number of records deleted: " + result.affectedRows);
   });
-  
+
 
 connection.end()
