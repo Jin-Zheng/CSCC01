@@ -24,11 +24,13 @@ connection.query('describe Question', function (error, results, fields) {
   
 })
 
+
+console.log("\n SQL Queries:\n")
   // INSERT QUESTION
   // Example Add:
-  var sqladd = "INSERT INTO Question (qKey, qType, Qvalue, answer, candidate1, candidate2, candidate3, candidate4) VALUES ?";
+  var sqladd = "INSERT INTO Question (qType, Qvalue, answer, candidate1, candidate2, candidate3, candidate4) VALUES ?";
   var values = [
-    ['1', 'MC', 'What is the correct answer?', '1', '1', '2', '3', '4'],
+    ['MC', 'What is the correct answer?', '1', '1', '2', '3', '4'],
   ];
   connection.query(sqladd, [values], function (err, result) {
     if (err) throw err;
@@ -39,6 +41,22 @@ connection.query('describe Question', function (error, results, fields) {
   // Example Select:
   connection.query("SELECT * FROM Question", function (err, result, fields) {
     if (err) throw err;
+	console.log("\nViewing database:\n");
+    console.log(result);
+  });
+  
+  // UPDATE QUESTION
+  // Example update question 1:
+  var sqlupdate = "UPDATE Question SET Qvalue = 'New Question?' WHERE qKey = 1";
+  // Use the query
+  console.log("\nUpdating Q1:\n");
+  connection.query(sqlupdate, function (err, result) {
+    if (err) throw err;
+  });
+  
+  // View the question again
+  connection.query("SELECT * FROM Question", function (err, result, fields) {
+    if (err) throw err;
     console.log(result);
   });
   
@@ -46,7 +64,7 @@ connection.query('describe Question', function (error, results, fields) {
   // Example Delete:
   var sqldelete = "DELETE FROM Question WHERE qKey = '1'";
   var sqlclear = "truncate Question";
-  connection.query(sqldelete, function (err, result) {
+  connection.query(sqlclear, function (err, result) {
     if (err) throw err;
     // console.log("Number of records deleted: " + result.affectedRows);
   });
