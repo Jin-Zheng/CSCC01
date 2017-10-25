@@ -13,9 +13,17 @@ class QuestionController extends React.Component {
       pane: undefined,
       buttons: (
         List([
-          <button onClick={(e) => {e.preventDefault();this.setState({pane: <CreateShortAnswer/>})}}>Short Answer</button>,
-          <button onClick={(e) => {e.preventDefault();this.setState({pane: 'Multiple Choice Pane'})}} value="Multiple Choice">Multiple Choice</button>
-        ])
+          <button onClick={(e) =>
+              {e.preventDefault();
+                this.setState({pane: <CreateShortAnswer/>})}}>
+                Short Answer
+              </button>,
+          <button onClick={(e) =>
+              {e.preventDefault();
+                this.setState({pane: 'Multiple Choice Pane'})}}>
+                Multiple Choice
+              </button>
+            ])
       )
     }
   }
