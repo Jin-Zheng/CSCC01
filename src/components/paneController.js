@@ -3,6 +3,7 @@ import {Row, Col} from 'react-flexbox-grid'
 import FormatListView from './formatListView.js'
 import {List} from 'immutable'
 import CreateShortAnswer from './createShortAnswer.js'
+import CreateMultipleChoice from './createMultipleChoice.js'
 
 
 class PaneController extends React.Component {
@@ -16,7 +17,7 @@ class PaneController extends React.Component {
           <button onClick={() => {this.setState({pane:<CreateShortAnswer/>})}}>
             create question
           </button>,
-          <button onClick={() => (this.setState({pane:'empty pane'}))}>
+          <button onClick={() => (this.setState({pane:<CreateMultipleChoice/>}))}>
             switch pane
           </button>
         ])
