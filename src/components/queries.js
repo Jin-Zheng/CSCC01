@@ -18,14 +18,17 @@ connection.connect()
 // }
 // })
 
-connection.query('describe Question', function (error, results, fields) {
-  if (error) throw error;
+//connection.query('describe Question', function (error, results, fields) {
+//  if (error) throw error;
+//  console.log(results)
+//})
+
+connection.query('show tables', (error, results, fields) => {
+  if(error) throw error;
   console.log(results)
-  
-})
+  console.log("\n SQL Queries:\n")
+connection.end()
 
-
-console.log("\n SQL Queries:\n")
   // INSERT QUESTION
   // Example Add:
   var sqladd = "INSERT INTO Question (qType, Qvalue, answer, candidate1, candidate2, candidate3, candidate4) VALUES ?";
@@ -36,7 +39,7 @@ console.log("\n SQL Queries:\n")
     if (err) throw err;
     // console.log("Number of records deleted: " + result.affectedRows);
   });
-  
+
   // SELECT QUESTION
   // Example Select:
   connection.query("SELECT * FROM Question", function (err, result, fields) {
@@ -59,7 +62,7 @@ console.log("\n SQL Queries:\n")
     if (err) throw err;
     console.log(result);
   });
-  
+
   // DELETE QUESTION
   // Example Delete:
   var sqldelete = "DELETE FROM Question WHERE qKey = '1'";
@@ -68,6 +71,6 @@ console.log("\n SQL Queries:\n")
     if (err) throw err;
     // console.log("Number of records deleted: " + result.affectedRows);
   });
-  
+
 
 connection.end()
