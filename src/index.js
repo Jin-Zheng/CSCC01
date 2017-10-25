@@ -12,7 +12,7 @@ class Index extends React.Component {
     return (
       <div>
       <Row style={Styles.title}>
-        Lambda Work
+        Lambda-Work
         <p/>
       </Row>
       <Row>
