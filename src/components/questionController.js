@@ -2,6 +2,7 @@ import React from 'react'
 import {List} from 'immutable'
 import {Row, Col} from 'react-flexbox-grid'
 import CreateShortAnswer from './createShortAnswer.js'
+import CreateMultipleChoice from './createMultipleChoice.js'
 
 
 class QuestionController extends React.Component {
@@ -20,7 +21,7 @@ class QuestionController extends React.Component {
               </button>,
           <button onClick={(e) =>
               {e.preventDefault();
-                this.setState({pane: 'Multiple Choice Pane'})}}>
+                this.setState({pane: <CreateMultipleChoice/>})}}>
                 Multiple Choice
               </button>
             ])

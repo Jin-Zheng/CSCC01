@@ -2,9 +2,7 @@ import React from 'react'
 import {Row, Col} from 'react-flexbox-grid'
 import FormatListView from './formatListView.js'
 import {List} from 'immutable'
-import CreateShortAnswer from './createShortAnswer.js'
 import QuestionController from './questionController.js'
-
 
 class PaneController extends React.Component {
 
