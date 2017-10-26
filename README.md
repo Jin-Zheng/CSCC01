@@ -21,8 +21,8 @@
 - Reorganized repository and removed superfluous files
 
 ### 10/13/17
-- Product Backlog - Persona v0 uploaded [here](./Deliverables/Product_Backlog-Personas_v0.pdf)
-- Product Backlog - User Stories v0 uploaded [here](./Deliverables/Product_Backlog-User_Stories_v0.pdf)
+- Product Backlog - Persona v0 uploaded [here](./Deliverables/Product_Backlog-Personas.pdf)
+- Product Backlog - User Stories v0 uploaded [here](./Deliverables/Product_Backlog-User_Stories.pdf)
 
 ### 10/11/17
 - 10/11/17 Team meeting document uploaded
