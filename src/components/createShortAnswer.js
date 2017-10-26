@@ -16,7 +16,7 @@ class CreateShortAnswer extends React.Component {
     this.state = {
       message: '',
       value: '',
-      answer: '',
+      answer: ''
     }
   }
 
