@@ -3,9 +3,9 @@
 ### 10/25/17
 - Sprint Backlog: Sprint 2 (Oct 26 - Oct 31) [here](./Deliverables/Sprint_Backlog-Sprint.pdf)
 - Completed Sprint 1:
-..* UI completed for creating questions
-..* Database created
-..* Connection of UI to database [Still in progress..]
+  * UI completed for creating questions
+  * Database created
+  * Connection of UI to database [Still in progress..]
 - 10/25/17 Team meeting document uploaded
 - Renamed some files
 
