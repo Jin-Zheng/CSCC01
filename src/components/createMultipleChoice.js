@@ -65,7 +65,6 @@ class CreateMultipleChoice extends React.Component {
       'option1: ' + this.state.option1,
       'option2: ' + this.state.option2,
       'option3: ' + this.state.option3,
-      'radios: ' + this.state.radio0checked
     ]
     return (
       <div>
@@ -74,7 +73,7 @@ class CreateMultipleChoice extends React.Component {
         </Row>
         <form onSubmit={(e)=>{e.preventDefault()}}>
           <Row>
-            Value
+            Value:
           </Row>
           <Row>
             <textarea
@@ -82,60 +81,55 @@ class CreateMultipleChoice extends React.Component {
               onChange={this.changeText('value')}/>
           </Row>
           <Row>
-            Option 0
+            Option 0:
           </Row>
           <Row>
             <textarea
               value={this.state.option0}
               onChange={this.changeText('option0')}/>
-            <input
-              type={'radio'}
-              onChange={this.changeState({answer:0})}
-              checked={this.state.answer===0}
-              >
-            </input>
           </Row>
           <Row>
-            Optino 1
+            Optino 1:
           </Row>
           <Row>
             <textarea
               value={this.state.option1}
               onChange={this.changeText('option1')}/>
-            <input
-              type={'radio'}
-              checked = {this.state.answer===1}
-              onChange={this.radioClicked(1)}
-              >
-            </input>
           </Row>
           <Row>
-            Option 2
+            Option 2:
           </Row>
           <Row>
             <textarea
               value={this.state.option2}
               onChange={this.changeText('option2')}/>
-            <input
-              type={'radio'}
-              checked = {this.state.answer===2}
-              onChange={this.radioClicked(2)}
-              >
-            </input>
           </Row>
           <Row>
-            Option 3
+            Option 3:
           </Row>
           <Row>
             <textarea
               value={this.state.option3}
               onChange={this.changeText('option3')}/>
-            <input
-              type={'radio'}
-              checked = {this.state.answer===3}
-              onChange={this.radioClicked(3)}
-              >
-            </input>
+          </Row>
+          <Row>
+            Answer:
+          </Row>
+          <Row>
+            <select onChange={this.changeText('answer')}>
+              <option value={undefined}>
+              Which option is correct?
+              </option>
+              <option value={0}>0
+              </option>
+              <option value={1}>1
+              </option>
+              <option value={2}>2
+              </option>
+              <option value={3}>3
+              </option>
+
+            </select>
           </Row>
           <Row>
             <button>submit</button>

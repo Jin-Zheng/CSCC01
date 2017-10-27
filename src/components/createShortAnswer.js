@@ -1,10 +1,11 @@
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
+import {List} from 'immutable'
+import FormatListView from './formatListView.js'
 
 class CreateShortAnswer extends React.Component {
 
   componentWillMount() {
-    this.setState({message: 'This is the question creation pane'})
   }
 
   constructor(props) {
@@ -13,7 +14,6 @@ class CreateShortAnswer extends React.Component {
     this.valueUpdate = this.valueUpdate.bind(this)
     this.answerUpdate = this.answerUpdate.bind(this)
     this.state = {
-      message: '',
       value: '',
       answer: ''
     }
@@ -35,12 +35,15 @@ class CreateShortAnswer extends React.Component {
   }
 
   render() {
+    const debugList = List([
+      'value: ' + this.state.value,
+      'answer: ' + this.state.answer
+    ])
     return (
       <div>
         <form onSubmit={this.formSubmit}>
           <Row>
-            {this.state.message}
-            <p/>
+            <FormatListView list={debugList}/>
           </Row>
           <Row>
             Value:
