@@ -3,74 +3,131 @@ import {List} from 'immutable'
 import {Row, Col} from 'react-flexbox-grid'
 
 class CreateMultipleChoice extends React.Component {
+
+  componentWillMount() {
+  }
+
   constructor (props){
     super(props)
     this.state = {
-      options: List(['', '', '', '']),
+      option0: undefined,
+      option1: undefined,
+      option2: undefined,
+      option3: undefined,
+      radio0checked: undefined,
+      radio1checked: undefined,
+      radio2checked: undefined,
+      radio3checked: undefined,
       answer: undefined,
-      value: ''
+      value: undefined,
     }
-    this.updateAnswer = this.updateAnswer.bind(this)
-    this.updateValue = this.updateValue.bind(this)
+    this.changeText = this.changeText.bind(this)
+    this.changeState = this.changeState.bind(this)
   }
-  updateAnswer(n){
+
+  radioClicked(n) {
     return (
       (event) => {
         event.preventDefault()
-        console.log(this.state.options)
+        this.setState({answer:n})
+
+      }
+    )
+  }
+
+  changeState(obj) {
+    return (event) => {
+      event.preventDefault()
+      this.setState(obj)
+    }
+  }
+
+  updateAnswer(n) {
+    return (
+      (event) => {
+        event.preventDefault()
         this.setState({answer:n})
       }
     )
   }
 
-  updateValue(field){
+  changeText(field) {
     return (event) => {
       event.preventDefault()
       console.log(this.state[field])
       this.setState({[field]: event.target.value})
     }
   }
-  render(){
+  render() {
     return (
       <div>
-        <form>
+        <Row>
+          answer:{this.state.answer}
+        </Row>
+        <Row>
+          option0:{this.state.option0}
+        </Row>
+        <Row>
+          option1:{this.state.option1}
+        </Row>
+        <Row>
+          option2:{this.state.option2}
+        </Row>
+        <Row>
+          option3:{this.state.option3}
+        </Row>
+        <Row>
+          value:{this.state.value}
+        </Row>
+        <form onSubmit={(e)=>{e.preventDefault()}}>
           <Row>
             Value
           </Row>
           <Row>
-            <textArea
+            <textarea
               value={this.state.value}
-              onChange={this.updateValue('value')}/>
+              onChange={this.changeText('value')}/>
           </Row>
           <Row>
-            Option 1
+            Option 0
           </Row>
           <Row>
-            <textArea
-              value={this.state.option}
-              onChange={this.updateValue('option1')}/>
-            <button onClick={this.updateAnswer(0)}> answer_0 </button>
+            <textarea
+              value={this.state.option0}
+              onChange={this.changeText('option0')}/>
+            <input
+              type={'radio'}
+              checked = {this.radio0checked}
+              onClick={(e)=>{e.preventDefault();console.log('click')}}
+              >
+            </input>
+          </Row>
+          <Row>
+            Optino 1
+          </Row>
+          <Row>
+            <textarea
+              value={this.state.option1}
+              onChange={this.changeText('option1')}/>
+            <button onClick={this.changeState({answer:1})}>1 correct</button>
           </Row>
           <Row>
             Option 2
           </Row>
           <Row>
-            <textArea value={'Hi'}/>
-            <button onClick={this.updateAnswer(1)}>answer_1</button>
+            <textarea
+              value={this.state.option2}
+              onChange={this.changeText('option2')}/>
+            <button onClick={this.changeState({answer:2})}>2 correct</button>
           </Row>
           <Row>
             Option 3
           </Row>
           <Row>
-            <textArea value={'Hi'}/>
-            <button onClick={this.updateAnswer(2)}>answer_2</button>
-          </Row>
-          <Row>
-            Option 4
-          </Row>
-          <Row>
-            <textArea value={'Hi'}/>
-            <button onClick={this.updateAnswer(3)}>answer_3</button>
+            <textarea
+              value={this.state.option3}
+              onChange={this.changeText('option3')}/>
+            <button onClick={this.changeState({answer:3})}>3 correct</button>
           </Row>
           <Row>
             <button>submit</button>

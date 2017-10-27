@@ -6,20 +6,37 @@ import QuestionController from './questionController.js'
 
 class PaneController extends React.Component {
 
+  componentWillMount() {
+    this.state.pane = undefined,
+    this.state.buttons = List([
+      <button onClick={this.changeState({pane:<QuestionController/>})}>
+        create question
+      </button>,
+      <button onClick={this.changeState({pane:'view/edit'})}>
+        view/edit
+      </button>,
+      <button onClick={this.changeState({pane: 'empty pane'})}>
+        switch pane
+      </button>
+    ])
+  }
+
   constructor(props) {
     super(props)
+
+    this.changeState = this.changeState.bind(this)
     this.state = {
       pane: undefined,
       buttons: (
-        List([
-          <button onClick={() => {this.setState({pane:<QuestionController/>})}}>
-            create question
-          </button>,
-          <button onClick={() => (this.setState({pane:'empty pane'}))}>
-            switch pane
-          </button>
-        ])
+        List([])
       )
+    }
+  }
+
+  changeState(obj) {
+    return (event) => {
+      event.preventDefault()
+      this.setState(obj)
     }
   }
 
