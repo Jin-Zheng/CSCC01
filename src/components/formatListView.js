@@ -1,12 +1,7 @@
 import React from 'react'
-import {List} from 'immutable'
-import {Row, Col} from 'react-flexbox-grid'
+import {Row} from 'react-flexbox-grid'
 
 class FormatListView extends React.Component{
-
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     const fixedList = this.props.list.map((element) => (

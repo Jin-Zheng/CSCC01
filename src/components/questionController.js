@@ -1,6 +1,6 @@
 import React from 'react'
 import {List} from 'immutable'
-import {Row, Col} from 'react-flexbox-grid'
+import {Row} from 'react-flexbox-grid'
 import CreateShortAnswer from './createShortAnswer.js'
 import CreateMultipleChoice from './createMultipleChoice.js'
 

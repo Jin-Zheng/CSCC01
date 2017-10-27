@@ -1,6 +1,5 @@
 import React from 'react'
-import {List} from 'immutable'
-import {Row, Col} from 'react-flexbox-grid'
+import {Row} from 'react-flexbox-grid'
 
 class CreateShortAnswer extends React.Component {
 
@@ -47,15 +46,15 @@ class CreateShortAnswer extends React.Component {
             Value:
           </Row>
           <Row>
-            <textArea value={this.state.value} onChange={this.valueUpdate}>
-            </textArea>
+            <textarea value={this.state.value} onChange={this.valueUpdate}>
+            </textarea>
           </Row>
           <Row>
             Answer:
           </Row>
           <Row>
-            <textArea value={this.state.answer} onChange={this.answerUpdate}>
-            </textArea>
+            <textarea value={this.state.answer} onChange={this.answerUpdate}>
+            </textarea>
           </Row>
           <button type={'submit'}>
             submit

@@ -7,8 +7,8 @@ import QuestionController from './questionController.js'
 class PaneController extends React.Component {
 
   componentWillMount() {
-    this.state.pane = undefined,
-    this.state.buttons = List([
+    this.setState({pane:this.props.start}),
+    this.setState({buttons:List([
       <button onClick={this.changeState({pane:<QuestionController/>})}>
         create question
       </button>,
@@ -18,7 +18,7 @@ class PaneController extends React.Component {
       <button onClick={this.changeState({pane: 'empty pane'})}>
         switch pane
       </button>
-    ])
+    ])})
   }
 
   constructor(props) {

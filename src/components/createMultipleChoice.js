@@ -1,6 +1,6 @@
 import React from 'react'
-import {List} from 'immutable'
-import {Row, Col} from 'react-flexbox-grid'
+import {Row} from 'react-flexbox-grid'
+import FormatListView from './formatListView.js'
 
 class CreateMultipleChoice extends React.Component {
 
@@ -14,13 +14,10 @@ class CreateMultipleChoice extends React.Component {
       option1: undefined,
       option2: undefined,
       option3: undefined,
-      radio0checked: undefined,
-      radio1checked: undefined,
-      radio2checked: undefined,
-      radio3checked: undefined,
       answer: undefined,
       value: undefined,
     }
+    this.radioClicked = this.radioClicked.bind(this)
     this.changeText = this.changeText.bind(this)
     this.changeState = this.changeState.bind(this)
   }
@@ -29,8 +26,9 @@ class CreateMultipleChoice extends React.Component {
     return (
       (event) => {
         event.preventDefault()
-        this.setState({answer:n})
-
+        this.setState({
+          answer:n
+        })
       }
     )
   }
@@ -39,6 +37,7 @@ class CreateMultipleChoice extends React.Component {
     return (event) => {
       event.preventDefault()
       this.setState(obj)
+      console.log(event.target)
     }
   }
 
@@ -59,25 +58,19 @@ class CreateMultipleChoice extends React.Component {
     }
   }
   render() {
+    const stateList = [
+      'value: ' + this.state.value,
+      'answer: ' + this.state.answer,
+      'option0: ' + this.state.option0,
+      'option1: ' + this.state.option1,
+      'option2: ' + this.state.option2,
+      'option3: ' + this.state.option3,
+      'radios: ' + this.state.radio0checked
+    ]
     return (
       <div>
         <Row>
-          answer:{this.state.answer}
-        </Row>
-        <Row>
-          option0:{this.state.option0}
-        </Row>
-        <Row>
-          option1:{this.state.option1}
-        </Row>
-        <Row>
-          option2:{this.state.option2}
-        </Row>
-        <Row>
-          option3:{this.state.option3}
-        </Row>
-        <Row>
-          value:{this.state.value}
+          <FormatListView list={stateList}/>
         </Row>
         <form onSubmit={(e)=>{e.preventDefault()}}>
           <Row>
@@ -97,8 +90,8 @@ class CreateMultipleChoice extends React.Component {
               onChange={this.changeText('option0')}/>
             <input
               type={'radio'}
-              checked = {this.radio0checked}
-              onClick={(e)=>{e.preventDefault();console.log('click')}}
+              onChange={this.changeState({answer:0})}
+              checked={this.state.answer===0}
               >
             </input>
           </Row>
@@ -109,7 +102,12 @@ class CreateMultipleChoice extends React.Component {
             <textarea
               value={this.state.option1}
               onChange={this.changeText('option1')}/>
-            <button onClick={this.changeState({answer:1})}>1 correct</button>
+            <input
+              type={'radio'}
+              checked = {this.state.answer===1}
+              onChange={this.radioClicked(1)}
+              >
+            </input>
           </Row>
           <Row>
             Option 2
@@ -118,7 +116,12 @@ class CreateMultipleChoice extends React.Component {
             <textarea
               value={this.state.option2}
               onChange={this.changeText('option2')}/>
-            <button onClick={this.changeState({answer:2})}>2 correct</button>
+            <input
+              type={'radio'}
+              checked = {this.state.answer===2}
+              onChange={this.radioClicked(2)}
+              >
+            </input>
           </Row>
           <Row>
             Option 3
@@ -127,7 +130,12 @@ class CreateMultipleChoice extends React.Component {
             <textarea
               value={this.state.option3}
               onChange={this.changeText('option3')}/>
-            <button onClick={this.changeState({answer:3})}>3 correct</button>
+            <input
+              type={'radio'}
+              checked = {this.state.answer===3}
+              onChange={this.radioClicked(3)}
+              >
+            </input>
           </Row>
           <Row>
             <button>submit</button>
