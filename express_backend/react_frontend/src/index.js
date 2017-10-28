@@ -7,6 +7,7 @@ import Styles from './styles.js'
 import {Row, Col} from 'react-flexbox-grid'
 
 class Index extends React.Component {
+
   render() {
     const dummyList = List(['hi', 'my', 'name', 'is'])
     return (

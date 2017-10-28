@@ -9,18 +9,30 @@ class PaneController extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      questions: [],
       pane: undefined,
       buttons: (
         List([
           <button onClick={() => {this.setState({pane:<QuestionController/>})}}>
             create question
           </button>,
-          <button onClick={() => (this.setState({pane:'empty pane'}))}>
+          <button onClick={() => (this.setState({pane:
+              <Row>
+              {this.state.questions.map(question =>
+                    <div key={question.qKey}> {question.qType} - {question.Qvalue} <br/> {question.answer}</div>
+                  )}
+              </Row>}))}>
             switch pane
           </button>
         ])
       )
     }
+  }
+
+  componentDidMount(){
+    fetch('/users')
+      .then(res => res.json())
+      .then(questions => this.setState({ questions: questions }));
   }
 
   render() {
