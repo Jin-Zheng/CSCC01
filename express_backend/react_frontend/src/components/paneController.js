@@ -19,7 +19,7 @@ class PaneController extends React.Component {
           <button onClick={() => (this.setState({pane:
               <Row>
               {this.state.questions.map(question =>
-                    <div key={question.qKey}> {question.qType} - {question.Qvalue} <br/> {question.answer}</div>
+                    <div key={question.qKey}> {question.qType} - {question.qValue} <br/> {question.answer}</div>
                   )}
               </Row>}))}>
             switch pane
