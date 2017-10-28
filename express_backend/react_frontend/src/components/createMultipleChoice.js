@@ -13,22 +13,22 @@ class CreateMultipleChoice extends React.Component {
     this.updateAnswer = this.updateAnswer.bind(this)
     this.updateValue = this.updateValue.bind(this)
   }
-  updateAnswer(x){
+  updateAnswer(n){
     return (
       (event) => {
         event.preventDefault()
-        console.log(this.state.value)
-        this.setState({answer:x})
+        console.log(this.state.options)
+        this.setState({answer:n})
       }
     )
   }
 
-  updateValue(event){
-    event.preventDefault()
-    console.log(this.state.value)
-    this.setState({
-      value: event.target.value
-    })
+  updateValue(field){
+    return (event) => {
+      event.preventDefault()
+      console.log(this.state[field])
+      this.setState({[field]: event.target.value})
+    }
   }
   render(){
     return (
@@ -38,13 +38,17 @@ class CreateMultipleChoice extends React.Component {
             Value
           </Row>
           <Row>
-            <textArea value={this.state.value}/>
+            <textArea
+              value={this.state.value}
+              onChange={this.updateValue('value')}/>
           </Row>
           <Row>
             Option 1
           </Row>
           <Row>
-            <textArea value={'Hi'}/>
+            <textArea
+              value={this.state.option}
+              onChange={this.updateValue('option1')}/>
             <button onClick={this.updateAnswer(0)}> answer_0 </button>
           </Row>
           <Row>
