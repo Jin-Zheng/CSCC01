@@ -1,8 +1,9 @@
-import React from 'react'
-import {Row, Col} from 'react-flexbox-grid'
-import FormatListView from './formatListView.js'
+import {Col, Row} from 'react-flexbox-grid'
+import FormatListView from './formatListView'
 import {List} from 'immutable'
-import QuestionController from './questionController.js'
+import QuestionController from './questionController'
+import React from 'react'
+import ViewEditController from './viewEditController'
 
 class PaneController extends React.Component {
 
@@ -18,7 +19,7 @@ class PaneController extends React.Component {
       <button onClick={this.changeState({pane: 'empty pane'})}>
         switch pane
       </button>
-    ])})
+    ])})  
   }
 
   constructor(props) {
