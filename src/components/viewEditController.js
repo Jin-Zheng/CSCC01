@@ -1,10 +1,11 @@
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
+import EditShortAnswer from './editShortAnswer.js'
 
 class ViewEditController extends React.Component {
 
   componentWillMount() {
-    this.setState({pane:this.props.start})
+    this.setState({pane:<EditShortAnswer/>})
   }
 
   constructor(props) {
@@ -14,17 +15,31 @@ class ViewEditController extends React.Component {
     }
   }
 
+  changeState(obj) {
+    return (e) => {
+      e.preventDefault()
+      this.setState(obj)
+    }
+  }
+
   render() {
     return (
-      <Row>
-        <button>
-          view
-        </button>
+      <div>
+        <Row>
+          <button onClick={this.changeState({pane: 'nothing yet'})}>
+            view
+          </button>
 
-        <button>
-          edit
-        </button>
-      </Row>
+          <button onClick={this.changeState({pane: <EditShortAnswer/>})}>
+            edit
+          </button>
+        </Row>
+        <Row>
+          {this.state.pane}
+        </Row>
+      </div>
     )
   }
 }
+
+export default ViewEditController
