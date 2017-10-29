@@ -24,7 +24,6 @@ app.use(function(req, res, next){
 	  	database : 'challengerDb1',
 	  	port: '3306'
 	});
-	res.locals.connection.connect();
 	next();
 });
 
