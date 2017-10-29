@@ -16,8 +16,8 @@ class PaneController extends React.Component {
       <button onClick={this.changeState({pane:<ViewEditController/>})}>
         view/edit
       </button>,
-      <button onClick={this.changeState({pane: 'empty pane'})}>
-        switch pane
+      <button onClick={this.changeState({pane:<ViewEditController/>})}>
+        sample view/edit
       </button>
     ])})
   }
