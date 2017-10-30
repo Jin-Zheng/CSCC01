@@ -15,8 +15,10 @@ class Index extends React.Component {
       <Row>
         <Col xs={1} sm={1} md={1} lg={1}>
         </Col>
-        <Col xs={11} sm={11} md={11} lg={11}>
+        <Col xs={10} sm={10} md={10} lg={10}>
           <PaneController/>
+        </Col>
+        <Col xs={1} sm={1} md={1} lg={1}>
         </Col>
       </Row>
       </div>

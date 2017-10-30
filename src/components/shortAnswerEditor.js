@@ -2,6 +2,7 @@ import FormatListView from './formatListView'
 import {List} from 'immutable'
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
+import Styles from '../styles'
 
 class ShortAnswerEditor extends React.Component {
 
@@ -39,18 +40,20 @@ class ShortAnswerEditor extends React.Component {
   }
 
   render() {
-    const debugList = List([
-      'value: ' + this.state.value,
-      'answer: ' + this.state.answer
-    ])
+    //const debugList = List([
+    //  'value: ' + this.state.value,
+    //  'answer: ' + this.state.answer
+    //])
+    const debugList = []
     return (
-      <div>
+      <form onSubmit={(e)=>{e.preventDefault()}}>
         <FormatListView list={debugList}/>
         <Row>
           Value:
         </Row>
         <Row>
           <textarea
+            style={Styles.textareaSimple}
             value={this.state.value}
             onChange={this.changeText('value')}/>
         </Row>
@@ -59,10 +62,19 @@ class ShortAnswerEditor extends React.Component {
         </Row>
         <Row>
           <textarea
+            style={Styles.textareaSimple}
             value={this.state.answer}
             onChange={this.changeText('answer')}/>
         </Row>
-      </div>
+        <Row>
+          <p/>
+        </Row>
+        <Row end='xs'>
+          <button type={'submit'}>
+            submit
+          </button>
+        </Row>
+      </form>
     )
   }
 }

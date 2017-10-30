@@ -6,30 +6,49 @@ import React from 'react'
 import ViewEditController from './viewEditController'
 import ShortAnswerDisplay from './shortAnswerDisplay'
 import MulitipleAnswerDisplay from './mulitipleAnswerDisplay'
+import McEditor from './mcEditor'
 import ShortAnswerEditor from './shortAnswerEditor'
+import Styles from '../styles'
 
 class PaneController extends React.Component {
 
   componentWillMount() {
     this.setState({pane:this.props.start}),
     this.setState({buttons:List([
-      <button onClick={this.changeState({pane:<QuestionController/>})}>
+      <button
+        style={Styles.vNavButton}
+        onClick={this.changeState({pane:<QuestionController/>})}>
         create question
       </button>,
-      <button onClick={this.changeState({pane:'wip'})}>
+      <button
+        style={Styles.vNavButton}
+        onClick={this.changeState({pane:'wip'})}>
         view/edit
       </button>,
-      <button onClick={this.changeState({pane:<ViewEditController/>})}>
+      <button
+        style={Styles.vNavButton}
+        onClick={this.changeState({pane:<ViewEditController/>})}>
         sample view/edit
       </button>,
-      <button onClick={this.changeState({pane:<ShortAnswerDisplay/>})}>
+      <button
+        style={Styles.vNavButton}
+        onClick={this.changeState({pane:<ShortAnswerDisplay/>})}>
         SA diplay
       </button>,
-      <button onClick={this.changeState({pane:<MulitipleAnswerDisplay/>})}>
+      <button
+        style={Styles.vNavButton}
+        onClick={this.changeState({pane:<MulitipleAnswerDisplay/>})}>
         MC display
       </button>,
-      <button onClick={this.changeState({pane:<ShortAnswerEditor/>})}>
+      <button
+        style={Styles.vNavButton}
+        onClick={this.changeState({pane:<ShortAnswerEditor/>})}>
         SA edit
+      </button>,
+      <button
+        style={Styles.vNavButton}
+        onClick={this.changeState({pane:<McEditor/>})}>
+        MC edit
       </button>
     ])})
   }
@@ -40,9 +59,7 @@ class PaneController extends React.Component {
     this.changeState = this.changeState.bind(this)
     this.state = {
       pane: undefined,
-      buttons: (
-        List([])
-      )
+      buttons: undefined
     }
   }
 
