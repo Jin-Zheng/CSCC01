@@ -3,7 +3,7 @@ import {List} from 'immutable'
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
 
-class EditShortAnswer extends React.Component {
+class ShortAnswerEditor extends React.Component {
 
   componentWillMount() {
     this.setState({
@@ -67,4 +67,4 @@ class EditShortAnswer extends React.Component {
   }
 }
 
-export default EditShortAnswer
+export default ShortAnswerEditor

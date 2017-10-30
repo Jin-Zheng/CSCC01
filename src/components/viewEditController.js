@@ -3,7 +3,7 @@ import {List} from 'immutable'
 import {Row} from 'react-flexbox-grid'
 import ShortAnswerDisplay from './shortAnswerDisplay.js'
 import MulitipleAnswerDisplay from './mulitipleAnswerDisplay'
-import EditShortAnswer from './editShortAnswer.js'
+import EditShortAnswer from './shortAnswerEditor.js'
 
 class ViewEditController extends React.Component {
 
@@ -36,6 +36,7 @@ class ViewEditController extends React.Component {
   formSubmit(e){
     e.preventDefault()
     this.setState({buttons: e.target.value})
+  }
 
   changeState(obj) {
     return (e) => {
@@ -65,9 +66,6 @@ class ViewEditController extends React.Component {
           <button onClick={this.changeState({pane: <EditShortAnswer/>})}>
             edit
           </button>
-        </Row>
-        <Row>
-          {this.state.pane}
         </Row>
       </div>
     )
