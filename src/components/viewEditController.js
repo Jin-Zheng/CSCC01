@@ -36,6 +36,7 @@ class ViewEditController extends React.Component {
   formSubmit(e){
     e.preventDefault()
     this.setState({buttons: e.target.value})
+  }
 
   changeState(obj) {
     return (e) => {
