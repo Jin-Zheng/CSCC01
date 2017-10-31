@@ -2,12 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PaneController from './components/paneController.js'
 import Styles from './styles.js'
-import {Row, Col, Grid} from 'react-flexbox-grid'
+import {Row, Col} from 'react-flexbox-grid'
 
 class Index extends React.Component {
   render() {
     return (
-      <Grid>
+      <div>
         <Row style={Styles.title}>
           Lambda-Work
           <p/>
@@ -19,7 +19,7 @@ class Index extends React.Component {
           </Col>
 
         </Row>
-      </Grid>
+      </div>
     )
   }
 }

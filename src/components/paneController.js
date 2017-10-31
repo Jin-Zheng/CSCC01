@@ -1,4 +1,4 @@
-import {Col, Row, Grid} from 'react-flexbox-grid'
+import {Col, Row} from 'react-flexbox-grid'
 import FormatListView from './formatListView'
 import {List} from 'immutable'
 import QuestionController from './questionController'
@@ -25,11 +25,6 @@ class PaneController extends React.Component {
         style={Styles.vNavButton}
         onClick={this.changeState({pane:'wip'})}>
         view/edit
-      </button>,
-      <button
-        style={Styles.vNavButton}
-        onClick={this.changeState({pane:<ViewEditController/>})}>
-        sample view/edit
       </button>,
       <button
         style={Styles.vNavButton}
@@ -88,7 +83,7 @@ class PaneController extends React.Component {
 
   render() {
     return(
-      <Grid>
+      <div>
         <Row>
           <Col xs={3} sm={3} md={2} lg={2}>
             <FormatListView list={this.state.buttons}/>
@@ -97,7 +92,7 @@ class PaneController extends React.Component {
             {this.state.pane}
           </Col>
         </Row>
-      </Grid>
+      </div>
     )
   }
 }

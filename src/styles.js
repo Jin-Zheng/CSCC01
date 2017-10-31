@@ -13,7 +13,7 @@ const Styles = {
 
   vNavButton: {
     width: '100%',
-    marginRight: 2,
+    marginRight: 20,
     marginBottom: 0,
     fontSize: 15
   }
