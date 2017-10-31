@@ -14,8 +14,8 @@ class ShortAnswerDisplay extends React.Component {
     this.valueUpdate = this.valueUpdate.bind(this)
     this.answerUpdate = this.answerUpdate.bind(this)
     this.state = {
-      value: 'What is the value of 1 + 1?',
-      answer: '2'
+      value: this.props.value,
+      answer: this.props.answer
     }
   }
 
@@ -43,9 +43,6 @@ class ShortAnswerDisplay extends React.Component {
     return (
       <div>
         <form onSubmit={this.formSubmit}>
-          <Row>
-            <FormatListView list={debugList}/>
-          </Row>
           <Row>
             Value:
           </Row>
