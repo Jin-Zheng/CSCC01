@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row} from 'react-flexbox-grid'
+import {Row, Grid} from 'react-flexbox-grid'
 import FormatListView from './formatListView.js'
 
 class CreateMultipleChoice extends React.Component {
@@ -68,73 +68,68 @@ class CreateMultipleChoice extends React.Component {
     ]
     return (
       <div>
-        <Row>
           <FormatListView list={stateList}/>
-        </Row>
-        <form onSubmit={(e)=>{e.preventDefault()}}>
-          <Row>
-            Value:
-          </Row>
-          <Row>
-            <textarea
-              value={this.state.value}
-              onChange={this.changeText('value')}/>
-          </Row>
-          <Row>
-            Option 0:
-          </Row>
-          <Row>
-            <textarea
-              value={this.state.option0}
-              onChange={this.changeText('option0')}/>
-          </Row>
-          <Row>
-            Optino 1:
-          </Row>
-          <Row>
-            <textarea
-              value={this.state.option1}
-              onChange={this.changeText('option1')}/>
-          </Row>
-          <Row>
-            Option 2:
-          </Row>
-          <Row>
-            <textarea
-              value={this.state.option2}
-              onChange={this.changeText('option2')}/>
-          </Row>
-          <Row>
-            Option 3:
-          </Row>
-          <Row>
-            <textarea
-              value={this.state.option3}
-              onChange={this.changeText('option3')}/>
-          </Row>
-          <Row>
-            Answer:
-          </Row>
-          <Row>
-            <select onChange={this.changeText('answer')}>
-              <option value={undefined}>
-              Which option is correct?
-              </option>
-              <option value={0}>0
-              </option>
-              <option value={1}>1
-              </option>
-              <option value={2}>2
-              </option>
-              <option value={3}>3
-              </option>
 
-            </select>
-          </Row>
-          <Row>
-            <button>submit</button>
-          </Row>
-        </form>
+          <form onSubmit={(e)=>{e.preventDefault()}}>
+            <Row>
+              Value:
+            </Row>
+            <Row>
+              <textarea
+                value={this.state.value}
+                onChange={this.changeText('value')}/>
+            </Row>
+            <Row>
+              Option 0:
+            </Row>
+            <Row>
+              <textarea
+                value={this.state.option0}
+                onChange={this.changeText('option0')}/>
+            </Row>
+            <Row>
+              Optino 1:
+            </Row>
+            <Row>
+              <textarea
+                value={this.state.option1}
+                onChange={this.changeText('option1')}/>
+            </Row>
+            <Row>
+              Option 2:
+            </Row>
+            <Row>
+              <textarea
+                value={this.state.option2}
+                onChange={this.changeText('option2')}/>
+            </Row>
+            <Row>
+              Option 3:
+            </Row>
+            <Row>
+              <textarea
+                value={this.state.option3}
+                onChange={this.changeText('option3')}/>
+            </Row>
+            <Row>
+              Answer: {this.state.answer}
+            </Row>
+            <Row>
+              <select onChange={this.changeText('answer')}>
+                <option value={''}>
+                Which option is correct?
+                </option>
+                <option value={0}>0</option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+              </select>
+            </Row>
+            <Row>
+              <button>submit</button>
+            </Row>
+          </form>
+        
       </div>
     )
   }

@@ -38,15 +38,9 @@ class QuestionController extends React.Component {
     return (
       <div>
           <Row>
-            <form onSubmit={this.formSubmit}>
-              {this.state.buttons}
-              <p/>
-            </form>
+            {this.state.buttons}
           </Row>
-          <Row>
-              {this.state.pane}
-              <p/>
-          </Row>
+          {this.state.pane}
       </div>
     )
   }

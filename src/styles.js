@@ -8,7 +8,7 @@ const Styles = {
     fontFamily: 'monospace',
     width: '100%',
     resize: 'none',
-    height: 100
+    height: 60
   },
 
   vNavButton: {

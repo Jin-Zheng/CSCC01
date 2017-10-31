@@ -92,6 +92,19 @@ class McEditor extends React.Component {
             onChange={this.changeText('option3')}
             value={this.state.option3}/>
         </Row>
+        <Row>
+          Answer: {this.state.answer}
+        </Row>
+        <Row>
+          <select
+            onChange={this.changeText('answer')}>
+            <option value={''}>Which option is correct?</option>
+            <option value={0}>0</option>
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+          </select>
+        </Row>
       </form>
     )
   }

@@ -42,9 +42,7 @@ class CreateShortAnswer extends React.Component {
     return (
       <div>
         <form onSubmit={this.formSubmit}>
-          <Row>
-            <FormatListView list={debugList}/>
-          </Row>
+          <FormatListView list={debugList}/>
           <Row>
             Value:
           </Row>
