@@ -12,14 +12,12 @@ class Index extends React.Component {
           Lambda-Work
           <p/>
         </Row>
-        <Row>
-          <Col xs={1} sm={1} md={1} lg={1}>
-          </Col>
-          <Col xs={10} sm={10} md={10} lg={10}>
+        <Row center={'xs'}>
+
+          <Col xs={10} sm={10} md={8} lg={8}>
             <PaneController/>
           </Col>
-          <Col xs={1} sm={1} md={1} lg={1}>
-          </Col>
+
         </Row>
       </Grid>
     )

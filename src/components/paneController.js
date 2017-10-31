@@ -28,12 +28,14 @@ class PaneController extends React.Component {
       </button>,
       <button
         style={Styles.vNavButton}
-        onClick={this.changeState({pane:<ViewEditController/>})}>
-        sample view/edit
-      </button>,
-      <button
-        style={Styles.vNavButton}
-        onClick={this.changeState({pane:<ShortAnswerDisplay/>})}>
+        onClick={
+          this.changeState({
+            pane:<ShortAnswerDisplay
+            value={'what is 2+2?'}
+            answer={'4'}/>
+          })
+        }
+        >
         SA diplay
       </button>,
       <button
