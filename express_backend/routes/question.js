@@ -6,7 +6,7 @@ router.use(function (req, res, next) {
 	next()
 })
 
-router.get('/questions', function(req, res, next) {
+router.get('/question', function(req, res, next) {
 	console.log('Viewing all Questions');
 	res.locals.connection.connect();
  	res.locals.connection.query('SELECT * FROM Question', function (error, results, fields) {
