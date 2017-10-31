@@ -44,7 +44,6 @@ class ShortAnswerDisplay extends React.Component {
     return (
       <div>
         <form onSubmit={this.formSubmit}>
-          <FormatListView list={debugList}/>
           <Row>
             Value:
           </Row>

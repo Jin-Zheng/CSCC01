@@ -11,12 +11,12 @@ class MulitipleAnswerDisplay extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      option0: 'this is A',
-      option1: 'this is B',
-      option2: 'this is C',
-      option3: 'this is D',
-      answer: 'this is answer',
-      value: 'this is value',
+      option0: this.props.option0,
+      option1: this.props.option1,
+      option2: this.props.option2,
+      option3: this.props.option3,
+      answer: this.props.answer,
+      value: this.props.value,
     }
     this.radioClicked = this.radioClicked.bind(this)
     this.changeText = this.changeText.bind(this)
@@ -70,9 +70,6 @@ class MulitipleAnswerDisplay extends React.Component {
     ]
     return (
       <div>
-        <Row>
-          <FormatListView list={stateList}/>
-        </Row>
         <form onSubmit={(e)=>{e.preventDefault()}}>
           <Row>
             Value:
