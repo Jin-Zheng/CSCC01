@@ -1,5 +1,14 @@
 1. # Install node, add node.exe to PATH
+
+Frontend
 2. npm install -g create-react-app # install create-react-app globally
 3. create-react-app dev-env # create a react app called dev-env
-4. # Replace the /src directory with the /src directory found in our group repo
-5. cd dev-env; npm run start # cd into the dev-env directory, then run the start scripts
+4. cd dev-env; # Replace the /src directory with the /src directory found in our group repo
+5. npm install; npm run start # install dependencies from package.json, then run the start scripts
+
+
+Backend
+2. npm install -g express-generator
+3. express dev-env-backend
+4. cd dev-env-backend; # Replace the generated files with repo files
+5. npm install; npm start

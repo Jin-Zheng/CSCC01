@@ -11,7 +11,8 @@ var connection = mysql.createConnection({
 connection.connect()
   console.log('Connected!')
 
-//connection.query('CREATE TABLE Question (qKey INTEGER AUTO_INCREMENT PRIMARY KEY, qType VARCHAR(20) NOT NULL, Qvalue VARCHAR(9999) NOT NULL, answer VARCHAR(9999) NOT NULL, candidate1 VARCHAR(9999), candidate2 VARCHAR(9999), candidate3 VARCHAR(9999), candidate4 VARCHAR(9999))', function (error, results, fields) {
+// CREATE TABLE
+//connection.query('CREATE TABLE Question (qKey INTEGER AUTO_INCREMENT PRIMARY KEY, qType VARCHAR(20) NOT NULL, qValue VARCHAR(9999) NOT NULL, answer VARCHAR(9999) NOT NULL, candidate1 VARCHAR(9999), candidate2 VARCHAR(9999), candidate3 VARCHAR(9999), candidate4 VARCHAR(9999))', function (error, results, fields) {
 //   if (error) throw error;
 //   for (var i = 0; i < results.length; i++) {
 //       console.log(results[i]);
@@ -23,15 +24,15 @@ connection.connect()
 //  console.log(results)
 //})
 
-connection.query('show tables', (error, results, fields) => {
+/*connection.query('show tables', function(error, results, fields) {
   if(error) throw error;
   console.log(results)
   console.log("\n SQL Queries:\n")
-connection.end()
+});*/
 
   // INSERT QUESTION
   // Example Add:
-  var sqladd = "INSERT INTO Question (qType, Qvalue, answer, candidate1, candidate2, candidate3, candidate4) VALUES ?";
+  var sqladd = "INSERT INTO Question (qType, qValue, answer, candidate1, candidate2, candidate3, candidate4) VALUES ?";
   var values = [
     ['MC', 'What is the correct answer?', '1', '1', '2', '3', '4'],
   ];
@@ -50,7 +51,7 @@ connection.end()
   
   // UPDATE QUESTION
   // Example update question 1:
-  var sqlupdate = "UPDATE Question SET Qvalue = 'New Question?' WHERE qKey = 1";
+  var sqlupdate = "UPDATE Question SET qValue = 'New Question?' WHERE qKey = 1";
   // Use the query
   console.log("\nUpdating Q1:\n");
   connection.query(sqlupdate, function (err, result) {
@@ -71,6 +72,14 @@ connection.end()
     if (err) throw err;
     // console.log("Number of records deleted: " + result.affectedRows);
   });
+
+
+  // DELETE TABLE
+  // Example Delete:
+//  var sqldroptable = "DROP TABLE IF EXISTS Question"
+//  connection.query(sqldroptable, function (err, result) {
+//  if (err) throw err;
+//  });
 
 
 connection.end()
