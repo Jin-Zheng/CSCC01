@@ -1,11 +1,12 @@
 import React from 'react'
+import {Row} from 'react-flexbox-grid'
 import {List} from 'immutable'
-import {Row, Col} from 'react-flexbox-grid'
+import FormatListView from './formatListView.js'
 
-class CreateShortAnswer extends React.Component {
+class ShortAnswerDisplay extends React.Component {
 
-  componentWillMount() {
-    this.setState({message: 'This is the question creation pane'})
+  componentWillMount(props) {
+
   }
 
   constructor(props) {
@@ -14,9 +15,8 @@ class CreateShortAnswer extends React.Component {
     this.valueUpdate = this.valueUpdate.bind(this)
     this.answerUpdate = this.answerUpdate.bind(this)
     this.state = {
-      message: '',
-      value: '',
-      answer: ''
+      value: this.props.value,
+      answer: this.props.answer
     }
   }
 
@@ -36,34 +36,33 @@ class CreateShortAnswer extends React.Component {
   }
 
   render() {
+    const debugList = List([
+      'value:' + this.state.value,
+      'answer:' + this.state.answer,
+      'Display:',
+    ])
     return (
       <div>
         <form onSubmit={this.formSubmit}>
           <Row>
-            {this.state.message}
-            <p/>
-          </Row>
-          <Row>
             Value:
           </Row>
           <Row>
-            <textArea value={this.state.value} onChange={this.valueUpdate}>
-            </textArea>
+            {this.state.value}
           </Row>
           <Row>
             Answer:
           </Row>
           <Row>
-            <textArea value={this.state.answer} onChange={this.answerUpdate}>
-            </textArea>
+            {this.state.answer}
           </Row>
-          <button type={'submit'}>
-            submit
-          </button>
+          <Row>
+            <button>submit</button>
+          </Row>
         </form>
       </div>
     )
   }
 }
 
-export default CreateShortAnswer
+export default ShortAnswerDisplay

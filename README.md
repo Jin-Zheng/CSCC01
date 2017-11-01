@@ -1,5 +1,20 @@
 # L02_07
 
+### 11/01/17
+- Sprint Backlog: Sprint 3 (Nov 2 - Nov 7) [here](./Deliverables/Sprint_Backlog-Sprint.pdf)
+- Completed Sprint 2:
+  * UI completed for viewing questions
+  * UI completed for editing questions
+  * (From previous Sprint) Connection of UI to database
+  * Write Express API for frontend
+  * Create UI for sign up for instructor and student
+- 11/01/17 Team meeting document uploaded
+- Product Backlog: User Stories v0 -> v1 Updated: [here](./Deliverables/Product_Backlog-User_Stories.pdf)
+  * New user stories from Client
+  * Changed certain priorities around
+  * Refactored wording of all user stories
+- Updated Instructions [here](./setup.txt)
+
 ### 10/25/17
 - Sprint Backlog: Sprint 2 (Oct 26 - Oct 31) [here](./Deliverables/Sprint_Backlog-Sprint.pdf)
 - Completed Sprint 1:
