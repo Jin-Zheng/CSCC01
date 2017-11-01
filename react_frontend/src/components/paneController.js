@@ -75,16 +75,34 @@ class PaneController extends React.Component {
 
     this.changeState = this.changeState.bind(this)
     this.state = {
+      questions: [],
       pane: undefined,
-      buttons: undefined
+      buttons: (
+<<<<<<< HEAD:src/components/paneController.js
+        List([])
+=======
+        List([
+          <button onClick={() => {this.setState({pane:<QuestionController/>})}}>
+            create question
+          </button>,
+          <button onClick={() => (this.setState({pane:
+            <div>
+              {this.state.questions.map(question =>
+                    <Row key={question.qKey}> {question.qType} - {question.qValue} <br/> {question.answer}</Row>
+                  )}
+              </div>}))}>
+            switch pane
+          </button>
+        ])
+      )
+>>>>>>> master:react_frontend/src/components/paneController.js
     }
   }
 
-  changeState(obj) {
-    return (event) => {
-      event.preventDefault()
-      this.setState(obj)
-    }
+  componentDidMount(){
+    fetch('/users')
+      .then(res => res.json())
+      .then(questions => this.setState({ questions: questions }));
   }
 
   render() {
