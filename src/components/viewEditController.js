@@ -18,9 +18,7 @@ class ViewEditController extends React.Component {
       pane: undefined,
       buttons: (
         List([
-          <button onClick={(e) =>
-            {e.preventDefault();
-              this.setState({pane: <ShortAnswerDisplay/>})}}>
+          <button onClick={this.changeState({pane:<ShortAnswerDisplay/>})}>
               Short Answer
             </button>,
           <button onClick={(e) =>
@@ -31,11 +29,6 @@ class ViewEditController extends React.Component {
           ])
       )
     }
-  }
-
-  formSubmit(e){
-    e.preventDefault()
-    this.setState({buttons: e.target.value})
   }
 
   changeState(obj) {
@@ -49,10 +42,7 @@ class ViewEditController extends React.Component {
     return (
       <div>
           <Row>
-            <form onSubmit={this.formSubmit}>
               {this.state.buttons}
-              <p/>
-            </form>
           </Row>
           <Row>
               {this.state.pane}

@@ -1,4 +1,5 @@
 import {Col, Row} from 'react-flexbox-grid'
+import CreateShortAnswer from './createShortAnswer'
 import FormatListView from './formatListView'
 import {List} from 'immutable'
 import QuestionController from './questionController'
@@ -9,7 +10,7 @@ import MulitipleAnswerDisplay from './mulitipleAnswerDisplay'
 import McEditor from './mcEditor'
 import ShortAnswerEditor from './shortAnswerEditor'
 import Styles from '../styles'
-import CreateShortAnswer from './createShortAnswer'
+import StudentSignUp from './studentSignUp'
 
 class PaneController extends React.Component {
 
@@ -60,6 +61,11 @@ class PaneController extends React.Component {
         style={Styles.vNavButton}
         onClick={this.changeState({pane:<CreateShortAnswer/>})}>
         create SA
+      </button>,
+      <button
+        style={Styles.vNavButton}
+        onClick={this.changeState({pane:<StudentSignUp/>})}>
+        Student Sign Up test
       </button>
     ])})
   }
