@@ -41,7 +41,7 @@ class InstructorSignUp extends React.Component {
 
   render() {
     const debugList = List([
-      'Instructor:'
+      'Instructor:',
       'id: ' + this.state.id,
       'password: ' + this.state.password,
       'email: ' + this.state.email,
