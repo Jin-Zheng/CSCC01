@@ -1,13 +1,16 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import FormatListView from './formatListView'
+import FormatListView from '../components/format/formatListView'
 import {List} from 'immutable'
 
-class Controller extends React.Component{
+class MainRouter extends React.Component{
   render() {
     const linksList = List([
       <Link to='/'>
         home
+      </Link>,
+      <Link to='/generate'>
+        generate
       </Link>,
       <Link to='/createMultipleChoice'>
         create multiple choice
@@ -18,7 +21,7 @@ class Controller extends React.Component{
       <Link to='/mcEditor'>
         mc editor
       </Link>,
-      <Link to='shortAnswerEditor'>
+      <Link to='/shortAnswerEditor'>
         short answer editor
       </Link>,
       <Link to='/multipleAnswerDisplay'>
@@ -40,4 +43,4 @@ class Controller extends React.Component{
   }
 }
 
-export default Controller
+export default MainRouter

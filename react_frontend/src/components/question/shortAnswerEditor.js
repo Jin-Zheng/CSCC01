@@ -1,8 +1,8 @@
-import FormatListView from './formatListView'
+import FormatListView from '../format/formatListView'
 import {List} from 'immutable'
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
-import Styles from '../styles'
+import Styles from '../../styles'
 
 class ShortAnswerEditor extends React.Component {
 

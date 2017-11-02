@@ -1,17 +1,15 @@
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
 import {List} from 'immutable'
-import FormatListView from './formatListView.js'
+import FormatListView from '../format/formatListView'
 
-class InstructorSignUp extends React.Component {
+class StudentSignUp extends React.Component {
   componentWillMount() {
   }
 
   constructor(props) {
     super(props)
-    this.idUpdate = this.idUpdate.bind(this)
-    this.passwordUpdate = this.passwordUpdate.bind(this)
-    this.emailUpdate = this.emailUpdate.bind(this)
+    this.changeText = this.changeText.bind(this)
     this.state = {
       id: '',
       password: '',
@@ -24,24 +22,16 @@ class InstructorSignUp extends React.Component {
     this.setState({message:this.state.id + ':' + this.state.password})
   }
 
-  idUpdate(event) {
-    event.preventDefault()
-    this.setState({id:event.target.value})
-  }
-
-  passwordUpdate(event) {
-    event.preventDefault()
-    this.setState({password:event.target.value})
-  }
-
-  emailUpdate(event) {
-    event.preventDefault()
-    this.setState({email:event.target.email})
+  changeText(field) {
+    return (e) => {
+      e.preventDefault()
+      this.setState({[field]:e.target.value})
+    }
   }
 
   render() {
     const debugList = List([
-      'Instructor:',
+      'Student:',
       'id: ' + this.state.id,
       'password: ' + this.state.password,
       'email: ' + this.state.email,
@@ -49,28 +39,26 @@ class InstructorSignUp extends React.Component {
     return (
       <div>
         <form onSubmit={this.formSubmit}>
-          <Row>
-            <FormatListView list = {debugList}/>
-          </Row>
+          <FormatListView list = {debugList}/>
           <Row>
             Id:
           </Row>
           <Row>
-            <textarea id={this.state.id} onChange={this.idUpdate}>
+            <textarea id={this.state.id} onChange={this.changeText('id')}>
             </textarea>
           </Row>
           <Row>
             Password:
           </Row>
           <Row>
-            <textarea password={this.state.password} onChange={this.passwordUpdate}>
+            <textarea password={this.state.password} onChange={this.changeText('password')}>
             </textarea>
           </Row>
           <Row>
             Email:
           </Row>
           <Row>
-            <textarea email={this.state.email} onChange={this.emailUpdate}>
+            <textarea email={this.state.email} onChange={this.changeText('email')}>
             </textarea>
           </Row>
           <button type={'submit'}>
@@ -82,4 +70,4 @@ class InstructorSignUp extends React.Component {
   }
 }
 
-export default InstructorSignUp
+export default StudentSignUp

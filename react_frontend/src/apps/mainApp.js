@@ -1,11 +1,11 @@
 import React from 'react'
-import Styles from './styles.js'
+import Styles from '../styles'
 import {Row, Col} from 'react-flexbox-grid'
 import {BrowserRouter} from 'react-router-dom'
-import MainController from './components/mainController'
-import MainContents from './components/mainContents'
+import MainRouter from '../routers/mainRouter'
+import MainSwitcher from '../switchers/mainSwitcher'
 
-class App extends React.Component {
+class MainApp extends React.Component {
   render() {
     return (
       <div>
@@ -16,10 +16,10 @@ class App extends React.Component {
         <Row center={'xs'}>
 
           <Col xs={3} sm={3} md={3} lg={3}>
-            <MainController/>
+            <MainRouter/>
           </Col>
           <Col xs={7} sm={7} md={7} lg={7}>
-            <MainContents/>
+            <MainSwitcher/>
           </Col>
         </Row>
       </div>
@@ -27,4 +27,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default MainApp
