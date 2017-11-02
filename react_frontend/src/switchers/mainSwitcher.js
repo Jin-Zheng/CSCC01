@@ -19,30 +19,6 @@ class MainSwitcher extends React.Component {
         <Route
           exact path='/generate'
           component={GenerateRouter}/>
-        <Route
-          exact path='/createMultipleChoice'
-          component={CreateMultipleChoice}/>
-        <Route
-          exact path='/createShortAnswer'
-          component={CreateShortAnswer}/>
-        <Route
-          exact path='/mcEditor'
-          component={McEditor}/>
-        <Route
-          exact path='/shortAnswerEditor'
-          component={ShortAnswerEditor}/>
-        <Route
-          exact path='multipleAnswerDisplay'
-          component={MultipleAnswerDisplay}/>
-        <Route
-          exact path='/shortAnswerDisplay'
-          component={ShortAnswerDisplay}/>
-        <Route
-          exact path='/instructorSignUp'
-          component={InstructorSignUp}/>
-        <Route
-          exact path='/studentSignUp'
-          component={StudentSignUp}/>
       </Switch>
     )
   }
