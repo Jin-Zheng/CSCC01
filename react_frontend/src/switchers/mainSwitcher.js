@@ -8,7 +8,7 @@ import ShortAnswerEditor from '../components/question//shortAnswerEditor'
 import MultipleAnswerDisplay from '../components/question/mulitipleAnswerDisplay'
 import ShortAnswerDisplay from '../components/question/shortAnswerDisplay'
 import StudentSignUp from '../components/signup/studentSignUp'
-import GenerateRouter from '../routers/generateRouter'
+import GenerateApp from '../apps/generateApp'
 
 class MainSwitcher extends React.Component {
   render() {
@@ -17,8 +17,8 @@ class MainSwitcher extends React.Component {
         <Route
           exact path='/'/>
         <Route
-          exact path='/generate'
-          component={GenerateRouter}/>
+          exact path='/generateApp'
+          component={GenerateApp}/>
       </Switch>
     )
   }

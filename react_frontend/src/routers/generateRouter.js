@@ -5,10 +5,10 @@ class GenerateRouter extends React.Component {
   render() {
     return(
       <div>
-        <Link to='/generate/shortAnswer'>
+        <Link to='/generateApp/createShortAnswer'>
           short answer|
         </Link>
-        <Link to='/generate/multipleChoice'>
+        <Link to='/generateApp/createMultipleChoice'>
           multiple choice
         </Link>
       </div>

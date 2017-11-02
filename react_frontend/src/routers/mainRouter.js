@@ -9,7 +9,7 @@ class MainRouter extends React.Component{
       <Link to='/'>
         home
       </Link>,
-      <Link to='/generate'>
+      <Link to='/generateApp'>
         generate
       </Link>
     ])
