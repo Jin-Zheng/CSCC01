@@ -1,10 +1,9 @@
 import React from 'react'
-import PaneController from './components/paneController.js'
 import Styles from './styles.js'
 import {Row, Col} from 'react-flexbox-grid'
 import {BrowserRouter} from 'react-router-dom'
-import Controller from './components/controller'
-import Main from './components/main'
+import MainController from './components/mainController'
+import MainContents from './components/mainContents'
 
 class App extends React.Component {
   render() {
@@ -17,10 +16,10 @@ class App extends React.Component {
         <Row center={'xs'}>
 
           <Col xs={3} sm={3} md={3} lg={3}>
-            <Controller/>
+            <MainController/>
           </Col>
           <Col xs={7} sm={7} md={7} lg={7}>
-            <Main/>
+            <MainContents/>
           </Col>
         </Row>
       </div>
