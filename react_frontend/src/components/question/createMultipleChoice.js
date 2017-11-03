@@ -1,6 +1,6 @@
 import React from 'react'
 import {Row, Grid} from 'react-flexbox-grid'
-import FormatListView from './formatListView.js'
+import FormatListView from '../format/formatListView'
 
 class CreateMultipleChoice extends React.Component {
 
@@ -129,7 +129,7 @@ class CreateMultipleChoice extends React.Component {
               <button>submit</button>
             </Row>
           </form>
-        
+
       </div>
     )
   }

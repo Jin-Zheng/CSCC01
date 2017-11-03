@@ -1,6 +1,6 @@
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
-import Styles from '../styles'
+import Styles from '../../styles'
 
 class McEditor extends React.Component {
 

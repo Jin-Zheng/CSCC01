@@ -1,9 +1,9 @@
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
 import {List} from 'immutable'
-import FormatListView from './formatListView.js'
+import FormatListView from '../format/formatListView.js'
 
-class MulitipleAnswerDisplay extends React.Component {
+class MultipleAnswerDisplay extends React.Component {
 
   componentWillMount() {
   }
@@ -70,50 +70,45 @@ class MulitipleAnswerDisplay extends React.Component {
     ]
     return (
       <div>
-        <form onSubmit={(e)=>{e.preventDefault()}}>
-          <Row>
-            Value:
-          </Row>
-          <Row>
-            {this.state.value}
-          </Row>
-          <Row>
-            Option 0:
-          </Row>
-          <Row>
-            {this.state.option0}
-          </Row>
-          <Row>
-            Option 1:
-          </Row>
-          <Row>
-            {this.state.option1}
-          </Row>
-          <Row>
-            Option 2:
-          </Row>
-          <Row>
-            {this.state.option2}
-          </Row>
-          <Row>
-            Option 3:
-          </Row>
-          <Row>
-            {this.state.option3}
-          </Row>
-          <Row>
-            Answer:
-          </Row>
-          <Row>
-            {this.state.answer}
-          </Row>
-          <Row>
-            <button>submit</button>
-          </Row>
-        </form>
+        <Row>
+          Value:
+        </Row>
+        <Row>
+          {this.state.value}
+        </Row>
+        <Row>
+          Option 0:
+        </Row>
+        <Row>
+          {this.state.option0}
+        </Row>
+        <Row>
+          Option 1:
+        </Row>
+        <Row>
+          {this.state.option1}
+        </Row>
+        <Row>
+          Option 2:
+        </Row>
+        <Row>
+          {this.state.option2}
+        </Row>
+        <Row>
+          Option 3:
+        </Row>
+        <Row>
+          {this.state.option3}
+        </Row>
+        <Row>
+          Answer:
+        </Row>
+        <Row>
+          {this.state.answer}
+        </Row>
       </div>
     )
   }
 }
 
-export default MulitipleAnswerDisplay
+export default MultipleAnswerDisplay
