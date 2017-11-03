@@ -25,7 +25,7 @@ class SignUpRouter extends React.Component {
     return(
       <Row>
         <Link to='/SignUpApp/InstructorSignUp'>
-          instructor sign up
+          instructor sign up|
         </Link>
         <Link to='/SignUpApp/StudentSignUp'>
           student sign up

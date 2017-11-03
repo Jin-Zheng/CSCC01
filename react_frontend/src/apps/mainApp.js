@@ -17,12 +17,12 @@ class MainRouter extends React.Component{
       <Link to='/generateApp'>
         generate
       </Link>,
-      <Link to='/signUp'>
-        sign up
-      </Link>,
       <Link to='/viewApp'>
         view
       </Link>,
+      <Link to='/signUp'>
+        sign up
+      </Link>
     ])
     return (
       <FormatListView list={linksList}/>
@@ -40,12 +40,11 @@ class MainSwitcher extends React.Component {
           exact path='/generateApp'
           component={GenerateApp}/>
         <Route
-
-          exact path='/signUp'
-          component={SignUpApp}/>,
-=======
           exact path='/viewApp'
           component={ViewApp}/>
+        <Route
+          exact path='/signUpApp'
+          component={SignUpApp}/>,
       </Switch>
     )
   }
@@ -55,21 +54,22 @@ class MainSwitcher extends React.Component {
 class MainApp extends React.Component {
   render() {
     return (
-      <div>
-        <Row style={Styles.title}>
-          Lambda-Work
-          <p/>
-        </Row>
-        <Row center={'xs'}>
-
-          <Col xs={3} sm={3} md={3} lg={3}>
-            <MainRouter/>
-          </Col>
-          <Col xs={7} sm={7} md={7} lg={7}>
-            <MainSwitcher/>
-          </Col>
-        </Row>
-      </div>
+      <BrowserRouter>
+        <div>
+          <Row style={Styles.title}>
+            Lambda-Work
+            <p/>
+          </Row>
+          <Row center={'xs'}>
+            <Col xs={3} sm={3} md={3} lg={3}>
+              <MainRouter/>
+            </Col>
+            <Col xs={7} sm={7} md={7} lg={7}>
+              <MainSwitcher/>
+            </Col>
+          </Row>
+        </div>
+      </BrowserRouter>
     )
   }
 }

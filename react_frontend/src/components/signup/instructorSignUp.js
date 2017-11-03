@@ -49,9 +49,8 @@ class InstructorSignUp extends React.Component {
     return (
       <div>
         <form onSubmit={this.formSubmit}>
-          <Row>
-            <FormatListView list = {debugList}/>
-          </Row>
+          <FormatListView list = {debugList}/>
+
           <Row>
             Id:
           </Row>

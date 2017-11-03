@@ -43,23 +43,18 @@ class ShortAnswerDisplay extends React.Component {
     ])
     return (
       <div>
-        <form onSubmit={this.formSubmit}>
-          <Row>
-            Value:
-          </Row>
-          <Row>
-            {this.state.value}
-          </Row>
-          <Row>
-            Answer:
-          </Row>
-          <Row>
-            {this.state.answer}
-          </Row>
-          <Row>
-            <button>submit</button>
-          </Row>
-        </form>
+        <Row>
+          Value:
+        </Row>
+        <Row>
+          {this.state.value}
+        </Row>
+        <Row>
+          Answer:
+        </Row>
+        <Row>
+          {this.state.answer}
+        </Row>
       </div>
     )
   }
