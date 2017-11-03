@@ -20,7 +20,7 @@ class MainRouter extends React.Component{
       <Link to='/viewApp'>
         view
       </Link>,
-      <Link to='/signUp'>
+      <Link to='/signUpApp'>
         sign up
       </Link>
     ])
