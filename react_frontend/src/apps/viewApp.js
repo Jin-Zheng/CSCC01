@@ -1,6 +1,6 @@
 import React from 'react'
 import {Row, Col} from 'react-flexbox-grid'
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Switch, Link} from 'react-router-dom'
 import MultipleAnswerDisplay from '../components/question/multipleAnswerDisplay'
 import ShortAnswerDisplay from '../components/question/shortAnswerDisplay'
 import ViewRouter from '../routers/viewRouter'
@@ -49,3 +49,5 @@ class ViewSwitcher extends React.Component {
     )
   }
 }
+
+export default ViewApp

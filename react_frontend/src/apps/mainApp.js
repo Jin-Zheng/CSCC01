@@ -1,9 +1,44 @@
 import React from 'react'
 import Styles from '../styles'
 import {Row, Col} from 'react-flexbox-grid'
-import {BrowserRouter} from 'react-router-dom'
-import MainRouter from '../routers/mainRouter'
-import MainSwitcher from '../switchers/mainSwitcher'
+import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
+import GenerateApp from '../apps/generateApp'
+import {List} from 'immutable'
+import FormatListView from '../components/format/formatListView'
+
+class MainRouter extends React.Component{
+  render() {
+    const linksList = List([
+      <Link to='/'>
+        home
+      </Link>,
+      <Link to='/generateApp'>
+        generate
+      </Link>,
+      <Link to='/signUp'>
+        sign up
+      </Link>
+    ])
+    return (
+      <FormatListView list={linksList}/>
+    )
+  }
+}
+
+class MainSwitcher extends React.Component {
+  render() {
+    return(
+      <Switch>
+        <Route
+          exact path='/'/>
+        <Route
+          exact path='/generateApp'
+          component={GenerateApp}/>
+      </Switch>
+    )
+  }
+}
+
 
 class MainApp extends React.Component {
   render() {
