@@ -18,7 +18,7 @@ class MainRouter extends React.Component{
         generate
       </Link>,
       <Link to='/viewApp'>
-        view
+        view(alpha)
       </Link>,
       <Link to='/signUpApp'>
         sign up
