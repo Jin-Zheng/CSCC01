@@ -11,50 +11,36 @@ class ShortAnswerDisplay extends React.Component {
 
   constructor(props) {
     super(props)
-    this.formSubmit = this.formSubmit.bind(this)
-    this.valueUpdate = this.valueUpdate.bind(this)
-    this.answerUpdate = this.answerUpdate.bind(this)
     this.state = {
-      value: this.props.value,
-      answer: this.props.answer
+      questions: []
     }
   }
 
-  formSubmit(event) {
-    event.preventDefault()
-    this.setState({message:this.state.value + ':' + this.state.answer})
-  }
-
-  valueUpdate(event) {
-    event.preventDefault()
-    this.setState({value:event.target.value})
-  }
-
-  answerUpdate(event) {
-    event.preventDefault()
-    this.setState({answer:event.target.value})
+  componentDidMount(){
+    fetch('/viewApp/shortAnswerDisplay', {
+      method: 'GET'
+    }).then(function (res) {
+        if (res.status >= 400) {
+          throw new Error ("Bad response from server");
+        }
+        return res.json();
+      }).then(questions => this.setState({ questions: questions })
+      ).catch (err => {
+        console.log('Error caught ', err);
+      });
   }
 
   render() {
-    const debugList = List([
-      'value:' + this.state.value,
-      'answer:' + this.state.answer,
-      'Display:',
-    ])
+    // const debugList = List([
+    //   'value:' + this.state.value,
+    //   'answer:' + this.state.answer,
+    //   'Display:',
+    // ])
     return (
       <div>
-        <Row>
-          Value:
-        </Row>
-        <Row>
-          {this.state.value}
-        </Row>
-        <Row>
-          Answer:
-        </Row>
-        <Row>
-          {this.state.answer}
-        </Row>
+        {this.state.questions.map(question =>
+          <Row key={question.qKey}> Value: {question.qValue} <br/> Answer: {question.answer}</Row>
+        )}
       </div>
     )
   }

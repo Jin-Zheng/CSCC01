@@ -10,7 +10,7 @@ class CreateShortAnswer extends React.Component {
 
   constructor(props) {
     super(props)
-    this.formSubmit = this.formSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.valueUpdate = this.valueUpdate.bind(this)
     this.answerUpdate = this.answerUpdate.bind(this)
     this.state = {
@@ -19,9 +19,31 @@ class CreateShortAnswer extends React.Component {
     }
   }
 
-  formSubmit(event) {
+  handleSubmit(event) {
     event.preventDefault()
-    this.setState({message:this.state.value + ':' + this.state.answer})
+    var data = {
+      qType: 'SA',
+      qValue: this.state.value,
+      answer: this.state.answer
+    }
+    console.log(data)
+    fetch("/generateApp/createShortAnswer", {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    }).then(function(response) {
+      if (response.status >= 400) {
+        throw new Error("Bad response from server");
+      }
+      return response.json();
+    }).then(function(data) {
+      console.log(data)    
+      if(data == "success"){
+        this.setState({message: this.state.value + ':' + this.state.answer});  
+      }
+    }).catch(function(err) {
+      console.log(err)
+    });
   }
 
   valueUpdate(event) {
@@ -41,7 +63,7 @@ class CreateShortAnswer extends React.Component {
     ])
     return (
       <div>
-        <form onSubmit={this.formSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <FormatListView list={debugList}/>
           <Row>
             Value:

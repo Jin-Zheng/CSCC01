@@ -7,8 +7,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var question = require('./routes/question');
-var createQuestion = require('./routes/createQuestion');
+var viewApp = require('./routes/viewApp');
+var generateApp = require('./routes/generateApp');
 var editQuestion = require('./routes/editQuestion')
 var deleteQuestion = require('./routes/deleteQuestion');
 
@@ -38,8 +38,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/question', question);
-app.use('/createQuestion', createQuestion);
+app.use('/viewApp', viewApp);
+app.use('/generateApp', generateApp);
 app.use('/deleteQuestion', deleteQuestion);
 
 // catch 404 and forward to error handler
