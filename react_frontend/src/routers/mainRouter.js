@@ -11,7 +11,10 @@ class MainRouter extends React.Component{
       </Link>,
       <Link to='/generateApp'>
         generate
-      </Link>
+      </Link>,
+      <Link to='/viewApp'>
+      view
+      </Link>,
     ])
     return (
       <FormatListView list={linksList}/>
