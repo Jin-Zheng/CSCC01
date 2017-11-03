@@ -10,10 +10,10 @@ class CreateMultipleChoice extends React.Component {
   constructor (props){
     super(props)
     this.state = {
+      option0: undefined,
       option1: undefined,
       option2: undefined,
       option3: undefined,
-      option4: undefined,
       answer: undefined,
       value: undefined,
     }
@@ -63,10 +63,10 @@ class CreateMultipleChoice extends React.Component {
       qType: 'MC',
       qValue: this.state.value,
       answer: this.state.answer,
-      candidate1: this.state.option1,
-      candidate2: this.state.option2,
-      candidate3: this.state.option3,
-      candidate4: this.state.option4,
+      candidate1: this.state.option0,
+      candidate2: this.state.option1,
+      candidate3: this.state.option2,
+      candidate4: this.state.option3,
     }
     console.log(data)
     fetch("/generateApp/createMultipleChoice", {
@@ -92,10 +92,10 @@ class CreateMultipleChoice extends React.Component {
     const stateList = [
       'value: ' + this.state.value,
       'answer: ' + this.state.answer,
+      'option0: ' + this.state.option0,
       'option1: ' + this.state.option1,
       'option2: ' + this.state.option2,
       'option3: ' + this.state.option3,
-      'option4: ' + this.state.option4,
     ]
     return (
       <div>
@@ -109,6 +109,14 @@ class CreateMultipleChoice extends React.Component {
               <textarea
                 value={this.state.value}
                 onChange={this.changeText('value')}/>
+            </Row>
+            <Row>
+              Option 0:
+            </Row>
+            <Row>
+              <textarea
+                value={this.state.option0}
+                onChange={this.changeText('option0')}/>
             </Row>
             <Row>
               Option 1:
@@ -135,14 +143,6 @@ class CreateMultipleChoice extends React.Component {
                 onChange={this.changeText('option3')}/>
             </Row>
             <Row>
-              Option 4:
-            </Row>
-            <Row>
-              <textarea
-                value={this.state.option4}
-                onChange={this.changeText('option4')}/>
-            </Row>
-            <Row>
               Answer: {this.state.answer}
             </Row>
             <Row>
@@ -150,10 +150,10 @@ class CreateMultipleChoice extends React.Component {
                 <option value={''}>
                 Which option is correct?
                 </option>
+                <option value={0}>0</option>
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
-                <option value={4}>4</option>
               </select>
             </Row>
             <Row>
