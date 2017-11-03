@@ -1,10 +1,8 @@
 import React from 'react'
 import {Row, Col} from 'react-flexbox-grid'
-import {BrowserRouter, Switch, Link} from 'react-router-dom'
-import MultipleAnswerDisplay from '../components/question/multipleAnswerDisplay'
+import {BrowserRouter, Switch, Link, Route} from 'react-router-dom'
 import ShortAnswerDisplay from '../components/question/shortAnswerDisplay'
-import ViewRouter from '../routers/viewRouter'
-import ViewSwitcher from '../switchers/viewSwitcher'
+import MultipleAnswerDisplay from '../components/question/multipleAnswerDisplay'
 
 class ViewApp extends React.Component {
   render() {
@@ -26,14 +24,13 @@ class ViewRouter extends React.Component {
           <Link to='/viewApp/shortAnswerDisplay'>
             short answer|
           </Link>
-          <Link to='/viewApp/mulitipleAnswerDisplay'>
+          <Link to='/viewApp/multipleAnswerDisplay'>
             multiple choice
           </Link>
       </Row>
     )
   }
 }
-
 
 class ViewSwitcher extends React.Component {
   render() {
