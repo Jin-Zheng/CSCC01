@@ -1,15 +1,38 @@
 import React from 'react'
-import SignUpSwitcher from '../switchers/signUpSwitcher'
-import SignUpRouter from '../routers/sighUpRouter'
 import {Row} from 'react-flexbox-grid'
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Route, Link, Switch} from 'react-router-dom'
+import InstructorSignUp from '../components/signup/instructorSignUp'
+import StudentSignUp from '../components/signup/studentSignUp'
 
 class SignUpSwitcher extends React.Component {
+  render() {
+    return(
+      <Switch>
+        <Route
+          exact path='/SignUpApp/InstructorSignUp'
+          component={InstructorSignUp}/>
+        <Route
+          exact path='/SignUpApp/StudentSignUp'
+          component={StudentSignUp}/>
 
+      </Switch>
+    )
+  }
 }
 
 class SignUpRouter extends React.Component {
-
+  render() {
+    return(
+      <Row>
+        <Link to='/SignUpApp/InstructorSignUp'>
+          instructor sign up
+        </Link>
+        <Link to='/SignUpApp/StudentSignUp'>
+          student sign up
+        </Link>
+      </Row>
+    )
+  }
 }
 
 class SignUpApp extends React.Component {

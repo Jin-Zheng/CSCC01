@@ -3,6 +3,7 @@ import Styles from '../styles'
 import {Row, Col} from 'react-flexbox-grid'
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 import GenerateApp from '../apps/generateApp'
+import SignUpApp from '../apps/signUpApp'
 import {List} from 'immutable'
 import FormatListView from '../components/format/formatListView'
 
@@ -34,6 +35,9 @@ class MainSwitcher extends React.Component {
         <Route
           exact path='/generateApp'
           component={GenerateApp}/>
+        <Route
+          exact path='/signUp'
+          component={SignUpApp}/>
       </Switch>
     )
   }
