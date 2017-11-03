@@ -3,7 +3,7 @@ import {Row} from 'react-flexbox-grid'
 import {List} from 'immutable'
 import FormatListView from '../format/formatListView.js'
 
-class MulitipleAnswerDisplay extends React.Component {
+class MultipleAnswerDisplay extends React.Component {
 
   componentWillMount() {
   }
@@ -116,4 +116,4 @@ class MulitipleAnswerDisplay extends React.Component {
   }
 }
 
-export default MulitipleAnswerDisplay
+export default MultipleAnswerDisplay

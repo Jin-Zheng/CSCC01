@@ -6,6 +6,7 @@ import GenerateApp from '../apps/generateApp'
 import SignUpApp from '../apps/signUpApp'
 import {List} from 'immutable'
 import FormatListView from '../components/format/formatListView'
+import ViewApp from '../apps/viewApp'
 
 class MainRouter extends React.Component{
   render() {
@@ -18,7 +19,10 @@ class MainRouter extends React.Component{
       </Link>,
       <Link to='/signUp'>
         sign up
-      </Link>
+      </Link>,
+      <Link to='/viewApp'>
+        view
+      </Link>,
     ])
     return (
       <FormatListView list={linksList}/>
@@ -36,8 +40,12 @@ class MainSwitcher extends React.Component {
           exact path='/generateApp'
           component={GenerateApp}/>
         <Route
+
           exact path='/signUp'
-          component={SignUpApp}/>
+          component={SignUpApp}/>,
+=======
+          exact path='/viewApp'
+          component={ViewApp}/>
       </Switch>
     )
   }
