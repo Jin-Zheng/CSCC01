@@ -29,11 +29,13 @@ router.get('/multipleAnswerDisplay', function(req, res, next) {
 
 router.get('/', function(req, res, next) {
 	console.log('Viewing all questions')
-	res.localc.connection.connect()
-	res.locals.connection.query('SELECT * from Question', (error, results, fields) => {
-		if (err) throw err;
-		res.send(JSON.stringify(results))
-	})
+	res.locals.connection.connect()
+	res.locals.connection.query('SELECT * FROM Question WHERE qType="MC"', function (error, results, fields) {
+		if (error) throw error;
+		res.send(JSON.stringify(results));
+		console.log(results);
+		console.log(JSON.stringify(results));
+	});
 	res.locals.connection.end()
 })
 module.exports = router;

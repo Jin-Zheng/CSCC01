@@ -8,6 +8,17 @@ const SHORT_ANSWER = 'sa'
 const MULTIPLE_CHOICE = 'mc'
 
 class ListQuestions extends React.Component {
+
+  componentDidMount() {
+    fetch('/viewApp', {method: 'GET'})
+          .then((res) => {return res.json()})
+          .then((x) => {
+            this.setState({test:x})
+          }
+          )
+          .catch((err) => ('oops'))
+  }
+
   constructor(props) {
     super(props)
     console.log('hi')
@@ -27,9 +38,7 @@ class ListQuestions extends React.Component {
           answer: '3'
         }
       ]),
-      test: fetch('/viewApp/shortAnswerDisplay', {method: 'GET'})
-            .then((res) => (res.json()))
-            .catch((err) => ('oops'))
+      test: undefined
     }
   }
 
