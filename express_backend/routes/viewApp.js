@@ -26,4 +26,14 @@ router.get('/multipleAnswerDisplay', function(req, res, next) {
 	res.locals.connection.end();
 });
 
+
+router.get('/', function(req, res, next) {
+	console.log('Viewing all questions')
+	res.localc.connection.connect()
+	res.locals.connection.query('SELECT * from Question', (error, results, fields) => {
+		if (err) throw err;
+		res.send(JSON.stringify(results))
+	})
+	res.locals.connection.end()
+})
 module.exports = router;
