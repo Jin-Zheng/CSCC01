@@ -2,6 +2,7 @@ import React from 'react'
 import {List} from 'immutable'
 import MultipleAnswerDisplay from '../question/multipleAnswerDisplay'
 import ShortAnswerDisplay from '../question/shortAnswerDisplay'
+import FormatListView from './formatListView'
 
 const SHORT_ANSWER = 'sa'
 const MULTIPLE_CHOICE = 'mc'
@@ -25,7 +26,10 @@ class ListQuestions extends React.Component {
           option3: '4',
           answer: '3'
         }
-      ])
+      ]),
+      test: fetch('/viewApp/shortAnswerDisplay', {method: 'GET'})
+            .then((res) => (res.json()))
+            .catch((err) => ('oops'))
     }
   }
 
@@ -50,12 +54,10 @@ class ListQuestions extends React.Component {
   }
 
   render() {
-    const questionList = this.state.questions.map((question) => (
-      this.wrap(question)
-    ))
+
     return (
       <div>
-        {questionList}
+        {JSON.stringify(this.state.test)}
       </div>
     )
   }
