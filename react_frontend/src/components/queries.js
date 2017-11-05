@@ -77,10 +77,10 @@ connection.connect()
   var sqldelete = "DELETE FROM Question WHERE qKey = '1'";
   // sqlclear clears database completely
   var sqlclear = "truncate Question";
-  connection.query(sqlclear, function (err, result) {
-    if (err) throw err;
-    // console.log("Number of records deleted: " + result.affectedRows);
-  });
+  // connection.query(sqlclear, function (err, result) {
+  //   if (err) throw err;
+  //   // console.log("Number of records deleted: " + result.affectedRows);
+  // });
 
   // CREATE USERS TABLE
   // var sqlUser = "CREATE TABLE User (uKey INTEGER AUTO_INCREMENT PRIMARY KEY, uType VARCHAR(20) NOT NULL, firstName VARCHAR(255) NOT NULL, lastName VARCHAR(255) NOT NULL, lastModified VARCHAR(255) NOT NULL, email VARCHAR(255), username VARCHAR(255), password VARCHAR(255), lastAccessed VARCHAR(255))";
@@ -113,9 +113,9 @@ connection.connect()
     console.log(result);
   });
 
-  var sqlUserClear = "truncate User";
-  connection.query(sqlUserClear, function (err, result) {
-    if (err) throw err;
-    // console.log("Number of records deleted: " + result.affectedRows);
-  });
+  // var sqlUserClear = "truncate User";
+  // connection.query(sqlUserClear, function (err, result) {
+  //   if (err) throw err;
+  //   // console.log("Number of records deleted: " + result.affectedRows);
+  // });
 connection.end()

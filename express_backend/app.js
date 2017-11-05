@@ -12,7 +12,7 @@ var generateApp = require('./routes/generateApp');
 var editQuestion = require('./routes/editQuestion');
 var deleteQuestion = require('./routes/deleteQuestion');
 var editUser = require('./routes/editUser');
-var editUser = require('./routes/deleteUser');
+var deleteUser = require('./routes/deleteUser');
 
 var app = express();
 
