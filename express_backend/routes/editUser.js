@@ -19,7 +19,7 @@ router.get('/editUserInfo', function(req, res, next) {
 });
 
 router.get('/editUserLastAccessed', function(req, res, next) {
-	console.log('Editing question with ID: ' + ''+req.body.uKey+'');
+	console.log('Editing user with ID: ' + ''+req.body.uKey+'');
 	res.locals.connection.connect();
 	var sqlupdate = "UPDATE User SET lastAccessed = " + ''+Date.now()+ '' + " WHERE uKey = " + ''+req.body.uKey+'';
  	res.locals.connection.query(sqlupdate, function (error, results, fields) {
