@@ -83,8 +83,14 @@ connection.connect()
   });
 
   // CREATE USERS TABLE
-  // var sqlUser = "CREATE TABLE User (qKey INTEGER AUTO_INCREMENT PRIMARY KEY, qType VARCHAR(20) NOT NULL, firstName VARCHAR(255) NOT NULL, lastName VARCHAR(255) NOT NULL, lastModified VARCHAR(255) NOT NULL, email VARCHAR(255), username VARCHAR(255), password VARCHAR(255), lastAccessed VARCHAR(255))";
+  // var sqlUser = "CREATE TABLE User (uKey INTEGER AUTO_INCREMENT PRIMARY KEY, uType VARCHAR(20) NOT NULL, firstName VARCHAR(255) NOT NULL, lastName VARCHAR(255) NOT NULL, lastModified VARCHAR(255) NOT NULL, email VARCHAR(255), username VARCHAR(255), password VARCHAR(255), lastAccessed VARCHAR(255))";
   //   connection.query(sqlUser, function (error, results, fields) {
+  //   if (error) throw  error;
+  // });
+
+  // DELETE OLD USERS TABLE
+  // var delsqlUser = "DROP TABLE User";
+  //   connection.query(delsqlUser, function (error, results, fields) {
   //   if (error) throw  error;
   // });
 
