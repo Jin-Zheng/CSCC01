@@ -1,6 +1,7 @@
 import React from 'react'
 import {Row, Grid} from 'react-flexbox-grid'
 import FormatListView from '../format/formatListView'
+import Styles from '../../styles'
 
 class CreateMultipleChoice extends React.Component {
 
@@ -79,9 +80,9 @@ class CreateMultipleChoice extends React.Component {
       }
       return response.json();
     }).then(function(data) {
-      console.log(data)    
+      console.log(data)
       if(data == "success"){
-        this.setState({message: this.state.value + ':' + this.state.answer});  
+        this.setState({message: this.state.value + ':' + this.state.answer});
       }
     }).catch(function(err) {
       console.log(err)
@@ -108,7 +109,8 @@ class CreateMultipleChoice extends React.Component {
             <Row>
               <textarea
                 value={this.state.value}
-                onChange={this.changeText('value')}/>
+                onChange={this.changeText('value')}
+                style={Styles.textareaSimple}/>
             </Row>
             <Row>
               Option 0:
@@ -116,7 +118,8 @@ class CreateMultipleChoice extends React.Component {
             <Row>
               <textarea
                 value={this.state.option0}
-                onChange={this.changeText('option0')}/>
+                onChange={this.changeText('option0')}
+                style={Styles.textareaSimple}/>
             </Row>
             <Row>
               Option 1:
@@ -124,7 +127,8 @@ class CreateMultipleChoice extends React.Component {
             <Row>
               <textarea
                 value={this.state.option1}
-                onChange={this.changeText('option1')}/>
+                onChange={this.changeText('option1')}
+                style={Styles.textareaSimple}/>
             </Row>
             <Row>
               Option 2:
@@ -132,7 +136,8 @@ class CreateMultipleChoice extends React.Component {
             <Row>
               <textarea
                 value={this.state.option2}
-                onChange={this.changeText('option2')}/>
+                onChange={this.changeText('option2')}
+                style={Styles.textareaSimple}/>
             </Row>
             <Row>
               Option 3:
@@ -140,7 +145,8 @@ class CreateMultipleChoice extends React.Component {
             <Row>
               <textarea
                 value={this.state.option3}
-                onChange={this.changeText('option3')}/>
+                onChange={this.changeText('option3')}
+                style={Styles.textareaSimple}/>
             </Row>
             <Row>
               Answer: {this.state.answer}

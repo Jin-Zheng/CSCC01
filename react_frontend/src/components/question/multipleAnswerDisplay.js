@@ -33,7 +33,7 @@ class MultipleAnswerDisplay extends React.Component {
     return (
       <div>
         {this.state.questions.map(question =>
-          <Row key={question.qKey}> 
+          <Row key={question.qKey}>
             Value: {question.qValue} <br/>
             Option1: {question.candidate1} <br/>
             Option2: {question.candidate2} <br/>

@@ -2,6 +2,7 @@ import React from 'react'
 import {Row} from 'react-flexbox-grid'
 import {List} from 'immutable'
 import FormatListView from '../format/formatListView'
+import Styles from '../../styles'
 
 class CreateShortAnswer extends React.Component {
 
@@ -37,13 +38,14 @@ class CreateShortAnswer extends React.Component {
       }
       return response.json();
     }).then(function(data) {
-      console.log(data)    
+      console.log(data)
       if(data == "success"){
-        this.setState({message: this.state.value + ':' + this.state.answer});  
+        this.setState({message: this.state.value + ':' + this.state.answer});
       }
     }).catch(function(err) {
       console.log(err)
     });
+    this.setState({value:'', answer:''})
   }
 
   valueUpdate(event) {
@@ -69,19 +71,22 @@ class CreateShortAnswer extends React.Component {
             Value:
           </Row>
           <Row>
-            <textarea value={this.state.value} onChange={this.valueUpdate}>
-            </textarea>
+            <textarea value={this.state.value} onChange={this.valueUpdate}
+            style={Styles.textareaSimple}/>
           </Row>
           <Row>
             Answer:
           </Row>
           <Row>
-            <textarea value={this.state.answer} onChange={this.answerUpdate}>
-            </textarea>
+            <textarea value={this.state.answer} onChange={this.answerUpdate}
+            style={Styles.textareaSimple}/>
           </Row>
-          <button type={'submit'}>
-            submit
-          </button>
+          <Row>
+            <button type={'submit'}>
+              submit
+            </button>
+          </Row>
+
         </form>
       </div>
     )
