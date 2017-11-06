@@ -6,9 +6,7 @@ import {BrowserRouter} from 'react-router-dom'
 class Index extends React.Component {
   render() {
     return (
-      <BrowserRouter>
-        <MainApp/>
-      </BrowserRouter>
+      <MainApp/>
     )
   }
 }

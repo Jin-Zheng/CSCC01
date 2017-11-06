@@ -1,5 +1,9 @@
 # L02_07
 
+### 11/06/17
+- Sprint Backlog: Sprint 3 (Nov 2 - Nov 7) updated. [here](./Deliverables/Sprint_Backlog-Sprint.pdf)
+- Product Backlog: v1 updated [here](./Deliverables/Product_Backlog-User_Stories.pdf)
+
 ### 11/01/17
 - Sprint Backlog: Sprint 3 (Nov 2 - Nov 7) [here](./Deliverables/Sprint_Backlog-Sprint.pdf)
 - Completed Sprint 2:

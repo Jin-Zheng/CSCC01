@@ -1,6 +1,7 @@
 import React from 'react'
 import {Row, Grid} from 'react-flexbox-grid'
 import FormatListView from '../format/formatListView'
+import Styles from '../../styles'
 
 class CreateMultipleChoice extends React.Component {
 
@@ -17,6 +18,7 @@ class CreateMultipleChoice extends React.Component {
       answer: undefined,
       value: undefined,
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.radioClicked = this.radioClicked.bind(this)
     this.changeText = this.changeText.bind(this)
     this.changeState = this.changeState.bind(this)
@@ -37,7 +39,6 @@ class CreateMultipleChoice extends React.Component {
     return (event) => {
       event.preventDefault()
       this.setState(obj)
-      console.log(event.target)
     }
   }
 
@@ -53,10 +54,41 @@ class CreateMultipleChoice extends React.Component {
   changeText(field) {
     return (event) => {
       event.preventDefault()
-      console.log(this.state[field])
       this.setState({[field]: event.target.value})
     }
   }
+
+  handleSubmit(event) {
+    event.preventDefault()
+    var data = {
+      qType: 'MC',
+      qValue: this.state.value,
+      answer: this.state.answer,
+      candidate1: this.state.option0,
+      candidate2: this.state.option1,
+      candidate3: this.state.option2,
+      candidate4: this.state.option3,
+    }
+    console.log(data)
+    fetch("/generateApp/createMultipleChoice", {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    }).then(function(response) {
+      if (response.status >= 400) {
+        throw new Error("Bad response from server");
+      }
+      return response.json();
+    }).then(function(data) {
+      console.log(data)
+      if(data == "success"){
+        this.setState({message: this.state.value + ':' + this.state.answer});
+      }
+    }).catch(function(err) {
+      console.log(err)
+    });
+  }
+
   render() {
     const stateList = [
       'value: ' + this.state.value,
@@ -68,16 +100,15 @@ class CreateMultipleChoice extends React.Component {
     ]
     return (
       <div>
-          <FormatListView list={stateList}/>
-
-          <form onSubmit={(e)=>{e.preventDefault()}}>
+          <form onSubmit={this.handleSubmit}>
             <Row>
               Value:
             </Row>
             <Row>
               <textarea
                 value={this.state.value}
-                onChange={this.changeText('value')}/>
+                onChange={this.changeText('value')}
+                style={Styles.textareaSimple}/>
             </Row>
             <Row>
               Option 0:
@@ -85,15 +116,17 @@ class CreateMultipleChoice extends React.Component {
             <Row>
               <textarea
                 value={this.state.option0}
-                onChange={this.changeText('option0')}/>
+                onChange={this.changeText('option0')}
+                style={Styles.textareaSimple}/>
             </Row>
             <Row>
-              Optino 1:
+              Option 1:
             </Row>
             <Row>
               <textarea
                 value={this.state.option1}
-                onChange={this.changeText('option1')}/>
+                onChange={this.changeText('option1')}
+                style={Styles.textareaSimple}/>
             </Row>
             <Row>
               Option 2:
@@ -101,7 +134,8 @@ class CreateMultipleChoice extends React.Component {
             <Row>
               <textarea
                 value={this.state.option2}
-                onChange={this.changeText('option2')}/>
+                onChange={this.changeText('option2')}
+                style={Styles.textareaSimple}/>
             </Row>
             <Row>
               Option 3:
@@ -109,7 +143,8 @@ class CreateMultipleChoice extends React.Component {
             <Row>
               <textarea
                 value={this.state.option3}
-                onChange={this.changeText('option3')}/>
+                onChange={this.changeText('option3')}
+                style={Styles.textareaSimple}/>
             </Row>
             <Row>
               Answer: {this.state.answer}
