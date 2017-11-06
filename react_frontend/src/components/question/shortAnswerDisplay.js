@@ -1,65 +1,40 @@
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
 import {List} from 'immutable'
-import FormatListView from '../format/formatListView.js'
+import SpacedListView from '../format/spacedListView.js'
 
 class ShortAnswerDisplay extends React.Component {
 
   componentWillMount(props) {
-
+    this.setState({
+      answer: this.props.answer,
+      value: this.props.value,
+      index: this.props.index,
+      type: 'short answer'
+    })
   }
 
   constructor(props) {
     super(props)
-    this.formSubmit = this.formSubmit.bind(this)
-    this.valueUpdate = this.valueUpdate.bind(this)
-    this.answerUpdate = this.answerUpdate.bind(this)
     this.state = {
-      value: this.props.value,
-      answer: this.props.answer
+      answer: undefined,
+      value: undefined,
+      index: undefined,
+      type: undefined
     }
   }
 
-  formSubmit(event) {
-    event.preventDefault()
-    this.setState({message:this.state.value + ':' + this.state.answer})
-  }
-
-  valueUpdate(event) {
-    event.preventDefault()
-    this.setState({value:event.target.value})
-  }
-
-  answerUpdate(event) {
-    event.preventDefault()
-    this.setState({answer:event.target.value})
-  }
 
   render() {
-    const debugList = List([
-      'value:' + this.state.value,
-      'answer:' + this.state.answer,
-      'Display:',
+    const values = List([
+      'index: ' + this.state.index,
+      'type: ' + this.state.type,
+      'vlaue: ' + this.state.value,
+      'answer: ' + this.state.answer
     ])
     return (
       <div>
-        <form onSubmit={this.formSubmit}>
-          <Row>
-            Value:
-          </Row>
-          <Row>
-            {this.state.value}
-          </Row>
-          <Row>
-            Answer:
-          </Row>
-          <Row>
-            {this.state.answer}
-          </Row>
-          <Row>
-            <button>submit</button>
-          </Row>
-        </form>
+        <SpacedListView list={values}/>
       </div>
     )
   }
