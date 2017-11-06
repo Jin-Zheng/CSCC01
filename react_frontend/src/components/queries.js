@@ -18,20 +18,28 @@ connection.connect()
 // }
 // })
 
+// CREATE USERS TABLE
+// connection.query('CREATE TABLE User (qKey INTEGER AUTO_INCREMENT PRIMARY KEY, qType VARCHAR(20) NOT NULL, firstName VARCHAR(9999) NOT NULL, lastName VARCHAR(9999) NOT NULL, lastModified VARCHAR(9999) NOT NULL, email VARCHAR(9999), username VARCHAR(9999), password VARCHAR(9999)), lastAccessed VARCHAR(9999)', function (error, results, fields) {
+//   if (error) throw error;
+//   for (var i = 0; i < results.length; i++) {
+//       console.log(results[i]);
+// }
+// })
+
 //connection.query('describe Question', function (error, results, fields) {
 //  if (error) throw error;
 //  console.log(results)
 //})
-
-connection.query('show tables', (error, results, fields) => {
-  if(error) throw error;
-  console.log(results)
-  console.log("\n SQL Queries:\n")
-connection.end()
+//
+// connection.query('show tables', (error, results, fields) => {
+//   if(error) throw error;
+//   console.log(results)
+//   console.log("\n SQL Queries:\n")
+// connection.end()
 
   // INSERT QUESTION
   // Example Add:
-  var sqladd = "INSERT INTO Question (qType, Qvalue, answer, candidate1, candidate2, candidate3, candidate4) VALUES ?";
+  var sqladd = "INSERT INTO Question (qType, qValue, answer, candidate1, candidate2, candidate3, candidate4) VALUES ?";
   var values = [
     ['MC', 'What is the correct answer?', '1', '1', '2', '3', '4'],
   ];
@@ -44,21 +52,22 @@ connection.end()
   // Example Select:
   connection.query("SELECT * FROM Question", function (err, result, fields) {
     if (err) throw err;
-	console.log("\nViewing database:\n");
+	console.log("\nViewing Database:\n");
     console.log(result);
   });
-  
+
   // UPDATE QUESTION
   // Example update question 1:
   var sqlupdate = "UPDATE Question SET Qvalue = 'New Question?' WHERE qKey = 1";
   // Use the query
-  console.log("\nUpdating Q1:\n");
   connection.query(sqlupdate, function (err, result) {
+  console.log("\n-Updating Q1-\n");
     if (err) throw err;
   });
-  
+
   // View the question again
   connection.query("SELECT * FROM Question", function (err, result, fields) {
+  console.log("Viewing Database:\n");
     if (err) throw err;
     console.log(result);
   });
@@ -66,11 +75,47 @@ connection.end()
   // DELETE QUESTION
   // Example Delete:
   var sqldelete = "DELETE FROM Question WHERE qKey = '1'";
+  // sqlclear clears database completely
   var sqlclear = "truncate Question";
-  connection.query(sqlclear, function (err, result) {
+  // connection.query(sqlclear, function (err, result) {
+  //   if (err) throw err;
+  //   // console.log("Number of records deleted: " + result.affectedRows);
+  // });
+
+  // CREATE USERS TABLE
+  // var sqlUser = "CREATE TABLE User (uKey INTEGER AUTO_INCREMENT PRIMARY KEY, uType VARCHAR(20) NOT NULL, firstName VARCHAR(255) NOT NULL, lastName VARCHAR(255) NOT NULL, lastModified VARCHAR(255) NOT NULL, email VARCHAR(255), username VARCHAR(255), password VARCHAR(255), lastAccessed VARCHAR(255))";
+  //   connection.query(sqlUser, function (error, results, fields) {
+  //   if (error) throw  error;
+  // });
+
+  // DELETE OLD USERS TABLE
+  // var delsqlUser = "DROP TABLE User";
+  //   connection.query(delsqlUser, function (error, results, fields) {
+  //   if (error) throw  error;
+  // });
+
+  // Testing User Queries
+  // Example Add:
+  var usersSqlAdd = "INSERT INTO User (firstName, lastName) VALUES ?";
+  var userValues = [
+    ['John', 'Smith']
+  ];
+  connection.query(usersSqlAdd, [userValues], function (err, result) {
     if (err) throw err;
     // console.log("Number of records deleted: " + result.affectedRows);
   });
 
+  // Example View:
+  // View the question again
+  connection.query("SELECT * FROM User", function (err, result, fields) {
+    console.log("\nViewing User Database:\n");
+    if (err) throw err;
+    console.log(result);
+  });
 
+  // var sqlUserClear = "truncate User";
+  // connection.query(sqlUserClear, function (err, result) {
+  //   if (err) throw err;
+  //   // console.log("Number of records deleted: " + result.affectedRows);
+  // });
 connection.end()
