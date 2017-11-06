@@ -1,46 +1,40 @@
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
 import {List} from 'immutable'
-import FormatListView from '../format/formatListView.js'
+import SpacedListView from '../format/spacedListView.js'
 
 class ShortAnswerDisplay extends React.Component {
 
   componentWillMount(props) {
-
+    this.setState({
+      answer: this.props.answer,
+      value: this.props.value,
+      index: this.props.index,
+      type: 'short answer'
+    })
   }
 
   constructor(props) {
     super(props)
     this.state = {
-      questions: []
+      answer: undefined,
+      value: undefined,
+      index: undefined,
+      type: undefined
     }
   }
 
-  componentDidMount(){
-    fetch('/viewApp/shortAnswerDisplay', {
-      method: 'GET'
-    }).then(function (res) {
-        if (res.status >= 400) {
-          throw new Error ("Bad response from server");
-        }
-        return res.json();
-      }).then(questions => this.setState({ questions: questions })
-      ).catch (err => {
-        console.log('Error caught ', err);
-      });
-  }
 
   render() {
-    // const debugList = List([
-    //   'value:' + this.state.value,
-    //   'answer:' + this.state.answer,
-    //   'Display:',
-    // ])
+    const values = List([
+      'index: ' + this.state.index,
+      'type: ' + this.state.type,
+      'vlaue: ' + this.state.value,
+      'answer: ' + this.state.answer
+    ])
     return (
       <div>
-        {this.state.questions.map(question =>
-          <Row key={question.qKey}> Value: {question.qValue} <br/> Answer: {question.answer}</Row>
-        )}
+        <SpacedListView list={values}/>
       </div>
     )
   }

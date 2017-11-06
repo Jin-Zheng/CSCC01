@@ -1,72 +1,70 @@
 import React from 'react'
 import {List} from 'immutable'
-import MultipleAnswerDisplay from '../question/multipleAnswerDisplay'
 import ShortAnswerDisplay from '../question/shortAnswerDisplay'
-import FormatListView from './formatListView'
+import MultipleAnswerDisplay from '../question/multipleAnswerDisplay'
 
-const SHORT_ANSWER = 'sa'
-const MULTIPLE_CHOICE = 'mc'
+const SHORT_ANSWER = 'SA'
+const MULTIPLE_CHOICE = 'MC'
 
 class ListQuestions extends React.Component {
 
-  componentDidMount() {
+  componentWillMount() {
     fetch('/viewApp', {method: 'GET'})
-          .then((res) => {return res.json()})
-          .then((x) => {
-            this.setState({test:x})
-          }
-          )
-          .catch((err) => ('oops'))
+      .then((res) => (
+        res.json()
+      ))
+      .then((x) => {
+        const y = x
+        this.setState({questions:y})
+        console.log(this.state.questions)
+      })
   }
 
   constructor(props) {
     super(props)
-    console.log('hi')
     this.state = {
-      questions: List([
-        {
-          value: 'what is 1+1?',
-          answer: '2'
-        },
-
-        {
-          value: 'what is 2+2',
-          option0: '1',
-          option1: '2',
-          option2: '3',
-          option3: '4',
-          answer: '3'
-        }
-      ]),
-      test: undefined
+      questions: undefined
     }
   }
 
-  wrap(question) {
-    if(question.type == SHORT_ANSWER) {
-      return (
+  wrap(q) {
+    if (q.qType === SHORT_ANSWER) {
+      return(
         <ShortAnswerDisplay
-          value={question.value}
-          answer={question.answer}/>
+          index={q.qKey}
+          type={q.qType}
+          value={q.qValue}
+          answer={q.answer}/>
       )
-    } else if(question.type == MULTIPLE_CHOICE) {
-      return (
+    } else if (q.qType === MULTIPLE_CHOICE) {
+      return(
         <MultipleAnswerDisplay
-          value={question.value}
-          option0={question.option0}
-          option1={question.option1}
-          option2={question.option2}
-          option3={question.option3}
-          answer={question.answer}/>
+          index={q.qKey}
+          type={q.qType}
+          value={q.qValue}
+          answer={q.answer}
+          option0={q.candidate1}
+          option1={q.candidate2}
+          option2={q.candidate3}
+          option3={q.candidate4}/>
       )
     }
   }
 
   render() {
-
+    let qList = undefined
+    if (this.state.questions) {
+      qList = this.state.questions.map((q) => (
+        this.wrap(q)
+      ))
+      console.log('here')
+    } else {
+      qList = undefined
+      console.log('there')
+    }
     return (
       <div>
-        {JSON.stringify(this.state.test)}
+        {qList}
       </div>
     )
   }
