@@ -10,33 +10,49 @@ class InstructorSignUp extends React.Component {
 
   constructor(props) {
     super(props)
-    this.idUpdate = this.idUpdate.bind(this)
-    this.passwordUpdate = this.passwordUpdate.bind(this)
-    this.emailUpdate = this.emailUpdate.bind(this)
+    this.changeText = this.changeText.bind(this)
     this.state = {
-      id: '',
+      username: '',
       password: '',
+      firstname: '',
+      lastname: '',
       email: '',
     }
   }
-
-  formSubmit(event) {
-    event.preventDefault()
+  
+  changeText(field) {
+    return (e) => {
+      e.preventDefault()
+      this.setState({[field]:e.target.value})
+    }
   }
 
-  idUpdate(event) {
+  handleSubmit(event) {
     event.preventDefault()
-    this.setState({id:event.target.value})
-  }
-
-  passwordUpdate(event) {
-    event.preventDefault()
-    this.setState({password:event.target.value})
-  }
-
-  emailUpdate(event) {
-    event.preventDefault()
-    this.setState({email:event.target.email})
+    // // lastaccess and lastmodified time we will get in the backend.
+    // var data = {
+    //   uType: 'INSTRUCTOR',
+    //   username: this.state.username,
+    //   password: this.state.password,
+    //   firstName: this.state.firstname,
+    //   lastName: this.state.lastname,
+    //   email: this.state.email,
+    // }
+    // console.log(data)
+    // fetch("/signupApp/InstructorSignUp", {
+    //   method: 'POST',
+    //   headers: {'Content-Type': 'application/json'},
+    //   body: JSON.stringify(data)
+    // }).then(function(response) {
+    //   if (response.status >= 400) {
+    //     throw new Error("Bad response from server");
+    //   }
+    //   return response.json();
+    // }).catch(function(err) {
+    //   console.log(err)
+    // });
+    // // Temp show that a question was submitted
+    // this.setState({username:'', password:'', firstname:'', lastname:'', email:''})
   }
 
   render() {
@@ -48,14 +64,14 @@ class InstructorSignUp extends React.Component {
     ])
     return (
       <div>
-        <form onSubmit={this.formSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <Row>
-            Id:
+            Username:
           </Row>
           <Row>
             <textarea
-              id={this.state.id}
-              onChange={this.idUpdate}
+              username={this.state.username}
+              onChange={this.changeText('username')}
               style={Styles.textareaSimple}/>
           </Row>
           <Row>
@@ -64,7 +80,7 @@ class InstructorSignUp extends React.Component {
           <Row>
             <textarea
               password={this.state.password}
-              onChange={this.passwordUpdate}
+              onChange={this.changeText('password')}
               style={Styles.textareaSimple}/>
           </Row>
           <Row>
@@ -73,7 +89,25 @@ class InstructorSignUp extends React.Component {
           <Row>
             <textarea
               email={this.state.email}
-              onChange={this.emailUpdate}
+              onChange={this.changeText('email')}
+              style={Styles.textareaSimple}/>
+          </Row>
+          <Row>
+            First Name:
+          </Row>
+          <Row>
+            <textarea
+              firstname={this.state.firstname}
+              onChange={this.changeText('firstname')}
+              style={Styles.textareaSimple}/>
+          </Row>
+          <Row>
+            Last Name:
+          </Row>
+          <Row>
+            <textarea
+              lastname={this.state.lastname}
+              onChange={this.changeText('lastname')}
               style={Styles.textareaSimple}/>
           </Row>
           <Row>

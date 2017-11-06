@@ -12,14 +12,12 @@ class StudentSignUp extends React.Component {
     super(props)
     this.changeText = this.changeText.bind(this)
     this.state = {
-      id: '',
+      username: '',
       password: '',
+      firstname: '',
+      lastname: '',
       email: '',
     }
-  }
-
-  formSubmit(event) {
-    event.preventDefault()
   }
 
   changeText(field) {
@@ -29,23 +27,53 @@ class StudentSignUp extends React.Component {
     }
   }
 
+  handleSubmit(event){
+    event.preventDefault()
+    // // lastaccess and lastmodified time we will get in the backend.
+    // var data = {
+    //   uType: 'STUDENT',
+    //   username: this.state.username,
+    //   password: this.state.password,
+    //   firstName: this.state.firstname,
+    //   lastName: this.state.lastname,
+    //   email: this.state.email,
+    // }
+    // console.log(data)
+    // fetch("/signupApp/InstructorSignUp", {
+    //   method: 'POST',
+    //   headers: {'Content-Type': 'application/json'},
+    //   body: JSON.stringify(data)
+    // }).then(function(response) {
+    //   if (response.status >= 400) {
+    //     throw new Error("Bad response from server");
+    //   }
+    //   return response.json();
+    // }).catch(function(err) {
+    //   console.log(err)
+    // });
+    // // Temp show that a question was submitted
+    // this.setState({username:'', password:'', firstname:'', lastname:'', email:''})
+  }
+
   render() {
     const debugList = List([
       'Student:',
-      'id: ' + this.state.id,
+      'username: ' + this.state.username,
       'password: ' + this.state.password,
+      'firstname: ' + this.state.firstname,
+      'lastname: ' + this.state.lastname,
       'email: ' + this.state.email,
     ])
     return (
       <div>
-        <form onSubmit={this.formSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <Row>
-            Id:
+            Username:
           </Row>
           <Row>
             <textarea
-              id={this.state.id}
-              onChange={this.changeText('id')}
+              username={this.state.username}
+              onChange={this.changeText('username')}
               style={Styles.textareaSimple}/>
           </Row>
           <Row>
@@ -64,6 +92,24 @@ class StudentSignUp extends React.Component {
             <textarea
               email={this.state.email}
               onChange={this.changeText('email')}
+              style={Styles.textareaSimple}/>
+          </Row>
+          <Row>
+            First Name:
+          </Row>
+          <Row>
+            <textarea
+              firstname={this.state.firstname}
+              onChange={this.changeText('firstname')}
+              style={Styles.textareaSimple}/>
+          </Row>
+          <Row>
+            Last Name:
+          </Row>
+          <Row>
+            <textarea
+              lastname={this.state.lastname}
+              onChange={this.changeText('lastname')}
               style={Styles.textareaSimple}/>
           </Row>
           <Row>

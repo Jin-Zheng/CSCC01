@@ -37,11 +37,6 @@ class CreateShortAnswer extends React.Component {
         throw new Error("Bad response from server");
       }
       return response.json();
-    }).then(function(data) {
-      console.log(data)
-      if(data == "success"){
-        this.setState({message: this.state.value + ':' + this.state.answer});
-      }
     }).catch(function(err) {
       console.log(err)
     });
