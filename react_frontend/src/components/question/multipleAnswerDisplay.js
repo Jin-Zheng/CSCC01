@@ -8,7 +8,7 @@ class MultipleAnswerDisplay extends React.Component {
   componentWillMount() {
     this.setState({
       index: this.props.index,
-      type: this.props.type,
+      type: 'multiple choice',
       value: this.props.value,
       option0: this.props.option0,
       option1: this.props.option1,
