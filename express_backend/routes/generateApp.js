@@ -16,7 +16,6 @@ router.post('/createShortAnswer', function(req, res, next) {
     res.locals.connection.query(sqladd, [values], function (err, results, fields) {
       if (err) throw err;
         res.send(JSON.stringify(results));
-      console.log(results);
     });
     res.locals.connection.end();
 });
@@ -31,7 +30,6 @@ router.post('/createMultipleChoice', function(req, res, next) {
   	res.locals.connection.query(sqladd, [values], function (err, results, fields) {
     	if (err) throw err;
         res.send(JSON.stringify(results));
-  		console.log(results);
   	});
   	res.locals.connection.end();
 });

@@ -9,8 +9,6 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var viewApp = require('./routes/viewApp');
 var generateApp = require('./routes/generateApp');
-var editQuestion = require('./routes/editQuestion');
-var deleteQuestion = require('./routes/deleteQuestion');
 var editUser = require('./routes/editUser');
 var deleteUser = require('./routes/deleteUser');
 
@@ -42,7 +40,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/viewApp', viewApp);
 app.use('/generateApp', generateApp);
-app.use('/deleteQuestion', deleteQuestion);
 app.use('/editUser', editUser);
 app.use('/deleteUser', deleteUser);
 
