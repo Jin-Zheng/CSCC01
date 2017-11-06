@@ -100,8 +100,6 @@ class CreateMultipleChoice extends React.Component {
     ]
     return (
       <div>
-          <FormatListView list={stateList}/>
-
           <form onSubmit={this.handleSubmit}>
             <Row>
               Value:

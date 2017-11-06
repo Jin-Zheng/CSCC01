@@ -66,7 +66,6 @@ class CreateShortAnswer extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <FormatListView list={debugList}/>
           <Row>
             Value:
           </Row>

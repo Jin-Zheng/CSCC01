@@ -23,9 +23,6 @@ class MainRouter extends React.Component{
       </Link>,
       <Link to='/signUpApp'>
         sign up
-      </Link>,
-      <Link to='/editSA'>
-        editSA(test)
       </Link>
     ])
     return (
@@ -45,13 +42,10 @@ class MainSwitcher extends React.Component {
           component={GenerateApp}/>
         <Route
           exact path='/viewApp'
-          component={ViewApp}/>
+          component={ListQuestions}/>
         <Route
           exact path='/signUpApp'
           component={SignUpApp}/>
-        <Route
-          exact path='/editSA'
-          component={ListQuestions}/>
       </Switch>
 
     )

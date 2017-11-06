@@ -2,6 +2,7 @@ import React from 'react'
 import {Row} from 'react-flexbox-grid'
 import {List} from 'immutable'
 import FormatListView from '../format/formatListView'
+import Styles from '../../styles'
 
 class StudentSignUp extends React.Component {
   componentWillMount() {
@@ -19,7 +20,6 @@ class StudentSignUp extends React.Component {
 
   formSubmit(event) {
     event.preventDefault()
-    this.setState({message:this.state.id + ':' + this.state.password})
   }
 
   changeText(field) {
@@ -39,31 +39,38 @@ class StudentSignUp extends React.Component {
     return (
       <div>
         <form onSubmit={this.formSubmit}>
-          <FormatListView list = {debugList}/>
           <Row>
             Id:
           </Row>
           <Row>
-            <textarea id={this.state.id} onChange={this.changeText('id')}>
-            </textarea>
+            <textarea
+              id={this.state.id}
+              onChange={this.changeText('id')}
+              style={Styles.textareaSimple}/>
           </Row>
           <Row>
             Password:
           </Row>
           <Row>
-            <textarea password={this.state.password} onChange={this.changeText('password')}>
-            </textarea>
+            <textarea
+              password={this.state.password}
+              onChange={this.changeText('password')}
+              style={Styles.textareaSimple}/>
           </Row>
           <Row>
             Email:
           </Row>
           <Row>
-            <textarea email={this.state.email} onChange={this.changeText('email')}>
-            </textarea>
+            <textarea
+              email={this.state.email}
+              onChange={this.changeText('email')}
+              style={Styles.textareaSimple}/>
           </Row>
-          <button type={'submit'}>
-            submit
-          </button>
+          <Row>
+            <button type={'submit'}>
+              submit
+            </button>
+          </Row>
         </form>
       </div>
     )
