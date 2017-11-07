@@ -9,9 +9,9 @@ router.use(function (req, res, next) {
 router.get('/InstructorSignUp', function(req, res, next) {
 	console.log('Creating instructor');
 	res.locals.connection.connect();
-	var usersSqlAdd = "INSERT INTO User (firstName, lastName, uType, username, password) VALUES ?";
+	var usersSqlAdd = "INSERT INTO User (firstName, lastName, uType, username, password, lastModified, lastAccessed) VALUES ?";
 	var values = [
-		[''+req.body.firstName+'',''+req.body.lastName+'','Instructor', ''+req.body.username+'', ''+req.body.password+''],
+		[''+req.body.firstName+'',''+req.body.lastName+'',''+req.body.uType+'', ''+req.body.username+'', ''+req.body.password+'', ''+Date.now()+'',''+Date.now()+''],
 	];
 	res.locals.connection.connect();
 	res.locals.connection.query(usersSqlAdd, [values], function (err, results, fields) {
@@ -25,9 +25,9 @@ router.get('/InstructorSignUp', function(req, res, next) {
 router.get('/StudentSignUp', function(req, res, next) {
 	console.log('Creating student');
 	res.locals.connection.connect();
-	var usersSqlAdd = "INSERT INTO User (firstName, lastName, uType, username, password) VALUES ?";
+	var usersSqlAdd = "INSERT INTO User (firstName, lastName, uType, username, password, lastModified, lastAccessed) VALUES ?";
 	var values = [
-		[''+req.body.firstName+'',''+req.body.lastName+'','Student', ''+req.body.username+'', ''+req.body.password+''],
+		[''+req.body.firstName+'',''+req.body.lastName+'',''+req.body.uType+'', ''+req.body.username+'', ''+req.body.password+'', ''+Date.now()+'',''+Date.now()+''],
 	];
 	res.locals.connection.connect();
 	res.locals.connection.query(usersSqlAdd, [values], function (err, results, fields) {
