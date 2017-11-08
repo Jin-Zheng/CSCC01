@@ -13,9 +13,8 @@ class ListQuestions extends React.Component {
       .then((res) => (
         res.json()
       ))
-      .then((x) => {
-        const y = x
-        this.setState({questions:y})
+      .then((res) => {
+        this.setState({questions:res})
         console.log(this.state.questions)
       })
   }
