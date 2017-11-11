@@ -16,7 +16,19 @@ const Styles = {
     marginRight: 20,
     marginBottom: 0,
     fontSize: 15
-  }
-}
+  },
+
+  indexLink: {
+    color: 'red',
+    backgroundColor: '1a8cff'
+  },
+
+  submitButton: {
+    marginBottom: 0,
+    color: 'black',
+    backgroundColor: 'bfbfbf',
+    borderRadius: '80%',
+  },
+};
 
 export default Styles

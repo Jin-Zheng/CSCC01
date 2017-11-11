@@ -9,12 +9,15 @@ import FormatListView from '../components/format/formatListView'
 import ViewApp from '../apps/viewApp'
 import ListQuestions from '../components/format/listQuestions'
 
+
 class MainRouter extends React.Component{
   render() {
     const linksList = List([
-      <Link to='/'>
-        home
-      </Link>,
+      <button>
+        <Link to='/'>
+          home
+        </Link>
+      </button>,
       <Link to='/generateApp'>
         generate
       </Link>,
