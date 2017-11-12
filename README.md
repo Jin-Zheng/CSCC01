@@ -1,5 +1,17 @@
 # L02_07
 
+### 11/08/17
+- Sprint Backlog: Sprint 4 (Nov 9 - Nov 14) [here](./Deliverables/Sprint_Backlog-Sprint.pdf)
+- Product Backlog: v2 updated [here](./Deliverables/Product_Backlog-User_Stories.pdf)
+- Completed Sprint 3:
+  * Add react routing to frontend views
+  * Write frontend http code to connect to backend
+  * Create table for Users in DB
+  * Create backend API for Users
+  * Create frontend UI for Users [Still in progress..]
+  * Route backend to frontend
+- 11/08/17 Team meeting document uploaded
+
 ### 11/06/17
 - Sprint Backlog: Sprint 3 (Nov 2 - Nov 7) updated. [here](./Deliverables/Sprint_Backlog-Sprint.pdf)
 - Product Backlog: v1 updated [here](./Deliverables/Product_Backlog-User_Stories.pdf)

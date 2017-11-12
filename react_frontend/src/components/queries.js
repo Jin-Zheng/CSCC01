@@ -39,38 +39,38 @@ connection.connect()
 
   // INSERT QUESTION
   // Example Add:
-  var sqladd = "INSERT INTO Question (qType, qValue, answer, candidate1, candidate2, candidate3, candidate4) VALUES ?";
-  var values = [
-    ['MC', 'What is the correct answer?', '1', '1', '2', '3', '4'],
-  ];
-  connection.query(sqladd, [values], function (err, result) {
-    if (err) throw err;
-    // console.log("Number of records deleted: " + result.affectedRows);
-  });
+  // var sqladd = "INSERT INTO Question (qType, qValue, answer, candidate1, candidate2, candidate3, candidate4) VALUES ?";
+  // var values = [
+  //   ['MC', 'What is the correct answer?', '1', '1', '2', '3', '4'],
+  // ];
+  // connection.query(sqladd, [values], function (err, result) {
+  //   if (err) throw err;
+  //   // console.log("Number of records deleted: " + result.affectedRows);
+  // });
 
-  // SELECT QUESTION
-  // Example Select:
-  connection.query("SELECT * FROM Question", function (err, result, fields) {
-    if (err) throw err;
-	console.log("\nViewing Database:\n");
-    console.log(result);
-  });
+  // // SELECT QUESTION
+  // // Example Select:
+  // connection.query("SELECT * FROM Question", function (err, result, fields) {
+  //   if (err) throw err;
+	// console.log("\nViewing Database:\n");
+  //   console.log(result);
+  // });
 
-  // UPDATE QUESTION
-  // Example update question 1:
-  var sqlupdate = "UPDATE Question SET Qvalue = 'New Question?' WHERE qKey = 1";
-  // Use the query
-  connection.query(sqlupdate, function (err, result) {
-  console.log("\n-Updating Q1-\n");
-    if (err) throw err;
-  });
-
-  // View the question again
-  connection.query("SELECT * FROM Question", function (err, result, fields) {
-  console.log("Viewing Database:\n");
-    if (err) throw err;
-    console.log(result);
-  });
+  // // UPDATE QUESTION
+  // // Example update question 1:
+  // var sqlupdate = "UPDATE Question SET Qvalue = 'New Question?' WHERE qKey = 1";
+  // // Use the query
+  // connection.query(sqlupdate, function (err, result) {
+  // console.log("\n-Updating Q1-\n");
+  //   if (err) throw err;
+  // });
+  //
+  // // View the question again
+  // connection.query("SELECT * FROM Question", function (err, result, fields) {
+  // console.log("Viewing Database:\n");
+  //   if (err) throw err;
+  //   console.log(result);
+  // });
 
   // DELETE QUESTION
   // Example Delete:
@@ -96,26 +96,72 @@ connection.connect()
 
   // Testing User Queries
   // Example Add:
-  var usersSqlAdd = "INSERT INTO User (firstName, lastName) VALUES ?";
-  var userValues = [
-    ['John', 'Smith']
-  ];
-  connection.query(usersSqlAdd, [userValues], function (err, result) {
-    if (err) throw err;
-    // console.log("Number of records deleted: " + result.affectedRows);
-  });
-
-  // Example View:
-  // View the question again
-  connection.query("SELECT * FROM User", function (err, result, fields) {
-    console.log("\nViewing User Database:\n");
-    if (err) throw err;
-    console.log(result);
-  });
+  // var usersSqlAdd = "INSERT INTO User (firstName, lastName) VALUES ?";
+  // var userValues = [
+  //   ['John', 'Smith']
+  // ];
+  // connection.query(usersSqlAdd, [userValues], function (err, result) {
+  //   if (err) throw err;
+  //   // console.log("Number of records deleted: " + result.affectedRows);
+  // });
+  //
+  // // Example View:
+  // // View the question again
+  // connection.query("SELECT * FROM User", function (err, result, fields) {
+  //   console.log("\nViewing User Database:\n");
+  //   if (err) throw err;
+  //   console.log(result);
+  // });
 
   // var sqlUserClear = "truncate User";
   // connection.query(sqlUserClear, function (err, result) {
   //   if (err) throw err;
   //   // console.log("Number of records deleted: " + result.affectedRows);
   // });
+
+  // CREATE QUIZ TABLE
+  // NOTE: questionIds is a list of question ids in the quiz, separated by commas
+  // var sqlQuiz = "CREATE TABLE Quiz (quizKey INTEGER AUTO_INCREMENT PRIMARY KEY, questionIds VARCHAR(255) NOT NULL, quizCreator VARCHAR(255))";
+  //   connection.query(sqlQuiz, function (error, results, fields) {
+  //   if (error) throw  error;
+  // });
+
+ //  connection.query('describe Quiz', function (error, results, fields) {
+ //   if (error) throw error;
+ //   console.log(results)
+ // });
+
+
+
+ // CREATE ATTEMPTS TABLE
+ // NOTE: answers is a list of answer values in the quiz, separated by !
+ // var sqlAttempts = "CREATE TABLE Attempt (attemptKey INTEGER AUTO_INCREMENT PRIMARY KEY, studentUsername VARCHAR(255) NOT NULL, answers VARCHAR(9999) NOT NULL, grade DOUBLE(5,2))";
+ //   connection.query(sqlAttempts, function (error, results, fields) {
+ //   if (error) throw  error;
+ // });
+
+ // connection.query('describe Attempt', function (error, results, fields) {
+ //  if (error) throw error;
+ //  console.log(results)
+ // })
+
+
+ // Testing Attempt Queries
+ // Example Add:
+ var attemptSqlAdd = "INSERT INTO Attempt (studentUsername, answers, grade) VALUES ?";
+ var attemptValues = [
+   ['sohee101', '2!1!3!42.45!', 82.50]
+ ];
+ connection.query(attemptSqlAdd, [attemptValues], function (err, result) {
+   if (err) throw err;
+   // console.log("Number of records deleted: " + result.affectedRows);
+ });
+ //
+ // // Example View:
+ // // View the Attempts
+ connection.query("SELECT * FROM Attempt", function (err, result, fields) {
+   console.log("\nViewing User Database:\n");
+   if (err) throw err;
+   console.log(result);
+ });
 connection.end()

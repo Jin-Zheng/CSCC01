@@ -3,7 +3,7 @@
 Frontend
 2. npm install -g create-react-app # install create-react-app globally
 3. create-react-app dev-env # create a react app called dev-env
-4. cd dev-env; # Replace the /src directory with the /src directory found in our group repo
+4. cd dev-env; # Replace the /src directory and package.json with the /src directory and package.json found in our group repo
 5. npm install; npm run start # install dependencies from package.json, then run the start scripts
 
 
