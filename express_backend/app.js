@@ -40,7 +40,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('api', api);
+app.use('/api', api);
 app.use('/viewApp', viewApp);
 app.use('/generateApp', generateApp);
 app.use('/editUser', editUser);
