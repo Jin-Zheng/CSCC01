@@ -11,7 +11,8 @@ var viewApp = require('./routes/viewApp');
 var generateApp = require('./routes/generateApp');
 var editUser = require('./routes/editUser');
 var deleteUser = require('./routes/deleteUser');
-var signUpApp = require('./routes/SignUpApp');
+var signUpApp = require('./routes/signUpApp');
+var api = require('./routes/api')
 
 var app = express();
 
@@ -39,11 +40,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('api', api);
 app.use('/viewApp', viewApp);
 app.use('/generateApp', generateApp);
 app.use('/editUser', editUser);
 app.use('/deleteUser', deleteUser);
-app.use('/SignUpApp', signUpApp);
+app.use('/signUpApp', signUpApp);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

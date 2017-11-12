@@ -55,6 +55,8 @@ class MainSwitcher extends React.Component {
         <Route
           exact path='/signUpApp'
           component={SignUpApp}/>
+        <Route
+          exact path='/api'/>
       </Switch>
 
     )
