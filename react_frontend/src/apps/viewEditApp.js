@@ -1,138 +1,111 @@
 import React from 'react'
-import {BrowserRouter, Link, Switch, Route} from 'react-router-dom'
 import {Row} from 'react-flexbox-grid'
+import MultipleAnswerEditor from '../components/question/multipleAnswerEditor'
+import ShortAnswerDisplay from '../components/question/shortAnswerDisplay'
+import ShortAnswerEditor from '../components/question/shortAnswerEditor'
+import MultipleAnswerDisplay from '../components/question/multipleAnswerDisplay'
+import Deletor from '../components/question/deletor'
 
+const SHORT_ANSWER = "SA"
 const MULTIPLE_CHOICE = 'MC'
-const SHORT_ANswer = 'SA'
 
-class EditRouter extends React.Component {
-  render() {
-    return(
-      <Link
-        to={'/viewApp/view/$(this.props.index)'}>
-        view
-      </Link>
-      <Link to={'/viewApp/edit/$(this.props.index)'}>
-        edit
-      </Link>
-      <Link to={'/viewApp/delete/$(this.props.index)'}>
-        delete
-      </Link>
-    )
-  }
-}
-
-class EditSwitcher extends React.Component {
-  render() {
-    <Switch>
-      <Route
-        exact path='/viewApp/view/:index'
-        componenet={getQuestionDisplay}/>
-      <Route
-        exact path='/viewApp/edit/:index'
-        component={getQuestionEdit}/>
-      <Route
-        exact path='viewApp/delete/:index'
-        component={getQuestionDelete}/>
-    </Switch>
-  }
-}
-
-class GetQuestionDisplay extends React.component{
+class ViewEditApp extends React.Component {
 
   componentWillMount() {
-    const data = undefined
-    const params = this.props.match.params
-    fetch('/api/question/$(this.props.match.params.index)')
-    .then((res) => (
-      res.json()
-    )).then((res) => (
-      data = res
-    ))
-    this.setState({
-      index: data.qKey,
-      type: data.qType,
-      value: data.qValue,
-      answer: data.answer,
-      option0: data.candidate1,
-      option1: data.candidate2,
-      option2: data.candidate3,
-      option3: data.candidate4
-    })
-  }
-
-  constructor(props) {
-    const params = this.props.match.params
-    super(props)
-    this.state = {
-      index = undefined,
-      type = undefined,
-      value = undefined,
-      answer = undefined,
-      option0 = undefined,
-      option1 = undefined,
-      option2 = undefined,
-      option3 = undefined
-    }
-  }
-
-  render() {
-    let shortAnswerReady = (
-      this.state.type === SHORT_ANSWER &&
-      this.state.index &&
-      this.state.value &&
-      this.state.answer
+    let viewPane = undefined
+    let editPane = undefined
+    let deletePane = (
+      <Deletor index={this.props.index}/>
     )
-
-    let multipleChoiceReady = (
-      this.state.type === MULTIPLE_CHOICE &&
-      this.state.index &&
-      this.state.value &&
-      this.state.answer &&
-      this.state.option0 &&
-      this.state.option1 &&
-      this.state.option2 &&
-      this.state.option3
-    )
-
-    let comp = undefined
-    if (shortAnswerReady) {
-      comp = <ShortAnswerDisplay type=this.state/>
-    } else if (multipleChoiceReady) {
-      comp = <MultipleAnswerDisplay type=.../>
-    }
-    return {
-      {comp}
-    }
-  }
-}
-
-
-class EditApp extends React.Component {
-
-  componentWillMount() {
-    this.setState({
-      index: this.props.index,
-      type:this.props.type
-    })
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      index: undefined,
-      type: undefined
-
-    }
-  }
-  render() {
-    <BrowserRouter>
-      <Row>
-        <EditRouter
+    if(this.props.type === SHORT_ANSWER) {
+      viewPane = (
+        <ShortAnswerDisplay
           index={this.props.index}
-          type={this.porps.type}/>
-      </Row>
-      <EditSwitcher/>
-    </BrowserRouter>
+          value={this.props.value}
+          answer={this.props.answer}/>
+      )
+      editPane = (
+        <ShortAnswerEditor
+          index={this.props.index}
+          value={this.props.value}
+          answer={this.props.answer}/>
+      )
+    } else if (this.props.type === MULTIPLE_CHOICE) {
+      viewPane = (
+        <MultipleAnswerDisplay
+          index={this.props.index}
+          value={this.props.value}
+          answer={this.props.answer}
+          option0={this.props.option0}
+          option1={this.props.option1}
+          option2={this.props.option2}
+          option3={this.props.option3}/>
+      )
+      editPane = (
+        <MultipleAnswerEditor
+          index={this.props.index}
+          value={this.props.value}
+          answer={this.props.answer}
+          option0={this.props.option0}
+          option1={this.props.option1}
+          option2={this.props.option2}
+          option3={this.props.option3}/>
+      )
+    }
+    this.setState({
+      value: this.props.value,
+      answer: this.props.answer,
+      option0: this.props.option0,
+      option1: this.props.option1,
+      option2: this.props.option2,
+      option3: this.props.option3,
+      pane: viewPane,
+      viewPane: viewPane,
+      editPane: editPane,
+      deletePane: deletePane
+    })
+  }
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: undefined,
+      answer: undefined,
+      option0: undefined,
+      option1: undefined,
+      option2: undefined,
+      option3: undefined,
+      pane: undefined
+    }
+    this.changeState = this.changeState.bind(this)
+  }
+
+  changeState(obj) {
+    return (e) => {
+      e.preventDefault()
+      console.log(obj)
+      this.setState(obj)
+    }
+  }
+
+  render() {
+    let viewPane = undefined
+    let editPane = undefined
+    let deletePane = undefined
+
+
+
+    return(
+      <div>
+        <Row>
+          <button onClick={this.changeState({pane:this.state.viewPane})}>view</button>
+          <button onClick={this.changeState({pane:this.state.editPane})}>edit</button>
+          <button onClick={this.changeState({pane:this.state.deletePane})}>delete</button>
+        </Row>
+        {this.state.pane}
+      </div>
+    )
   }
 }
+
+export default ViewEditApp
