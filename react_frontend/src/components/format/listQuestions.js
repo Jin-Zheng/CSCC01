@@ -9,7 +9,7 @@ const MULTIPLE_CHOICE = 'MC'
 class ListQuestions extends React.Component {
 
   componentWillMount() {
-    fetch('/viewApp', {method: 'GET'})
+    fetch('/viewApp')
       .then((res) => (
         res.json()
       ))
