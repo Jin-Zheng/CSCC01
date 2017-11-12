@@ -29,7 +29,7 @@ class ShortAnswerDisplay extends React.Component {
     const values = List([
       'index: ' + this.state.index,
       'type: ' + this.state.type,
-      'vlaue: ' + this.state.value,
+      'value: ' + this.state.value,
       'answer: ' + this.state.answer
     ])
     return (

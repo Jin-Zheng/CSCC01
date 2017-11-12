@@ -41,7 +41,7 @@ class MultipleAnswerDisplay extends React.Component {
       'option1: ' + this.state.option1,
       'option2: ' + this.state.option2,
       'option3: ' + this.state.option3,
-      'asnwer: ' + this.state.answer
+      'answer: ' + this.state.answer
     ])
     return (
       <div>
