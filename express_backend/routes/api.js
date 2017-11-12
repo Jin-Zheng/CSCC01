@@ -10,4 +10,14 @@ router.get('/questions/get/all', (res, req, next) => {
   res.locals.connection.end
 })
 
+router.get('/', function(req, res, next) {
+	console.log('Viewing all questions')
+	res.locals.connection.connect()
+	res.locals.connection.query('SELECT * FROM Question', function (error, results, fields) {
+		if (error) throw error;
+		res.send(JSON.stringify(results));
+	});
+	res.locals.connection.end()
+})
+
 module.exports = router

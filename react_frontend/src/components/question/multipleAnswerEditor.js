@@ -2,7 +2,7 @@ import React from 'react'
 import {Row} from 'react-flexbox-grid'
 import Styles from '../../styles'
 
-class McEditor extends React.Component {
+class MultipleAnswerEditor extends React.Component {
 
   componentWillMount() {
     this.setState({
@@ -110,4 +110,4 @@ class McEditor extends React.Component {
   }
 }
 
-export default McEditor
+export default MultipleAnswerEditor
