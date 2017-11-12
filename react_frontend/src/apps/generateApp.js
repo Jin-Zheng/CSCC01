@@ -8,12 +8,17 @@ class GenerateRouter extends React.Component {
   render() {
     return(
       <Row>
+        <button>
           <Link to='/generateApp/createShortAnswer'>
-            short answer|
+            short answer
           </Link>
+        </button>
+        |
+        <button>
           <Link to='/generateApp/createMultipleChoice'>
             multiple choice
           </Link>
+        </button>
       </Row>
     )
   }

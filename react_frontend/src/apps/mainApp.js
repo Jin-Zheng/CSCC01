@@ -13,20 +13,26 @@ import ListQuestions from '../components/format/listQuestions'
 class MainRouter extends React.Component{
   render() {
     const linksList = List([
-      <button>
-        <Link to='/'>
+      <button style={Styles.indexButton}>
+        <Link to='/' style={Styles.indexLink}>
           home
         </Link>
       </button>,
-      <Link to='/generateApp'>
-        generate
-      </Link>,
-      <Link to='/viewApp'>
-        view(alpha)
-      </Link>,
-      <Link to='/signUpApp'>
-        sign up
-      </Link>
+      <button style={Styles.indexButton}>
+        <Link to='/generateApp' style={Styles.indexLink}>
+          generate
+        </Link>
+      </button>,
+      <button style={Styles.indexButton}>
+        <Link to='/viewApp' style={Styles.indexLink}>
+          view(alpha)
+        </Link>
+      </button>,
+      <button style={Styles.indexButton}>
+        <Link to='/signUpApp' style={Styles.indexLink}>
+          sign up
+        </Link>
+      </button>,
     ])
     return (
       <FormatListView list={linksList}/>

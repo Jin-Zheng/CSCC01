@@ -8,7 +8,7 @@ const Styles = {
     fontFamily: 'monospace',
     width: '100%',
     resize: 'none',
-    height: 60
+    height: 60,
   },
 
   vNavButton: {
@@ -19,16 +19,31 @@ const Styles = {
   },
 
   indexLink: {
-    color: 'red',
-    backgroundColor: '1a8cff'
+    color: 'bf80ff',
+    background: '1a8cff',
+    onmouseover: {textDecoration: 'wavy'},
+    textDecoration: 'none',
+  },
+
+  indexButton: {
+    marginBottom: 0,
+    color: 'black',
+    background: '1a8cff',
+    textDecoration: 'none',
+    fontSize: '15px',
+    width: '100px',
+    height: '30px',
+
   },
 
   submitButton: {
     marginBottom: 0,
     color: 'black',
     backgroundColor: 'bfbfbf',
-    borderRadius: '80%',
+    //borderRadius: '80%',
+    padding: '20',
+    fontSize: '25px',
   },
 };
 
-export default Styles
+export default Styles;
