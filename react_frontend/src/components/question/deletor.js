@@ -10,9 +10,9 @@ class Deletor extends React.Component {
 
   handleDelete(e) {
     e.preventDefault()
-    fetch('api/question/delete/$(this.props.index)')
-    .catch((e) => (
-      console.log(e)
+    fetch('questionApi/delete/$(this.props.index)')
+    .catch((err) => (
+      console.log(err)
     ))
   }
 

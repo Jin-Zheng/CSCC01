@@ -27,6 +27,7 @@ class MultipleAnswerEditor extends React.Component {
     }
     this.changeState = this.changeState.bind(this)
     this.changeText = this.changeText.bind(this)
+    this.updateQuestion = this.updateQuestion.bind(this)
   }
 
   changeState(obj) {
@@ -43,10 +44,27 @@ class MultipleAnswerEditor extends React.Component {
     }
   }
 
+  updateQuestion(e) {
+    e.preventDefault()
+    const data = {
+      qValue: this.state.value,
+      answer: this.props.answer,
+      candidate1: this.props.option0,
+      candidate2: this.props.option1,
+      candidate3: this.props.option2,
+      candidate4: this.props.option3
+    }
+    fetch('/qestionApi/update/$(this.props.index)', {
+      body: JSON.stringify(data)
+    }).catch((err) => (
+      console.log(err)
+    ))
+  }
+
   render() {
     return (
       <form
-        onSubmit = {(e) => {e.preventDefault()}}>
+        onSubmit = {this.updateQuestion}>
         <Row>
           Value:
         </Row>
