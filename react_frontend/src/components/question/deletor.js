@@ -10,7 +10,7 @@ class Deletor extends React.Component {
 
   handleDelete(e) {
     e.preventDefault()
-    fetch('questionApi/delete/$(this.props.index)')
+    fetch('questionApi/delete/' + this.props.index)
     .catch((err) => (
       console.log(err)
     ))
@@ -23,7 +23,7 @@ class Deletor extends React.Component {
           This cannot be undone.
         </Row>
         <Row>
-          <button onClick={e=> {e.preventDefault()}}>
+          <button onClick={this.handleDelete}>
             DELETE
           </button>
         </Row>

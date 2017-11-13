@@ -45,7 +45,11 @@ class ShortAnswerEditor extends React.Component {
       qValue: this.state.value,
       answer: this.state.answer
     }
-    fetch('/questionApi/update/$(this.props.index)', {
+    fetch('/questionApi/update/' + this.props.index, {
+      method: 'POST',
+      headers: {
+      'Content-Type': 'application/json'
+      },
       body: JSON.stringify(data)
     }).catch((err) => (
       console.log(err)
@@ -59,7 +63,7 @@ class ShortAnswerEditor extends React.Component {
     //])
     const debugList = []
     return (
-      <form onSubmit={(e)=>{e.preventDefault()}}>
+      <form onSubmit={this.updateQuestion}>
         <FormatListView list={debugList}/>
         <Row>
           Value:

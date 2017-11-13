@@ -25,7 +25,7 @@ router.get('/insert/instructor', function(req, res, next) {
 router.get('/insert/student', function(req, res, next) {
 	console.log('Creating student');
 	res.locals.connection.connect();
-	var usersSqlAdd = "INSERT INTO User (firstName, lastName, uType, username, password, lastModified, lastAccessed) VALUES ?";
+	var usersSqlAdd = 'INSERT INTO User (firstName, lastName, uType, username, password, lastModified, lastAccessed) VALUES ?';
 	var values = [
 		[''+req.body.firstName+'',''+req.body.lastName+'',''+req.body.uType+'', ''+req.body.username+'', ''+req.body.password+'', ''+Date.now()+'',''+Date.now()+''],
 	];

@@ -54,7 +54,11 @@ class MultipleAnswerEditor extends React.Component {
       candidate3: this.props.option2,
       candidate4: this.props.option3
     }
-    fetch('/qestionApi/update/$(this.props.index)', {
+    fetch('/questionApi/update/' + this.props.index, {
+      method: 'POST',
+      headers: {
+      'Content-Type': 'application/json'
+      },
       body: JSON.stringify(data)
     }).catch((err) => (
       console.log(err)
@@ -122,6 +126,11 @@ class MultipleAnswerEditor extends React.Component {
             <option value={2}>2</option>
             <option value={3}>3</option>
           </select>
+        </Row>
+        <Row end='xs'>
+          <button type={'submit'}>
+            submit
+          </button>
         </Row>
       </form>
     )
