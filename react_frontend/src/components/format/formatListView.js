@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row, Grid} from 'react-flexbox-grid'
+import {Row} from 'react-flexbox-grid'
 
 class FormatListView extends React.Component{
 

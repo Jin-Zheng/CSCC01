@@ -1,7 +1,5 @@
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
-import {List} from 'immutable'
-import FormatListView from '../format/formatListView'
 import Styles from '../../styles'
 
 class CreateShortAnswer extends React.Component {
@@ -54,10 +52,6 @@ class CreateShortAnswer extends React.Component {
   }
 
   render() {
-    const debugList = List([
-      'value: ' + this.state.value,
-      'answer: ' + this.state.answer
-    ])
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

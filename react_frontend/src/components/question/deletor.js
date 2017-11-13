@@ -5,9 +5,9 @@ class Deletor extends React.Component {
 
   constructor(props) {
     super(props)
-    //this.handleDelete = this.handleDelete.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
-/*
+
   handleDelete(e) {
     e.preventDefault()
     fetch('api/question/delete/$(this.props.index)')
@@ -15,7 +15,7 @@ class Deletor extends React.Component {
       console.log(e)
     ))
   }
-*/
+
   render() {
     return(
       <div>

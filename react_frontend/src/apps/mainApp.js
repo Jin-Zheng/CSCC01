@@ -6,7 +6,6 @@ import GenerateApp from '../apps/generateApp'
 import SignUpApp from '../apps/signUpApp'
 import {List} from 'immutable'
 import FormatListView from '../components/format/formatListView'
-import ViewApp from '../apps/viewApp'
 import ListQuestions from '../components/format/listQuestions'
 
 

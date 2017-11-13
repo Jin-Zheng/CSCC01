@@ -3,7 +3,6 @@ import {Row} from 'react-flexbox-grid'
 import {BrowserRouter, Route, Link, Switch} from 'react-router-dom'
 import InstructorSignUp from '../components/signup/instructorSignUp'
 import StudentSignUp from '../components/signup/studentSignUp'
-import Styles from '../styles'
 
 class SignUpSwitcher extends React.Component {
   render() {

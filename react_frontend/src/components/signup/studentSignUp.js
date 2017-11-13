@@ -1,7 +1,5 @@
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
-import {List} from 'immutable'
-import FormatListView from '../format/formatListView'
 import Styles from '../../styles'
 
 class StudentSignUp extends React.Component {
@@ -56,14 +54,6 @@ class StudentSignUp extends React.Component {
   }
 
   render() {
-    const debugList = List([
-      'Student:',
-      'username: ' + this.state.username,
-      'password: ' + this.state.password,
-      'firstname: ' + this.state.firstname,
-      'lastname: ' + this.state.lastname,
-      'email: ' + this.state.email,
-    ])
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

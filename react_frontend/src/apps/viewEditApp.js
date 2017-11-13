@@ -89,12 +89,7 @@ class ViewEditApp extends React.Component {
   }
 
   render() {
-    let viewPane = undefined
-    let editPane = undefined
-    let deletePane = undefined
-
-
-
+    
     return(
       <div>
         <Row>

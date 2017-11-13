@@ -1,6 +1,5 @@
 import React from 'react'
-import {Row, Grid} from 'react-flexbox-grid'
-import FormatListView from '../format/formatListView'
+import {Row} from 'react-flexbox-grid'
 import Styles from '../../styles'
 
 class CreateMultipleChoice extends React.Component {
@@ -19,20 +18,8 @@ class CreateMultipleChoice extends React.Component {
       value: undefined,
     }
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.radioClicked = this.radioClicked.bind(this)
     this.changeText = this.changeText.bind(this)
     this.changeState = this.changeState.bind(this)
-  }
-
-  radioClicked(n) {
-    return (
-      (event) => {
-        event.preventDefault()
-        this.setState({
-          answer:n
-        })
-      }
-    )
   }
 
   changeState(obj) {
@@ -40,15 +27,6 @@ class CreateMultipleChoice extends React.Component {
       event.preventDefault()
       this.setState(obj)
     }
-  }
-
-  updateAnswer(n) {
-    return (
-      (event) => {
-        event.preventDefault()
-        this.setState({answer:n})
-      }
-    )
   }
 
   changeText(field) {
@@ -87,14 +65,6 @@ class CreateMultipleChoice extends React.Component {
   }
 
   render() {
-    const stateList = [
-      'value: ' + this.state.value,
-      'answer: ' + this.state.answer,
-      'option0: ' + this.state.option0,
-      'option1: ' + this.state.option1,
-      'option2: ' + this.state.option2,
-      'option3: ' + this.state.option3,
-    ]
     return (
       <div>
           <form onSubmit={this.handleSubmit}>
