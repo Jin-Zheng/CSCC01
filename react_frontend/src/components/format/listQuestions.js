@@ -10,7 +10,7 @@ const MULTIPLE_CHOICE = 'MC'
 class ListQuestions extends React.Component {
 
   componentWillMount() {
-    fetch('/api')
+    fetch('/questionApi/get/all')
       .then((res) => (
         res.json()
       ))

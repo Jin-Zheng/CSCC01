@@ -6,18 +6,7 @@ router.use(function (req, res, next) {
 	next();
 })
 
-
-router.get('/questions/get/all', (res, req, next) => {
-  console.log('get all questions')
-  res.locals.connection.connect()
-  const sql = 'SELECT * FROM Question'
-  res.locals.connection.query(sql, (err, results, fields) => {
-    res.send(JSON.Stringify(results))
-  })
-  res.locals.connection.end
-})
-
-router.get('/', function(req, res, next) {
+router.get('/questions/get/all', function(req, res, next) {
 	console.log('Viewing all questions')
 	res.locals.connection.connect()
 	res.locals.connection.query('SELECT * FROM Question', function (error, results, fields) {

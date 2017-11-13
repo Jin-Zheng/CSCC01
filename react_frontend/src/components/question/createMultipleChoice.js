@@ -70,7 +70,7 @@ class CreateMultipleChoice extends React.Component {
       candidate4: this.state.option3,
     }
     console.log(data)
-    fetch("/generateApp/createMultipleChoice", {
+    fetch("/questionApi/insert/mc", {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(data)

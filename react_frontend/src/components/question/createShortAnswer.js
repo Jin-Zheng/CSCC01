@@ -28,7 +28,7 @@ class CreateShortAnswer extends React.Component {
       answer: this.state.answer
     }
     console.log(data)
-    fetch("/generateApp/createShortAnswer", {
+    fetch("/questionApi/insert/sa", {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(data)
