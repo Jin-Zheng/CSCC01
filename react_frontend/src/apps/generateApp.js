@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row, Col} from 'react-flexbox-grid'
+import {Row} from 'react-flexbox-grid'
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 import CreateShortAnswer from '../components/question/createShortAnswer'
 import CreateMultipleChoice from '../components/question/createMultipleChoice'

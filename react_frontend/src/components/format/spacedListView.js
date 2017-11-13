@@ -1,5 +1,4 @@
 import React from 'react'
-import {List} from 'immutable'
 import {Row} from 'react-flexbox-grid'
 
 class SpacedListView extends React.Component {

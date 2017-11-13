@@ -1,5 +1,4 @@
 import FormatListView from '../format/formatListView'
-import {List} from 'immutable'
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
 import Styles from '../../styles'
@@ -21,6 +20,7 @@ class ShortAnswerEditor extends React.Component {
     }
     this.changeText = this.changeText.bind(this)
     this.changeState = this.changeState.bind(this)
+    this.updateQuestion = this.updateQuestion.bind(this)
   }
 
   changeState(obj) {
@@ -37,6 +37,19 @@ class ShortAnswerEditor extends React.Component {
         [field]: e.target.value
       })
     }
+  }
+
+  updateQuestion(e) {
+    e.preventDefault()
+    const data = {
+      qValue: this.state.value,
+      answer: this.state.answer
+    }
+    fetch('/questionApi/update/$(this.props.index)', {
+      body: JSON.stringify(data)
+    }).catch((err) => (
+      console.log(err)
+    ))
   }
 
   render() {

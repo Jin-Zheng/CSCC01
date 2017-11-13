@@ -5,17 +5,17 @@ class Deletor extends React.Component {
 
   constructor(props) {
     super(props)
-    //this.handleDelete = this.handleDelete.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
-/*
+
   handleDelete(e) {
     e.preventDefault()
-    fetch('api/question/delete/$(this.props.index)')
-    .catch((e) => (
-      console.log(e)
+    fetch('questionApi/delete/$(this.props.index)')
+    .catch((err) => (
+      console.log(err)
     ))
   }
-*/
+
   render() {
     return(
       <div>
