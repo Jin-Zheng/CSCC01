@@ -232,4 +232,31 @@ connection.connect()
   //   connection.query(sqlQuiz, function (error, results, fields) {
   //   if (error) throw  error;
   // });
+
+  // ADD quiz
+  // var sqladd = 'INSERT INTO Quiz (quizName, quizCreator) VALUES ?';
+	// var values = [
+	// 	['Unit 1 Quiz', 'Salim'],
+	// ];
+  // connection.query(sqladd, [values], function (err, result) {
+  //   if (err) throw err;
+  //   // console.log("Number of records deleted: " + result.affectedRows);
+  // });
+
+  // connection.query('SELECT * FROM Quiz JOIN QuizContents WHERE Quiz.quizKey = 1', function (err, result) {
+  //   if (err) throw err;
+  //   // console.log("Number of records deleted: " + result.affectedRows);
+  // });
+
+  // var sqlview =
+	// 'SELECT Quiz.quizName, Quiz.quizCreator, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
+	// 'FROM Quiz JOIN QuizContents ' +
+	// 'ON Quiz.quizKey = QuizContents.quizId ' +
+	// 'JOIN Question ON QuizContents.questionId = Question.qKey ' +
+	// 'WHERE Quiz.quizKey = ' + 1;
+  // connection.query(sqlview, function (err, result, fields) {
+  //   console.log("\nViewing Quiz Database:\n");
+  //   if (err) throw err;
+  //   console.log(result);
+  // });
 connection.end()
