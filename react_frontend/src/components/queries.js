@@ -234,28 +234,31 @@ connection.connect()
   // });
 
   // ADD quiz
-  // var sqladd = 'INSERT INTO Quiz (quizName, quizCreator) VALUES ?';
+  // var sqladd = 'INSERT INTO AttemptContents (attemptId, questionId, answer) VALUES ?';
 	// var values = [
-	// 	['Unit 1 Quiz', 'Salim'],
+	// 	[2, 3, "CSCC01"],
 	// ];
   // connection.query(sqladd, [values], function (err, result) {
   //   if (err) throw err;
   //   // console.log("Number of records deleted: " + result.affectedRows);
   // });
 
-  // connection.query('SELECT * FROM Quiz JOIN QuizContents WHERE Quiz.quizKey = 1', function (err, result) {
+
+  // connection.query('SELECT * FROM Attempt', function (err, result) {
   //   if (err) throw err;
   //   // console.log("Number of records deleted: " + result.affectedRows);
+  //   console.log(result);
   // });
-
+  //
+  //
   // var sqlview =
-	// 'SELECT Quiz.quizName, Quiz.quizCreator, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
-	// 'FROM Quiz JOIN QuizContents ' +
-	// 'ON Quiz.quizKey = QuizContents.quizId ' +
-	// 'JOIN Question ON QuizContents.questionId = Question.qKey ' +
-	// 'WHERE Quiz.quizKey = ' + 1;
+	// 'SELECT Attempt.studentUsername, Attempt.grade, AttemptContents.answer AS studentAnswer, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
+	// 'FROM Attempt JOIN AttemptContents ' +
+	// 'ON Attempt.attemptKey = AttemptContents.attemptId ' +
+	// 'JOIN Question ON AttemptContents.questionId = Question.qKey ' +
+	// 'WHERE Attempt.attemptKey = ' + 2;
   // connection.query(sqlview, function (err, result, fields) {
-  //   console.log("\nViewing Quiz Database:\n");
+  //   console.log("\nViewing Attempt Database:\n");
   //   if (err) throw err;
   //   console.log(result);
   // });
