@@ -19,7 +19,7 @@ const Styles = {
   },
 
   indexLink: {
-    color: 'bf80ff',
+    color: 'black',
     background: '1a8cff',
     onmouseover: {textDecoration: 'wavy'},
     textDecoration: 'none',
@@ -30,19 +30,32 @@ const Styles = {
     color: 'black',
     background: '1a8cff',
     textDecoration: 'none',
+    marginRight: '5px',
     fontSize: '15px',
-    width: '100px',
+    width: '150px',
     height: '30px',
 
+  },
+
+  editButton: {
+    marginBottom: 0,
+    color: 'black',
+    backgroundColor: 'e6e6e6',
+    borderRadius: '90%',
+    padding: '5',
+    fontSize: '15px',
+    marginRight: '5px',
   },
 
   submitButton: {
     marginBottom: 0,
     color: 'black',
-    backgroundColor: 'bfbfbf',
-    //borderRadius: '80%',
-    padding: '20',
-    fontSize: '25px',
+    background: '1a8cff',
+    textDecoration: 'none',
+    margin: '5px',
+    fontSize: '15px',
+    width: '70px',
+    height: '30px',
   },
 };
 

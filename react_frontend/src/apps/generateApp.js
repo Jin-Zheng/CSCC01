@@ -1,6 +1,7 @@
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
+import Styles from '../styles'
 import CreateShortAnswer from '../components/question/createShortAnswer'
 import CreateMultipleChoice from '../components/question/createMultipleChoice'
 
@@ -8,14 +9,15 @@ class GenerateRouter extends React.Component {
   render() {
     return(
       <Row>
-        <button>
-          <Link to='/generateApp/createShortAnswer'>
+        <button style={Styles.indexButton}>
+          <Link to='/generateApp/createShortAnswer'
+            style={Styles.indexLink}>
             short answer
           </Link>
         </button>
-        |
-        <button>
-          <Link to='/generateApp/createMultipleChoice'>
+        <button style={Styles.indexButton}>
+          <Link to='/generateApp/createMultipleChoice'
+            style={Styles.indexLink}>
             multiple choice
           </Link>
         </button>

@@ -103,7 +103,8 @@ class StudentSignUp extends React.Component {
               style={Styles.textareaSimple}/>
           </Row>
           <Row>
-            <button type={'submit'}>
+            <button type={'submit'}
+              style={Styles.submitButton}>
               submit
             </button>
           </Row>
