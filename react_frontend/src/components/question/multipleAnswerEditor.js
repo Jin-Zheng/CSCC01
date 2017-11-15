@@ -128,7 +128,8 @@ class MultipleAnswerEditor extends React.Component {
           </select>
         </Row>
         <Row end='xs'>
-          <button type={'submit'}>
+          <button type={'submit'}
+            style={Styles.submitButton}>
             submit
           </button>
         </Row>

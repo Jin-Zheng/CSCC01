@@ -1,5 +1,6 @@
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
+import Styles from '../styles'
 import MultipleAnswerEditor from '../components/question/multipleAnswerEditor'
 import ShortAnswerDisplay from '../components/question/shortAnswerDisplay'
 import ShortAnswerEditor from '../components/question/shortAnswerEditor'
@@ -89,13 +90,16 @@ class ViewEditApp extends React.Component {
   }
 
   render() {
-    
+
     return(
       <div>
         <Row>
-          <button onClick={this.changeState({pane:this.state.viewPane})}>view</button>
-          <button onClick={this.changeState({pane:this.state.editPane})}>edit</button>
-          <button onClick={this.changeState({pane:this.state.deletePane})}>delete</button>
+          <button onClick={this.changeState({pane:this.state.viewPane})}
+            style={Styles.editButton}>view</button>
+          <button onClick={this.changeState({pane:this.state.editPane})}
+            style={Styles.editButton}>edit</button>
+          <button onClick={this.changeState({pane:this.state.deletePane})}
+            style={Styles.editButton}>delete</button>
         </Row>
         {this.state.pane}
       </div>
