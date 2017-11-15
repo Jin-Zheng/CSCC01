@@ -1,5 +1,5 @@
 import React from 'react'
-import {Set} from 'immutable'
+import {List} from 'immutable'
 
 const SHORT_ANSWER = 'SA'
 const MULTIPLE_CHOICE = 'MC'
@@ -54,7 +54,7 @@ class SelectQuestions extends React.Component {
     ))
 
     this.setState({
-      selected: Set()
+      selected: List()
     })
   }
 
@@ -66,8 +66,20 @@ class SelectQuestions extends React.Component {
     }
   }
 
+  checkIten(n) {
+    return ()
+  }
+
   wrap(q) => {
-    <GetQuestionDisplay data={this.state.data}/>
+    <Row>
+      <Col xs={11} sm={11} md={11} lg={11}>
+        <GetQuestionDisplay data={this.state.data}/>
+      </Col>
+      <Col xs={1} sm={1} md={1} lg={1}>
+        <inputtype='checkbox'/>
+      </Col>
+    </Row>
+
   }
 }
 
