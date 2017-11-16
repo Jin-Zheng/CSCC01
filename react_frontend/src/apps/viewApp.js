@@ -1,32 +1,53 @@
 import React from 'react'
-import {Row, Col} from 'react-flexbox-grid'
-import {BrowserRouter, Switch, Link, Route} from 'react-router-dom'
+import ViewEditApp from './viewEditApp'
 
 class ViewApp extends React.Component {
-  render() {
+
+  componentWillMount() {
+    fetch('/questionApi/get/all')
+      .then((res) => (
+        res.json()
+      ))
+      .then((res) => {
+        this.setState({questions:res})
+        console.log(this.state.questions)
+      })
+  }
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      questions: undefined
+    }
+  }
+
+  wrap(q) {
     return(
-      <BrowserRouter>
-        <div>
-          <ViewRouter/>
-          <ViewSwitcher/>
-        </div>
-      </BrowserRouter>
+      <ViewEditApp
+        index={q.qKey}
+        type={q.qType}
+        value={q.qValue}
+        answer={q.answer}
+        option0={q.candidate1}
+        option1={q.candidate2}
+        option2={q.candidate3}
+        option3={q.candidate4}/>
     )
   }
-}
 
-class ViewRouter extends React.Component {
   render() {
-    return(
-      <div/>
-    )
-  }
-}
-
-class ViewSwitcher extends React.Component {
-  render() {
-    return(
-      <div/>
+    let qList = undefined
+    if (this.state.questions) {
+      qList = this.state.questions.map((q) => (
+        this.wrap(q)
+      ))
+    } else {
+      qList = undefined
+    }
+    return (
+      <div>
+        {qList}
+      </div>
     )
   }
 }

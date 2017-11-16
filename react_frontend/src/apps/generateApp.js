@@ -13,7 +13,6 @@ class GenerateRouter extends React.Component {
             short answer
           </Link>
         </button>
-        |
         <button>
           <Link to='/generateApp/createMultipleChoice'>
             multiple choice

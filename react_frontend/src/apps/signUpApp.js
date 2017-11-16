@@ -29,7 +29,6 @@ class SignUpRouter extends React.Component {
             instructor sign up
           </Link>
         </button>
-        |
         <button>
           <Link to='/SignUpApp/StudentSignUp'>
             student sign up
