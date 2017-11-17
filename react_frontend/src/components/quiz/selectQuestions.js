@@ -1,5 +1,5 @@
 import React from 'react'
-import {List, Set} from 'immutable'
+import {List, Map} from 'immutable'
 import ShortAnswerDisplay from '../question/shortAnswerDisplay'
 import MultipleAnswerDisplay from '../question/multipleAnswerDisplay'
 import {Row, Col} from 'react-flexbox-grid'
@@ -11,14 +11,14 @@ class GetQuestionDisplay extends React.Component {
 
   componentWillMount() {
     let pane = undefined
-    if (this.props.data.qType === SHORT_ANSWER) {
+    if(this.props.data.qType === SHORT_ANSWER) {
       pane = (
         <ShortAnswerDisplay
           value = {this.props.data.qValue}
           answer = {this.props.data.answer}
           index = {this.props.data.qKey}/>
       )
-    } else if (this.props.qType === MULTIPLE_CHOICE) {
+    } else if(this.props.data.qType === MULTIPLE_CHOICE) {
       pane = (
         <MultipleAnswerDisplay
           value = {this.props.data.qValue}
@@ -50,18 +50,21 @@ class SelectQuestions extends React.Component {
     fetch('/questionApi/get/all')
     .then((res) => (
       res.json()
-    )).then((res) => (
+    )).then((res) => {
       this.setState(
         {
           questions: res.reduce((prev, next) => (
-            prev[next.qKey] = next
-          ), {}),
+            prev.set(next.qKey, next)
+          ), Map({})),
           selected: res.reduce((prev, next) => (
-            prev[next.qKey] = false
-          ), {})
+            prev.set(next.qKey, false)
+          ), Map({}))
         }
       )
-    )).catch((err)=>(
+    }).then((res) => {
+      console.log(this.state.questions.toJSON())
+      console.log(this.state.selected.toJSON())
+    }).catch((err)=>(
       console.log(err)
     ))
   }
