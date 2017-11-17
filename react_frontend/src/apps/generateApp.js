@@ -3,6 +3,7 @@ import {Row} from 'react-flexbox-grid'
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 import CreateShortAnswer from '../components/question/createShortAnswer'
 import CreateMultipleChoice from '../components/question/createMultipleChoice'
+import SelectQuestions from '../components/quiz/selectQuestions'
 
 class GenerateRouter extends React.Component {
   render() {
@@ -18,6 +19,9 @@ class GenerateRouter extends React.Component {
             multiple choice
           </Link>
         </button>
+        <Link to='/generateApp/createQuiz'>
+          quiz
+        </Link>
       </Row>
     )
   }
@@ -33,6 +37,9 @@ class GenerateSwitcher extends React.Component {
         <Route
           exact path='/generateApp/createMultipleChoice'
           component={CreateMultipleChoice}/>
+        <Route
+          exact path='/generateApp/createQuiz'
+          component={SelectQuestions}/>
       </Switch>
     )
   }
