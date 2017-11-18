@@ -62,8 +62,8 @@ class SelectQuestions extends React.Component {
         }
       )
     }).then((res) => {
-      console.log(this.state.questions.toJSON())
-      console.log(this.state.selected.toJSON())
+      //console.log(this.state.questions.toJSON())
+      //console.log(this.state.selected.toJSON())
     }).catch((err)=>(
       console.log(err)
     ))
@@ -103,7 +103,8 @@ class SelectQuestions extends React.Component {
   render() {
     let qList = undefined
     if (this.state.questions) {
-      qList = this.state.questions.map(this.wrap)
+      qList = this.state.questions.toArray().map(this.wrap)
+      console.log(qList)
     }
     return(
       <div>
