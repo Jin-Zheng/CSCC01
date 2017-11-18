@@ -11,23 +11,23 @@ class GetQuestionDisplay extends React.Component {
 
   componentWillMount() {
     let pane = undefined
-    if(this.props.data.qType === SHORT_ANSWER) {
+    if(this.props.data.get('qType') === SHORT_ANSWER) {
       pane = (
         <ShortAnswerDisplay
-          value = {this.props.data.qValue}
-          answer = {this.props.data.answer}
-          index = {this.props.data.qKey}/>
+          value = {this.props.data.get('qValue')}
+          answer = {this.props.data.get('answer')}
+          index = {this.props.data.get('qKey')}/>
       )
-    } else if(this.props.data.qType === MULTIPLE_CHOICE) {
+    } else if(this.props.data.get('qType') === MULTIPLE_CHOICE) {
       pane = (
         <MultipleAnswerDisplay
-          value = {this.props.data.qValue}
-          answer = {this.props.data.answer}
-          index = {this.props.data.qKey}
-          option0 = {this.props.data.candidate1}
-          option1 = {this.props.data.candidate2}
-          option2 = {this.props.data.candidate3}
-          option3 = {this.props.data.candidate4}/>
+          value = {this.props.data.get('qValue')}
+          answer = {this.props.data.get('answer')}
+          index = {this.props.data.get('qKey')}
+          option0 = {this.props.data.get('candidate1')}
+          option1 = {this.props.data.get('candidate2')}
+          option2 = {this.props.data.get('candidate3')}
+          option3 = {this.props.data.get('candidate4')}/>
       )
     }
 
@@ -57,7 +57,7 @@ class SelectQuestions extends React.Component {
             prev.set(next.qKey, next)
           ), Map({})),
           selected: res.reduce((prev, next) => (
-            prev.set(next.qKey, false)
+            prev.set(next.qKey, true)
           ), Map({}))
         }
       )
@@ -80,10 +80,9 @@ class SelectQuestions extends React.Component {
 
   checkItem(n) {
     return (e) => {
-      e.preventDefault()
-      // check to see if this works
-      this.setState({selected: {n: !e.target.selected}})
-      console.log(this.state.selected)
+      const old = this.state
+      const up = old.selected.set(n, e.target.checked)
+      this.setState({selected: up})
     }
   }
 
@@ -91,10 +90,13 @@ class SelectQuestions extends React.Component {
     return (
       <Row>
         <Col xs={11} sm={11} md={11} lg={11}>
-          <GetQuestionDisplay data={q}/>
+          <GetQuestionDisplay data={Map(q)}/>
         </Col>
         <Col xs={1} sm={1} md={1} lg={1}>
-          <input type='checkbox' onClick={this.checkItem(q.qKey)}/>
+          <input
+            type='checkbox'
+            onChange={this.checkItem(q.qKey)}
+            checked={this.state.selected.get(q.qKey)}/>
         </Col>
       </Row>
     )
@@ -104,7 +106,6 @@ class SelectQuestions extends React.Component {
     let qList = undefined
     if (this.state.questions) {
       qList = this.state.questions.toArray().map(this.wrap)
-      console.log(qList)
     }
     return(
       <div>
