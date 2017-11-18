@@ -8,33 +8,94 @@ import {List} from 'immutable'
 import FormatListView from '../components/format/formatListView'
 import ListQuestions from '../components/format/listQuestions'
 
-
 class MainRouter extends React.Component{
+
+  constructor(props){
+    super(props)
+    this.state = {
+      changeLink: undefined,
+      currentLink: List([
+        <Row>
+        <button style={Styles.indexButton}
+          onClick={this.changeState(
+            {changeLink: 'INST'})}>
+          <Link to='/instructor' style={Styles.indexLink}>
+            Instructor
+          </Link>
+        </button>
+        <button style={Styles.indexButton}>
+          <Link to='/student' style={Styles.indexLink}>
+            Student
+          </Link>
+        </button>
+        </Row>
+      ]),
+      homeLink: List([
+        <Row>
+        <button style={Styles.indexButton}
+          onClick={this.changeState(
+            {changeLink: 'INST'})}>
+          <Link to='/instructor' style={Styles.indexLink}>
+            Instructor
+          </Link>
+        </button>
+        <button style={Styles.indexButton}>
+          <Link to='/student' style={Styles.indexLink}>
+            Student
+          </Link>
+        </button>
+        </Row>
+      ]),
+      instructorLink: List([
+        <button style={Styles.indexButton}>
+          <Link to='/instructor/generateApp' style={Styles.indexLink}>
+            Generate Question
+          </Link>
+        </button>,
+        <button style={Styles.indexButton}>
+          <Link to='/instructor/viewApp' style={Styles.indexLink}>
+            View Question
+          </Link>
+        </button>,
+        <button style={Styles.indexButton}>
+          <Link to='/' style={Styles.indexLink}
+            onClick={this.changeState(
+            {changeLink: 'HOME'})}>
+            Home
+          </Link>
+        </button>
+      ]),
+      studentLink: List([
+      ])
+    }
+    this.changeState = this.changeState.bind(this)
+  }
+
+  changeState(obj) {
+    return (e) => {
+    e.preventDefault()
+    this.setState(obj, () => {
+      switch (this.state.changeLink) {
+        case 'INST':
+          this.setState({currentLink: this.state.instructorLink})
+          break;
+        case 'STND':
+          this.setState({currentLink: this.state.studentLink})
+          break;
+        case 'HOME':
+          this.setState({currentLink: this.state.homeLink})
+        default:
+          break;
+        }
+      }
+    )
+    }
+  }
+
   render() {
-    const linksList = List([
-      <button style={Styles.indexButton}>
-        <Link to='/' style={Styles.indexLink}>
-          home
-        </Link>
-      </button>,
-      <button style={Styles.indexButton}>
-        <Link to='/generateApp' style={Styles.indexLink}>
-          generate
-        </Link>
-      </button>,
-      <button style={Styles.indexButton}>
-        <Link to='/viewApp' style={Styles.indexLink}>
-          view(alpha)
-        </Link>
-      </button>,
-      <button style={Styles.indexButton}>
-        <Link to='/signUpApp' style={Styles.indexLink}>
-          sign up
-        </Link>
-      </button>,
-    ])
+    let currentLink = this.state.currentLink
     return (
-      <FormatListView list={linksList}/>
+      <FormatListView list={currentLink}/>
     )
   }
 }
@@ -46,12 +107,16 @@ class MainSwitcher extends React.Component {
         <Route
           exact path='/'/>
         <Route
-          exact path='/generateApp'
+          exact path='/instructor'/>
+        <Route
+          exact path='/student'/>
+        <Route
+          exact path='/instructor/generateApp'
           component={GenerateApp}/>
         <Route
-          exact path='/viewApp'
+          exact path='/instructor/viewApp'
           component={ListQuestions}/>
-        <Route
+      /*  <Route
           exact path='/signUpApp'
           component={SignUpApp}/>
         <Route
@@ -61,7 +126,7 @@ class MainSwitcher extends React.Component {
         <Route
           exact path='/attemptApi'/>
         <Route
-          exact path='/quizApi'/>
+          exact path='/quizApi'/> */
       </Switch>
 
     )
