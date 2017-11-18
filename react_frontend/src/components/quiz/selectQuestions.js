@@ -72,6 +72,7 @@ class SelectQuestions extends React.Component {
   constructor(props) {
     super(props)
     this.wrap = this.wrap.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.state = {
       questions: undefined,
       selected: undefined
@@ -83,6 +84,7 @@ class SelectQuestions extends React.Component {
       const old = this.state
       const up = old.selected.set(n, e.target.checked)
       this.setState({selected: up})
+      console.log(this.state.selected.toJSON())
     }
   }
 
@@ -102,6 +104,11 @@ class SelectQuestions extends React.Component {
     )
   }
 
+  handleSubmit(e) {
+    e.preventDefault()
+    console.log('submitted')
+  }
+
   render() {
     let qList = undefined
     if (this.state.questions) {
@@ -110,6 +117,11 @@ class SelectQuestions extends React.Component {
     return(
       <div>
         {qList}
+        <Row>
+          <button onClick={this.handleSubmit}>
+            submit
+          </button>
+        </Row>
       </div>
     )
   }
