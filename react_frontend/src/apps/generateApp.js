@@ -8,20 +8,16 @@ import CreateMultipleChoice from '../components/question/createMultipleChoice'
 class GenerateRouter extends React.Component {
   render() {
     return(
-    <Row>
-      <Link to='/generateApp/createShortAnswer'
-        style={Styles.indexLink}>
-        <button style={Styles.indexButton}>
-            short answer
-        </button>
-      </Link>
-      <Link to='/generateApp/createMultipleChoice'
-        style={Styles.indexLink}>
-        <button style={Styles.indexButton}>
-            multiple choice
-        </button>
-      </Link>
-    </Row>
+      <Row>
+        <Link to='/generateApp/createShortAnswer'
+          style={Styles.subIndexLink}>
+          short answer
+        </Link>
+        <Link to='/generateApp/createMultipleChoice'
+          style={Styles.subIndexLink}>
+          multiple choice
+        </Link>
+      </Row>
     )
   }
 }
