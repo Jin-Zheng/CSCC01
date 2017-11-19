@@ -2,6 +2,7 @@ import backgroundImage from './back.jpg'
 
 const Styles = {
   title: {
+    // for the title
     fontFamily:'monospace',
     fontSize:50,
     color: 'white',
@@ -9,6 +10,7 @@ const Styles = {
   },
 
   textArea: {
+    // this is for textArea
     fontFamily: 'monospace',
     width: '100%',
     resize: 'none',
@@ -20,6 +22,7 @@ const Styles = {
   },
 
   backgroundSet: {
+    // this is for the background
     width: '100%',
     height: '100%',
     backgroundImage: 'url('+backgroundImage+')',
@@ -43,6 +46,7 @@ const Styles = {
   // },
 
   indexButton: {
+    // this is for index Button
     marginBottom: 10,
     color: '#d9d9d9',
     background: '#666666',
@@ -57,12 +61,14 @@ const Styles = {
   },
 
   subIndexLink: {
+    // this is for subIndex like short answer, mulitple answer
     margin: 10,
     fontSize: '25px',
     color: '#e6e6e6',
   },
 
   editButton: {
+    // this is for edit button
     marginBottom: 0,
     color: 'black',
     backgroundColor: 'e6e6e6',
@@ -73,6 +79,7 @@ const Styles = {
   },
 
   submitButton: {
+    // this is for submit button
     color: '#d9d9d9',
     background: '#666666',
     underlayColor: '#4169e1',
@@ -86,6 +93,7 @@ const Styles = {
   },
 
   textSize: {
+    // this is the for question text
     color: '#e6e6e6',
     fontSize: '18px',
   },
