@@ -8,33 +8,87 @@ import {List} from 'immutable'
 import FormatListView from '../components/format/formatListView'
 import ListQuestions from '../components/format/listQuestions'
 
-
 class MainRouter extends React.Component{
+
+  componentWillMount(){
+    this.setState({currentLink: this.state.homeLink})
+  }
+
+  constructor(props){
+    super(props)
+    this.state = {
+      changeLink: undefined,
+      currentLink: undefined,
+      homeLink: List([
+        <Row>
+          <Link to='/instructor' style={Styles.indexLink}
+            onClick={this.changeState({changeLink: 'INST'})}>
+            <button style={Styles.indexButton}>
+                Instructor
+            </button>
+          </Link>
+          <Link to='/student' style={Styles .indexLink}
+            onClick={this.changeState({changeLink: 'STND'})}>
+            <button style={Styles.indexButton}>
+                Student
+            </button>
+          </Link>
+        </Row>
+      ]),
+      instructorLink: List([
+        <Link to='/instructor/generateApp' style={Styles.indexLink}>
+          <button style={Styles.indexButton}>
+            Generate Question
+          </button>
+        </Link>,
+        <Link to='/instructor/viewApp' style={Styles.indexLink}>
+          <button style={Styles.indexButton}>
+            View Question
+          </button>
+        </Link>,
+        <Link to='/' style={Styles.indexLink}
+          onClick={this.changeState({changeLink: 'HOME'})}>
+          <button style={Styles.indexButton}>
+              Home
+          </button>
+        </Link>
+      ]),
+      studentLink: List([
+        <Link to='/' style={Styles.indexLink}
+          onClick={this.changeState({changeLink: 'HOME'})}>
+          <button style={Styles.indexButton}>
+              Home
+          </button>
+        </Link>
+      ])
+    }
+    this.changeState = this.changeState.bind(this)
+  }
+
+  changeState(obj) {
+    return (e) => {
+    this.setState(obj, () => {
+      switch (this.state.changeLink) {
+        case 'INST':
+          this.setState({currentLink: this.state.instructorLink})
+          break
+        case 'STND':
+          this.setState({currentLink: this.state.studentLink})
+          break
+        case 'HOME':
+          this.setState({currentLink: this.state.homeLink})
+          break
+        default:
+          break
+          }
+        }
+      )
+    }
+  }
+
   render() {
-    const linksList = List([
-      <button style={Styles.indexButton}>
-        <Link to='/' style={Styles.indexLink}>
-          home
-        </Link>
-      </button>,
-      <button style={Styles.indexButton}>
-        <Link to='/generateApp' style={Styles.indexLink}>
-          generate
-        </Link>
-      </button>,
-      <button style={Styles.indexButton}>
-        <Link to='/viewApp' style={Styles.indexLink}>
-          view(alpha)
-        </Link>
-      </button>,
-      <button style={Styles.indexButton}>
-        <Link to='/signUpApp' style={Styles.indexLink}>
-          sign up
-        </Link>
-      </button>,
-    ])
     return (
-      <FormatListView list={linksList}/>
+      <FormatListView list={this.state.currentLink}/>
     )
   }
 }
@@ -46,12 +100,16 @@ class MainSwitcher extends React.Component {
         <Route
           exact path='/'/>
         <Route
-          exact path='/generateApp'
+          exact path='/instructor'/>
+        <Route
+          exact path='/student'/>
+        <Route
+          exact path='/instructor/generateApp'
           component={GenerateApp}/>
         <Route
-          exact path='/viewApp'
+          exact path='/instructor/viewApp'
           component={ListQuestions}/>
-        <Route
+      /*  <Route
           exact path='/signUpApp'
           component={SignUpApp}/>
         <Route
@@ -61,7 +119,7 @@ class MainSwitcher extends React.Component {
         <Route
           exact path='/attemptApi'/>
         <Route
-          exact path='/quizApi'/>
+          exact path='/quizApi'/> */
       </Switch>
 
     )
