@@ -1,24 +1,18 @@
 import React from 'react'
-import {Row, Col} from 'react-flexbox-grid'
-import {BrowserRouter, Switch, Link, Route} from 'react-router-dom'
-
-class ViewApp extends React.Component {
-  render() {
-    return(
-      <BrowserRouter>
-        <div>
-          <ViewRouter/>
-          <ViewSwitcher/>
-        </div>
-      </BrowserRouter>
-    )
-  }
-}
+import {BrowserRouter, Link, Route, Switch} from 'react-router-dom'
+import {Row} from 'react-flexbox-grid'
 
 class ViewRouter extends React.Component {
   render() {
     return(
-      <div/>
+      <Row>
+        <Route
+          exact path='/viewApp/questions'
+          component={listQuestions}/>
+        <Route
+          exact path='/viewApp/quizzes'
+          component={listQuizzes}/>
+      </Row>
     )
   }
 }
@@ -26,9 +20,23 @@ class ViewRouter extends React.Component {
 class ViewSwitcher extends React.Component {
   render() {
     return(
-      <div/>
+      <Switch>
+        <Row>
+          <Link to='/viewApp/questions'>questions</Link>
+          <Link to='/viewApp/quizzes'>quizzes</Link>
+        </Row>
+      </Switch>
     )
   }
 }
 
-export default ViewApp
+class ViewApp extends React.Component {
+  render() {
+    return(
+      <BrowserRouter>
+        <ViewRouter/>
+        <ViewSwitcher/>
+      </BrowserRoute>
+    )
+  }
+}

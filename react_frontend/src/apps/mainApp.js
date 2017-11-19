@@ -24,7 +24,7 @@ class MainRouter extends React.Component{
       </button>,
       <button style={Styles.indexButton}>
         <Link to='/viewApp' style={Styles.indexLink}>
-          view
+          view/edit
         </Link>
       </button>,
       <button style={Styles.indexButton}>
