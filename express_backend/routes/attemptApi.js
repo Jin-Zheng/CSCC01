@@ -57,7 +57,7 @@ router.get('/attemptContents/get/:id', function(req, res, next) {
 	res.locals.connection.end()
 });
 
-router.get('/attempt/insert', function(req, res, next) {
+router.post('/attempt/insert', function(req, res, next) {
 	console.log('Creating a new Attempt:')
 	var sqladd = 'INSERT INTO Attempt (studentUsername, grade) VALUES ?';
 	var values = [
@@ -71,7 +71,7 @@ router.get('/attempt/insert', function(req, res, next) {
 	res.locals.connection.end()
 });
 
-router.get('/attempt/update/:id', function(req, res, next) {
+router.post('/attempt/update/:id', function(req, res, next) {
 	console.log('Updating Attempt with id:' + req.params.id)
 	var sqlupdate = 'UPDATE Attempt SET studentUsername = "' + req.body.studentUsername + '", grade = "' + req.body.grade + '" WHERE quizKey = ' + req.params.id;
 	res.locals.connection.connect()
@@ -82,7 +82,7 @@ router.get('/attempt/update/:id', function(req, res, next) {
 	res.locals.connection.end()
 });
 
-router.get('/attempt/delete', function(req, res, next) {
+router.post('/attempt/delete', function(req, res, next) {
 	console.log('Deleting attempt with id :' + req.params.id)
 	res.locals.connection.connect()
 	res.locals.connection.query('DELETE FROM Attempt WHERE attemptKey = ' + req.params.id, function (error, results, fields) {
@@ -96,7 +96,7 @@ router.get('/attempt/delete', function(req, res, next) {
 	res.locals.connection.end()
 });
 
-router.get('/attemptContents/insert/:id', function(req, res, next) {
+router.post('/attemptContents/insert/:id', function(req, res, next) {
 	console.log('Adding answer from student into Attempt with id: ' + req.params.id)
 	var sqladd = 'INSERT INTO AttemptContents (attemptId, questionId, answer) VALUES ?';
 	var values = [
@@ -108,7 +108,7 @@ router.get('/attemptContents/insert/:id', function(req, res, next) {
 		res.send(JSON.stringify(results));
 	});
 
-	router.get('/attemptContents/delete/:id', function(req, res, next) {
+	router.post('/attemptContents/delete/:id', function(req, res, next) {
 		console.log('Deleting answer with id ' + req.params.questionId + ' from attempt with id: ' + req.params.id)
 		res.locals.connection.connect()
 		res.locals.connection.query('DELETE FROM QuizContents WHERE attemptId = ' + req.params.id + ' AND questionId = ' + req.params.questionId, function (error, results, fields) {
