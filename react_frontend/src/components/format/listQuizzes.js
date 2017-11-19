@@ -57,7 +57,9 @@ class ListQuizzes extends React.Component {
     console.log('hi')
     fetch('/quizApi/quiz/get/all')
     .then((res) => (res.json()))
-    .then((res) => (this.setState({quizzes: res})))
+    .then((res) => (
+      this.setState({quizzes: res})
+    ))
     .catch((err) => (console.log(err)))
   }
 
@@ -76,10 +78,6 @@ class ListQuizzes extends React.Component {
   }
 
   render() {
-    let qList = undefined
-    if(this.state.quizzes) {
-      qList = this.state.quizzes.map(this.wrap)
-    }
     return(
       <Row>
         {JSON.stringify(this.state.quizzes)}
