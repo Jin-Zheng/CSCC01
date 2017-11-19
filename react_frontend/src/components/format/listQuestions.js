@@ -116,7 +116,6 @@ class ListQuestions extends React.Component {
       ))
       .then((res) => {
         this.setState({questions:res})
-        console.log(this.state.questions)
       })
   }
 

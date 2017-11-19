@@ -53,8 +53,9 @@ class QuizDisplay extends React.Component {
 
 class ListQuizzes extends React.Component {
 
-  componentWIllMount() {
-    fetch('quizApi/quiz/get/all')
+  componentWillMount() {
+    console.log('hi')
+    fetch('/quizApi/quiz/get/all')
     .then((res) => (res.json()))
     .then((res) => (this.setState({quizzes: res})))
     .catch((err) => (console.log(err)))
