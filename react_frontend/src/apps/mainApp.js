@@ -1,7 +1,7 @@
 import React from 'react'
 import Styles from '../styles'
 import {Row, Col} from 'react-flexbox-grid'
-import {BrowserRouter, Route, Switch, Link, Redirect} from 'react-router-dom'
+import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 import GenerateApp from '../apps/generateApp'
 import SignUpApp from '../apps/signUpApp'
 import {List} from 'immutable'
@@ -22,15 +22,13 @@ class MainRouter extends React.Component{
       homeLink: List([
         <Row>
           <Link to='/instructor' style={Styles.indexLink}
-            onClick={this.changeState(
-              {changeLink: 'INST'})}>
+            onClick={this.changeState({changeLink: 'INST'})}>
             <button style={Styles.indexButton}>
                 Instructor
             </button>
           </Link>
           <Link to='/student' style={Styles .indexLink}
-            onClick={this.changeState(
-              {changeLink: 'STND'})}>
+            onClick={this.changeState({changeLink: 'STND'})}>
             <button style={Styles.indexButton}>
                 Student
             </button>
@@ -49,8 +47,7 @@ class MainRouter extends React.Component{
           </button>
         </Link>,
         <Link to='/' style={Styles.indexLink}
-          onClick={this.changeState(
-            {changeLink: 'HOME'})}>
+          onClick={this.changeState({changeLink: 'HOME'})}>
           <button style={Styles.indexButton}>
               Home
           </button>
@@ -58,8 +55,7 @@ class MainRouter extends React.Component{
       ]),
       studentLink: List([
         <Link to='/' style={Styles.indexLink}
-          onClick={this.changeState(
-            {changeLink: 'HOME'})}>
+          onClick={this.changeState({changeLink: 'HOME'})}>
           <button style={Styles.indexButton}>
               Home
           </button>
@@ -75,17 +71,18 @@ class MainRouter extends React.Component{
       switch (this.state.changeLink) {
         case 'INST':
           this.setState({currentLink: this.state.instructorLink})
-          break;
+          break
         case 'STND':
           this.setState({currentLink: this.state.studentLink})
-          break;
+          break
         case 'HOME':
           this.setState({currentLink: this.state.homeLink})
+          break
         default:
-          break;
+          break
+          }
         }
-      }
-    )
+      )
     }
   }
 
