@@ -17,6 +17,8 @@ public class GroupSevenTests {
 
   public void invokeBrowser(){
     try {
+      // BEFORE RUNNING THIS PROGRAM, READ readme.txt IN selenium-tests
+      
       String projectDirectory = System.getProperty("user.dir");
       String exePath = projectDirectory + "\\ChromeDriver\\chromedriver.exe";
       System.setProperty("webdriver.chrome.driver", exePath);
@@ -64,7 +66,7 @@ public class GroupSevenTests {
     WebElement valueBox = itr.next();
     valueBox.sendKeys("What is the answer?");
     WebElement answerBox = itr.next();
-    answerBox.sendKeys("This is the answer.");
+    answerBox.sendKeys("This is the answer  .");
     driver.findElement(By.xpath("//button[contains(.,'submit')]")).click();
     System.out.println("Submitted Short Answer Question");
   }
@@ -157,6 +159,7 @@ public class GroupSevenTests {
     
     // Go through final delete
     driver.findElement(By.xpath("//*[text()[contains(.,'DELETE')]]")).click();
+    Thread.sleep(100);
     
     // Refresh
     driver.navigate().refresh();
@@ -164,8 +167,8 @@ public class GroupSevenTests {
 
     // Check for last element
     try {
-    WebElement fan = driver.findElement(By.xpath("//*[text()[contains(.,'" + lastIndex + "')]]"));
-    System.out.println("Last question element is: " + fan.getText());
+      WebElement fan = driver.findElement(By.xpath("//*[text()[contains(.,'" + lastIndex + "')]]"));
+      System.out.println("Last question element is: " + fan.getText());
     } catch(NoSuchElementException e) {
       System.out.println("Question #" + lastIndex + " no longer exists.");
     }
