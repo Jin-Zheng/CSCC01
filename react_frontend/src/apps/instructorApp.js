@@ -9,33 +9,17 @@ import FormatListView from '../components/format/formatListView'
 import ListQuestions from '../components/format/listQuestions'
 import ViewApp from './viewApp'
 
-
 class MainRouter extends React.Component{
   render() {
-    const linksList = List([
-      <button style={Styles.indexButton}>
-        <Link to='/' style={Styles.indexLink}>
-          home
-        </Link>
-      </button>,
-      <button style={Styles.indexButton}>
-        <Link to='/generateApp' style={Styles.indexLink}>
-          generate
-        </Link>
-      </button>,
-      <button style={Styles.indexButton}>
-        <Link to='/viewApp' style={Styles.indexLink}>
-          view/edit
-        </Link>
-      </button>,
-      <button style={Styles.indexButton}>
-        <Link to='/signUpApp' style={Styles.indexLink}>
-          sign up
-        </Link>
-      </button>,
-    ])
     return (
-      <FormatListView list={linksList}/>
+      <div>
+        <Row>
+          <Link to='/instructor/generateApp'>generate</Link>
+        </Row>
+        <Row>
+          <Link to='/instructor/viewApp'>view/edit</Link>
+        </Row>
+      </div>
     )
   }
 }
@@ -47,22 +31,15 @@ class MainSwitcher extends React.Component {
         <Route
           exact path='/'/>
         <Route
-          exact path='/generateApp'
+          exact path='/instructor/generateApp'
           component={GenerateApp}/>
         <Route
-          exact path='/viewApp'
+          exact path='/instructor/viewApp'
           component={ViewApp}/>
+
         <Route
           exact path='/signUpApp'
           component={SignUpApp}/>
-        <Route
-          exact path='/questionApi'/>
-        <Route
-          exact path='/userApi'/>
-        <Route
-          exact path='/attemptApi'/>
-        <Route
-          exact path='/quizApi'/>
       </Switch>
 
     )
@@ -75,10 +52,6 @@ class MainApp extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <Row style={Styles.title}>
-            Lambda-Work
-            <p/>
-          </Row>
           <Row center={'xs'}>
             <Col xs={3} sm={3} md={3} lg={3}>
               <MainRouter/>
