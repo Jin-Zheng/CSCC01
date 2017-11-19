@@ -17,6 +17,24 @@ class QuizDisplay extends React.Component {
       pane: undefined,
       questions: undefined
     }
+    this.wrap = this.wrap.bind(this)
+    this.handleSpoiler = this.handleSpoiler.bind(this)
+  }
+
+  handleSpoiler(e) {
+    if(this.state.pane) {
+      this.setState({pane: undefined})
+    } else {
+      this.setState({pane: this.state.questions.map(this.wrap)})
+    }
+  }
+
+  wrap(q) {
+    return (
+      <div>
+        this is a question wrapper
+      </div>
+    )
   }
 
   render() {
@@ -34,7 +52,33 @@ class QuizDisplay extends React.Component {
 }
 
 class ListQuizzes extends React.Component {
+
+  componentWIllMount() {
+    fetch('quizApi/doTheThing')
+    .then((res) => (res.json))
+    .then((res) => (this.setState({quizzes: res})))
+    .catch((err) => (console.log(err)))
+  }
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      quizzes: undefined
+    }
+    this.wrap =this.wrap.bind(this)
+  }
+
+  wrap(q) {
+    return(
+      <QuizDisplay data={q}/>
+    )
+  }
+
   render() {
+    let qList = undefined
+    if(this.state.quizzes) {
+      qList = this.state.quizzes.map(this.wrap)
+    }
     return(
       <Row>
         this is a ListQuizzes
