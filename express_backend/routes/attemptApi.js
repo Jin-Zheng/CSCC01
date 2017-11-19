@@ -9,7 +9,7 @@ router.use(function (req, res, next) {
 router.get('/attempt/get/all', function(req, res, next) {
 	console.log('Viewing all attempts info:')
 	var sqlview =
-	'SELECT Attempt.studentUsername, Attempt.grade, AttemptContents.answer AS studentAnswer, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
+	'SELECT Attempt.attemptKey, Attempt.studentUsername, Attempt.grade, AttemptContents.answer AS studentAnswer, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
 	'FROM Attempt JOIN AttemptContents ' +
 	'ON Attempt.attemptKey = AttemptContents.attemptId ' +
 	'JOIN Question ON AttemptContents.questionId = Question.qKey';
@@ -34,7 +34,7 @@ router.get('/attempt/get/allIds', function(req, res, next) {
 router.get('/attempt/get/:id', function(req, res, next) {
 	console.log('Viewing all information about attempt with id: ' + req.params.id)
 	var sqlview =
-	'SELECT Attempt.studentUsername, Attempt.grade, AttemptContents.answer AS studentAnswer, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
+	'SELECT Attempt.attemptKey, Attempt.studentUsername, Attempt.grade, AttemptContents.answer AS studentAnswer, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
 	'FROM Attempt JOIN AttemptContents ' +
 	'ON Attempt.attemptKey = AttemptContents.attemptId ' +
 	'JOIN Question ON AttemptContents.questionId = Question.qKey ' +
@@ -82,7 +82,7 @@ router.post('/attempt/update/:id', function(req, res, next) {
 	res.locals.connection.end()
 });
 
-router.post('/attempt/delete', function(req, res, next) {
+router.post('/attempt/delete/:id', function(req, res, next) {
 	console.log('Deleting attempt with id :' + req.params.id)
 	res.locals.connection.connect()
 	res.locals.connection.query('DELETE FROM Attempt WHERE attemptKey = ' + req.params.id, function (error, results, fields) {
