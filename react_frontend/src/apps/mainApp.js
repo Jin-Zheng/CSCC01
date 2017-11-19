@@ -1,7 +1,7 @@
 import React from 'react'
 import Styles from '../styles'
 import {Row, Col} from 'react-flexbox-grid'
-import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
+import {BrowserRouter, Route, Switch, Link, Redirect} from 'react-router-dom'
 import GenerateApp from '../apps/generateApp'
 import SignUpApp from '../apps/signUpApp'
 import {List} from 'immutable'
@@ -10,62 +10,60 @@ import ListQuestions from '../components/format/listQuestions'
 
 class MainRouter extends React.Component{
 
+  componentWillMount(){
+    this.setState({currentLink: this.state.homeLink})
+  }
+
   constructor(props){
     super(props)
     this.state = {
       changeLink: undefined,
-      currentLink: List([
-        <Row>
-        <button style={Styles.indexButton}
-          onClick={this.changeState(
-            {changeLink: 'INST'})}>
-          <Link to='/instructor' style={Styles.indexLink}>
-            Instructor
-          </Link>
-        </button>
-        <button style={Styles.indexButton}>
-          <Link to='/student' style={Styles.indexLink}>
-            Student
-          </Link>
-        </button>
-        </Row>
-      ]),
+      currentLink: undefined,
       homeLink: List([
         <Row>
-        <button style={Styles.indexButton}
-          onClick={this.changeState(
-            {changeLink: 'INST'})}>
-          <Link to='/instructor' style={Styles.indexLink}>
-            Instructor
+          <Link to='/instructor' style={Styles.indexLink}
+            onClick={this.changeState(
+              {changeLink: 'INST'})}>
+            <button style={Styles.indexButton}>
+                Instructor
+            </button>
           </Link>
-        </button>
-        <button style={Styles.indexButton}>
-          <Link to='/student' style={Styles.indexLink}>
-            Student
+          <Link to='/student' style={Styles .indexLink}
+            onClick={this.changeState(
+              {changeLink: 'STND'})}>
+            <button style={Styles.indexButton}>
+                Student
+            </button>
           </Link>
-        </button>
         </Row>
       ]),
       instructorLink: List([
-        <button style={Styles.indexButton}>
-          <Link to='/instructor/generateApp' style={Styles.indexLink}>
+        <Link to='/instructor/generateApp' style={Styles.indexLink}>
+          <button style={Styles.indexButton}>
             Generate Question
-          </Link>
-        </button>,
-        <button style={Styles.indexButton}>
-          <Link to='/instructor/viewApp' style={Styles.indexLink}>
+          </button>
+        </Link>,
+        <Link to='/instructor/viewApp' style={Styles.indexLink}>
+          <button style={Styles.indexButton}>
             View Question
-          </Link>
-        </button>,
-        <button style={Styles.indexButton}>
-          <Link to='/' style={Styles.indexLink}
-            onClick={this.changeState(
+          </button>
+        </Link>,
+        <Link to='/' style={Styles.indexLink}
+          onClick={this.changeState(
             {changeLink: 'HOME'})}>
-            Home
-          </Link>
-        </button>
+          <button style={Styles.indexButton}>
+              Home
+          </button>
+        </Link>
       ]),
       studentLink: List([
+        <Link to='/' style={Styles.indexLink}
+          onClick={this.changeState(
+            {changeLink: 'HOME'})}>
+          <button style={Styles.indexButton}>
+              Home
+          </button>
+        </Link>
       ])
     }
     this.changeState = this.changeState.bind(this)
@@ -73,7 +71,6 @@ class MainRouter extends React.Component{
 
   changeState(obj) {
     return (e) => {
-    e.preventDefault()
     this.setState(obj, () => {
       switch (this.state.changeLink) {
         case 'INST':
@@ -93,9 +90,8 @@ class MainRouter extends React.Component{
   }
 
   render() {
-    let currentLink = this.state.currentLink
     return (
-      <FormatListView list={currentLink}/>
+      <FormatListView list={this.state.currentLink}/>
     )
   }
 }
