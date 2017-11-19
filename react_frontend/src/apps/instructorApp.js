@@ -71,14 +71,10 @@ class MainApp extends React.Component {
   render() {
     return (
       <BrowserRouter>
-<<<<<<< HEAD:react_frontend/src/apps/mainApp.js
         <div style={Styles.backgroundSet}>
           <Row style={Styles.title}>
             Lambda-Work
           </Row>
-=======
-        <div>
->>>>>>> 94f0358cd4825c12705ae038bbe3e80834ae4db1:react_frontend/src/apps/instructorApp.js
           <Row center={'xs'}>
             <Col xs={3} sm={3} md={3} lg={3}>
               <MainRouter/>
