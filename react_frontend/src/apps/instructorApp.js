@@ -33,7 +33,14 @@ class MainRouter extends React.Component{
       </Link>,
     ])
     return (
-      <FormatListView list={linksList}/>
+      <div>
+        <Row>
+          <Link to='/instructor/generateApp'>generate</Link>
+        </Row>
+        <Row>
+          <Link to='/instructor/viewApp'>view/edit</Link>
+        </Row>
+      </div>
     )
   }
 }
@@ -45,22 +52,14 @@ class MainSwitcher extends React.Component {
         <Route
           exact path='/'/>
         <Route
-          exact path='/generateApp'
+          exact path='/instructor/generateApp'
           component={GenerateApp}/>
         <Route
-          exact path='/viewApp'
+          exact path='/instructor/viewApp'
           component={ListQuestions}/>
         <Route
           exact path='/signUpApp'
           component={SignUpApp}/>
-        <Route
-          exact path='/questionApi'/>
-        <Route
-          exact path='/userApi'/>
-        <Route
-          exact path='/attemptApi'/>
-        <Route
-          exact path='/quizApi'/>
       </Switch>
 
     )
@@ -72,10 +71,14 @@ class MainApp extends React.Component {
   render() {
     return (
       <BrowserRouter>
+<<<<<<< HEAD:react_frontend/src/apps/mainApp.js
         <div style={Styles.backgroundSet}>
           <Row style={Styles.title}>
             Lambda-Work
           </Row>
+=======
+        <div>
+>>>>>>> 94f0358cd4825c12705ae038bbe3e80834ae4db1:react_frontend/src/apps/instructorApp.js
           <Row center={'xs'}>
             <Col xs={3} sm={3} md={3} lg={3}>
               <MainRouter/>

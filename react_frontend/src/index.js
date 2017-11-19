@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MainApp from './apps/mainApp'
+import LoginApp from './apps/loginApp'
 
 class Index extends React.Component {
   render() {
     return (
-      <MainApp/>
+      <LoginApp/>
     )
   }
 }
