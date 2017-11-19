@@ -8,30 +8,29 @@ import {List} from 'immutable'
 import FormatListView from '../components/format/formatListView'
 import ListQuestions from '../components/format/listQuestions'
 
-
 class MainRouter extends React.Component{
   render() {
     const linksList = List([
-      <button style={Styles.indexButton}>
-        <Link to='/' style={Styles.indexLink}>
+      <Link to='/'>
+        <button style={Styles.indexButton}>
           home
-        </Link>
-      </button>,
-      <button style={Styles.indexButton}>
-        <Link to='/generateApp' style={Styles.indexLink}>
+        </button>
+      </Link>,
+      <Link to='/generateApp'>
+        <button style={Styles.indexButton}>
           generate
-        </Link>
-      </button>,
-      <button style={Styles.indexButton}>
-        <Link to='/viewApp' style={Styles.indexLink}>
+        </button>
+      </Link>,
+      <Link to='/viewApp'>
+        <button style={Styles.indexButton}>
           view(alpha)
-        </Link>
-      </button>,
-      <button style={Styles.indexButton}>
-        <Link to='/signUpApp' style={Styles.indexLink}>
+        </button>
+      </Link>,
+      <Link to='/signUpApp'>
+        <button style={Styles.indexButton}>
           sign up
-        </Link>
-      </button>,
+        </button>
+      </Link>,
     ])
     return (
       <FormatListView list={linksList}/>
@@ -73,10 +72,9 @@ class MainApp extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
+        <div style={Styles.backgroundSet}>
           <Row style={Styles.title}>
             Lambda-Work
-            <p/>
           </Row>
           <Row center={'xs'}>
             <Col xs={3} sm={3} md={3} lg={3}>

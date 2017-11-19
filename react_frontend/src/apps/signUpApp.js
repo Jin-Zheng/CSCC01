@@ -25,18 +25,14 @@ class SignUpRouter extends React.Component {
   render() {
     return(
       <Row>
-        <button style={Styles.indexButton}>
-          <Link to='/SignUpApp/InstructorSignUp'
-            style={Styles.indexLink}>
-            instructor sign up
-          </Link>
-        </button>
-        <button style={Styles.indexButton}>
-          <Link to='/SignUpApp/StudentSignUp'
-            style={Styles.indexLink}>
-            student sign up
-          </Link>
-        </button>
+        <Link to='/SignUpApp/InstructorSignUp'
+          style={Styles.subIndexLink}>
+          instructor sign up
+        </Link>
+        <Link to='/SignUpApp/StudentSignUp'
+          style={Styles.subIndexLink}>
+          student sign up
+        </Link>
       </Row>
     )
   }

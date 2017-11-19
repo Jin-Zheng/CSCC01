@@ -1,5 +1,7 @@
 import React from 'react'
 import ViewEditApp from '../../apps/viewEditApp'
+import Styles from '../../styles'
+
 
 class ListQuestions extends React.Component {
 
