@@ -7,6 +7,7 @@ import SignUpApp from '../apps/signUpApp'
 import {List} from 'immutable'
 import FormatListView from '../components/format/formatListView'
 import ListQuestions from '../components/format/listQuestions'
+import ViewApp from './viewApp'
 
 
 class MainRouter extends React.Component{
@@ -50,7 +51,7 @@ class MainSwitcher extends React.Component {
           component={GenerateApp}/>
         <Route
           exact path='/viewApp'
-          component={ListQuestions}/>
+          component={ViewApp}/>
         <Route
           exact path='/signUpApp'
           component={SignUpApp}/>
