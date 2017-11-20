@@ -9,7 +9,7 @@ router.use(function (req, res, next) {
 router.get('/quiz/get/all', function(req, res, next) {
 	console.log('Viewing all quiz info:')
 	var sqlview =
-	'SELECT Quiz.quizName, Quiz.quizCreator, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
+	'SELECT Quiz.quizKey, Quiz.quizName, Quiz.quizCreator, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
 	'FROM Quiz JOIN QuizContents ' +
 	'ON Quiz.quizKey = QuizContents.quizId ' +
 	'JOIN Question ON QuizContents.questionId = Question.qKey';
@@ -34,7 +34,7 @@ router.get('/quiz/get/allIds', function(req, res, next) {
 router.get('/quiz/get/:id', function(req, res, next) {
 	console.log('Viewing all information about quiz with id: ' + req.params.id)
 	var sqlview =
-	'SELECT Quiz.quizName, Quiz.quizCreator, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
+	'SELECT Quiz.quizKey, Quiz.quizName, Quiz.quizCreator, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
 	'FROM Quiz JOIN QuizContents ' +
 	'ON Quiz.quizKey = QuizContents.quizId ' +
 	'JOIN Question ON QuizContents.questionId = Question.qKey ' +
@@ -57,7 +57,7 @@ router.get('/quizContents/get/:id', function(req, res, next) {
 	res.locals.connection.end()
 })
 
-router.get('/quiz/insert', function(req, res, next) {
+router.post('/quiz/insert', function(req, res, next) {
 	console.log('Creating a new quiz:')
 	var sqladd = 'INSERT INTO Quiz (quizName, quizCreator) VALUES ?';
 	var values = [
@@ -71,7 +71,7 @@ router.get('/quiz/insert', function(req, res, next) {
 	res.locals.connection.end()
 })
 
-router.get('/quiz/update/:id', function(req, res, next) {
+router.post('/quiz/update/:id', function(req, res, next) {
 	console.log('Updating quiz with id:' + req.params.id)
 	var sqlupdate = 'UPDATE Quiz SET quizName = "' + req.body.quizName + '", quizCreator = "' + req.body.quizCreator + '" WHERE quizKey = ' + req.params.id;
 	res.locals.connection.connect()
@@ -82,7 +82,7 @@ router.get('/quiz/update/:id', function(req, res, next) {
 	res.locals.connection.end()
 })
 
-router.get('/quiz/delete', function(req, res, next) {
+router.post('/quiz/delete/:id', function(req, res, next) {
 	console.log('Deleting quiz with id :' + req.params.id)
 	res.locals.connection.connect()
 	res.locals.connection.query('DELETE FROM Quiz WHERE quizKey = ' + req.params.id, function (error, results, fields) {
@@ -96,7 +96,7 @@ router.get('/quiz/delete', function(req, res, next) {
 	res.locals.connection.end()
 })
 
-router.get('/quizContents/insert/:id', function(req, res, next) {
+router.post('/quizContents/insert/:id', function(req, res, next) {
 	console.log('Adding question into quiz with id: ' + req.params.id)
 	var sqladd = 'INSERT INTO QuizContents (quizId, questionId) VALUES ?';
 	var values = [

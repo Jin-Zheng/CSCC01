@@ -9,18 +9,14 @@ class GenerateRouter extends React.Component {
   render() {
     return(
       <Row>
-        <button style={Styles.indexButton}>
-          <Link to='/generateApp/createShortAnswer'
-            style={Styles.indexLink}>
-            short answer
-          </Link>
-        </button>
-        <button style={Styles.indexButton}>
-          <Link to='/generateApp/createMultipleChoice'
-            style={Styles.indexLink}>
-            multiple choice
-          </Link>
-        </button>
+        <Link to='/generateApp/createShortAnswer'
+          style={Styles.subIndexLink}>
+          short answer
+        </Link>
+        <Link to='/generateApp/createMultipleChoice'
+          style={Styles.subIndexLink}>
+          multiple choice
+        </Link>
       </Row>
     )
   }

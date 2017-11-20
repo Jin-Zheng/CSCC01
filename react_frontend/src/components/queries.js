@@ -234,9 +234,9 @@ connection.connect()
   // });
 
   // ADD quiz
-  // var sqladd = 'INSERT INTO AttemptContents (attemptId, questionId, answer) VALUES ?';
+  // var sqladd = 'INSERT INTO QuizContents (quizId, questionId) VALUES ?';;
 	// var values = [
-	// 	[2, 3, "CSCC01"],
+	// 	[2, 5],
 	// ];
   // connection.query(sqladd, [values], function (err, result) {
   //   if (err) throw err;
@@ -244,7 +244,10 @@ connection.connect()
   // });
 
 
-  // connection.query('SELECT * FROM Attempt', function (err, result) {
+  // connection.query('SELECT Quiz.quizKey, Quiz.quizName, Quiz.quizCreator, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
+	// 'FROM Quiz JOIN QuizContents ' +
+	// 'ON Quiz.quizKey = QuizContents.quizId ' +
+	// 'JOIN Question ON QuizContents.questionId = Question.qKey', function (err, result) {
   //   if (err) throw err;
   //   // console.log("Number of records deleted: " + result.affectedRows);
   //   console.log(result);
