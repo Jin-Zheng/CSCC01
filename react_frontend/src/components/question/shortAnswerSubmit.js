@@ -20,7 +20,6 @@ class ShortAnswerSubmit extends React.Component {
       value: undefined,
       answer: undefined
     }
-    this.changeText = this.changeText.bind(this)
     this.changeState = this.changeState.bind(this)
     this.submitAnswer = this.submitAnswer.bind(this)
   }
@@ -32,20 +31,12 @@ class ShortAnswerSubmit extends React.Component {
     }
   }
 
-  changeText(field) {
-    return (e) => {
-      e.preventDefault()
-      this.setState({
-        [field]: e.target.value
-      })
-    }
-  }
-
   submitAnswer(e) {
     e.preventDefault()
     const data = {
       answer: this.state.answer
     }
+    console.log(this.state.answer)
     fetch('/questionApi/update/' + this.props.index, {
       method: 'POST',
       headers: {
@@ -65,7 +56,7 @@ class ShortAnswerSubmit extends React.Component {
     //const debugList = []
     return (
       <form onSubmit={this.submitAnswer}>
-        //<FormatListView list={debugList}/>
+        <FormatListView list={debugList}/>
         <Row>
           Value:
         </Row>

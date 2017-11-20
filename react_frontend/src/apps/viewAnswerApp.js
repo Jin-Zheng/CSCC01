@@ -2,7 +2,7 @@ import React from 'react'
 import {Row} from 'react-flexbox-grid'
 import Styles from '../styles'
 //import MultipleAnswerSubmit from '../components/question/multipleAnswerSubmit'
-import ShortAnswerDisplay from '../components/question/shortAnswerDisplay'
+//import ShortAnswerDisplay from '../components/question/shortAnswerDisplay'
 import ShortAnswerSubmit from '../components/question/shortAnswerSubmit'
 import MultipleAnswerDisplay from '../components/question/multipleAnswerDisplay'
 import Deletor from '../components/question/deletor'
@@ -13,20 +13,17 @@ const MULTIPLE_CHOICE = 'MC'
 class ViewAnswerApp extends React.Component {
 
   componentWillMount() {
-    let viewPane = undefined
     let answerPane = undefined
 
     if(this.props.type === SHORT_ANSWER) {
-      viewPane = (
-        <ShortAnswerDisplay
-          index={this.props.index}
+      answerPane = (
+        <ShortAnswerSubmit
           value={this.props.value}
           answer={this.props.answer}/>
       )
     } else if (this.props.type === MULTIPLE_CHOICE) {
-      viewPane = (
+      answerPane = (
         <MultipleAnswerDisplay
-          index={this.props.index}
           value={this.props.value}
           answer={this.props.answer}
           option0={this.props.option0}
@@ -42,8 +39,7 @@ class ViewAnswerApp extends React.Component {
       option1: this.props.option1,
       option2: this.props.option2,
       option3: this.props.option3,
-      pane: viewPane,
-      viewPane: viewPane
+      pane: answerPane
     })
   }
 
@@ -73,12 +69,6 @@ class ViewAnswerApp extends React.Component {
 
     return(
       <div>
-        <Row>
-          <button onClick={this.changeState({pane:this.state.viewPane})}
-            style={Styles.editButton}>view</button>
-          <button onClick={this.changeState({pane:this.state.deletePane})}
-            style={Styles.editButton}>delete</button>
-        </Row>
         {this.state.pane}
       </div>
     )
