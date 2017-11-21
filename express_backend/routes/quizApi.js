@@ -9,7 +9,7 @@ router.use(function (req, res, next) {
 router.get('/quiz/get/all', function(req, res, next) {
 	console.log('Viewing all quiz info:')
 	var sqlview =
-	'SELECT Quiz.quizName, Quiz.quizCreator, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
+	'SELECT Quiz.quizKey, Quiz.quizName, Quiz.quizCreator, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
 	'FROM Quiz JOIN QuizContents ' +
 	'ON Quiz.quizKey = QuizContents.quizId ' +
 	'JOIN Question ON QuizContents.questionId = Question.qKey';
@@ -34,7 +34,7 @@ router.get('/quiz/get/allIds', function(req, res, next) {
 router.get('/quiz/get/:id', function(req, res, next) {
 	console.log('Viewing all information about quiz with id: ' + req.params.id)
 	var sqlview =
-	'SELECT Quiz.quizName, Quiz.quizCreator, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
+	'SELECT Quiz.quizKey, Quiz.quizName, Quiz.quizCreator, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
 	'FROM Quiz JOIN QuizContents ' +
 	'ON Quiz.quizKey = QuizContents.quizId ' +
 	'JOIN Question ON QuizContents.questionId = Question.qKey ' +
