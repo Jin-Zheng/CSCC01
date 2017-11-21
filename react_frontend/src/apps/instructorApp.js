@@ -11,6 +11,28 @@ import ViewApp from './viewApp'
 
 class MainRouter extends React.Component{
   render() {
+    const linksList = List([
+      <Link to='/'>
+        <button style={Styles.indexButton}>
+          home
+        </button>
+      </Link>,
+      <Link to='/generateApp'>
+        <button style={Styles.indexButton}>
+          generate
+        </button>
+      </Link>,
+      <Link to='/viewApp'>
+        <button style={Styles.indexButton}>
+          view(alpha)
+        </button>
+      </Link>,
+      <Link to='/signUpApp'>
+        <button style={Styles.indexButton}>
+          sign up
+        </button>
+      </Link>,
+    ])
     return (
       <div>
         <Row>
@@ -51,7 +73,10 @@ class MainApp extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
+        <div style={Styles.backgroundSet}>
+          <Row style={Styles.title}>
+            Lambda-Work
+          </Row>
           <Row center={'xs'}>
             <Col xs={3} sm={3} md={3} lg={3}>
               <MainRouter/>

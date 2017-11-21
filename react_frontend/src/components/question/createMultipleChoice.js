@@ -68,52 +68,52 @@ class CreateMultipleChoice extends React.Component {
     return (
       <div>
           <form onSubmit={this.handleSubmit}>
-            <Row>
+            <Row style={Styles.textSize}>
               Value:
             </Row>
             <Row>
               <textarea
                 value={this.state.value}
                 onChange={this.changeText('value')}
-                style={Styles.textareaSimple}/>
+                style={Styles.textArea}/>
             </Row>
-            <Row>
-              Option 0:
+            <Row style={Styles.textSize}>
+              Option A:
             </Row>
             <Row>
               <textarea
                 value={this.state.option0}
                 onChange={this.changeText('option0')}
-                style={Styles.textareaSimple}/>
+                style={Styles.textArea}/>
             </Row>
-            <Row>
-              Option 1:
+            <Row style={Styles.textSize}>
+              Option B:
             </Row>
             <Row>
               <textarea
                 value={this.state.option1}
                 onChange={this.changeText('option1')}
-                style={Styles.textareaSimple}/>
+                style={Styles.textArea}/>
             </Row>
-            <Row>
-              Option 2:
+            <Row style={Styles.textSize}>
+              Option C:
             </Row>
             <Row>
               <textarea
                 value={this.state.option2}
                 onChange={this.changeText('option2')}
-                style={Styles.textareaSimple}/>
+                style={Styles.textArea}/>
             </Row>
-            <Row>
-              Option 3:
+            <Row style={Styles.textSize}>
+              Option D:
             </Row>
             <Row>
               <textarea
                 value={this.state.option3}
                 onChange={this.changeText('option3')}
-                style={Styles.textareaSimple}/>
+                style={Styles.textArea}/>
             </Row>
-            <Row>
+            <Row style={Styles.textSize}>
               Answer: {this.state.answer}
             </Row>
             <Row>
@@ -121,10 +121,10 @@ class CreateMultipleChoice extends React.Component {
                 <option value={''}>
                 Which option is correct?
                 </option>
-                <option value={0}>0</option>
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
+                <option value={0}>A</option>
+                <option value={1}>B</option>
+                <option value={2}>C</option>
+                <option value={3}>D</option>
               </select>
             </Row>
             <Row>

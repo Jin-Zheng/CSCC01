@@ -244,7 +244,7 @@ connection.connect()
   // });
 
 
-  // connection.query('SELECT Quiz.quizName, Quiz.quizCreator, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
+  // connection.query('SELECT Quiz.quizKey, Quiz.quizName, Quiz.quizCreator, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
 	// 'FROM Quiz JOIN QuizContents ' +
 	// 'ON Quiz.quizKey = QuizContents.quizId ' +
 	// 'JOIN Question ON QuizContents.questionId = Question.qKey', function (err, result) {
