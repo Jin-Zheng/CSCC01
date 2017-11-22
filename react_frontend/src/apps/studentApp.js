@@ -4,12 +4,12 @@ import {Row, Col} from 'react-flexbox-grid'
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 import {List} from 'immutable'
 import FormatListView from '../components/format/formatListView'
-import ViewAnswerApp from './viewAnswerApp'
+import ViewQuizApp from './viewQuizApp'
 
 class StudentRouter extends React.Component{
   render() {
     const linksList = List([
-      <Link to='/student/viewAnswerApp'>
+      <Link to='/student/ViewQuizApp'>
         <button style={Styles.indexButton}>
           generate
         </button>
@@ -18,7 +18,7 @@ class StudentRouter extends React.Component{
     return (
       <div>
         <Row>
-          <Link to='/student/viewAnswerApp'>Answer</Link>
+          <Link to='/student/viewQuizApp'>Answer Quiz</Link>
         </Row>
       </div>
     )
@@ -30,10 +30,8 @@ class StudentSwitcher extends React.Component {
     return(
       <Switch>
         <Route
-          exact path='/'/>
-        <Route
-          exact path='/student/viewAnswerApp'
-          component={ViewAnswerApp}/>
+          exact path='/student/viewQuizApp'
+          component={ViewQuizApp}/>
       </Switch>
 
     )

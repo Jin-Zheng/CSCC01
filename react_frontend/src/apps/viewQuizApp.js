@@ -23,7 +23,7 @@ class ViewQuizApp extends React.Component {
 
     } else if (this.props.type === MULTIPLE_CHOICE) {
       displayPane = (
-        <multipleAnswerSubmit
+        <MultipleAnswerSubmit
           index={this.props.index}
           value={this.props.value}
           answer={this.props.answer}
@@ -56,7 +56,6 @@ class ViewQuizApp extends React.Component {
       option3: undefined,
       pane: undefined
     }
-    this.changeState = this.changeState.bind(this)
   }
 
   render() {

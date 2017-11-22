@@ -58,7 +58,7 @@ class MultipleAnswerSubmit extends React.Component {
     ])
     return (
       <div>
-        <form onSubmit={this.submitAnswer}
+        <form onSubmit={this.submitAnswer}>
           <SpacedListView list={vList}/>
           <Row>
             <select>
@@ -74,6 +74,7 @@ class MultipleAnswerSubmit extends React.Component {
               style={Styles.submitButton}>
               submit
             </button>
+          </Row>
         </form>
       </div>
     )
