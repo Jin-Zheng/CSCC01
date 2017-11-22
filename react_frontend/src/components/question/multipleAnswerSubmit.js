@@ -1,5 +1,7 @@
 import React from 'react'
 import {List} from 'immutable'
+import {Row} from 'react-flexbox-grid'
+import Styles from '../../styles'
 import SpacedListView from '../format/spacedListView'
 
 class MultipleAnswerSubmit extends React.Component {
@@ -27,13 +29,12 @@ class MultipleAnswerSubmit extends React.Component {
       option1: undefined,
       option2: undefined,
       option3: undefined,
-      answer: undefined
+      answer: undefined,
     }
     this.submitAnswer = this.submitAnswer.bind(this)
   }
 
   submitAnswer(e){
-    return (e) => {
     e.preventDefault()
     const data = {
       answer: this.props.answer,
@@ -42,17 +43,18 @@ class MultipleAnswerSubmit extends React.Component {
       candidate3: this.props.option2,
       candidate4: this.props.option3
     }
-    /*fetch*/
-    }
+    /*fetch  - submit answer to student field?
+             - may need ID for quiz
+    */
   }
 
   render() {
     const vList = List([
-      'value: ' + this.state.value,
-      'option0: ' + this.state.option0,
-      'option1: ' + this.state.option1,
-      'option2: ' + this.state.option2,
-      'option3: ' + this.state.option3
+      'Question: ' + this.state.value,
+      'A: ' + this.state.option0,
+      'B: ' + this.state.option1,
+      'C: ' + this.state.option2,
+      'D: ' + this.state.option3
     ])
     return (
       <div>
@@ -65,7 +67,7 @@ class MultipleAnswerSubmit extends React.Component {
               <option value={1}>B</option>
               <option value={2}>C</option>
               <option value={3}>D</option>
-              </select>
+            </select>
           </Row>
           <Row>
             <button type={'submit'}
