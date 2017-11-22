@@ -1,10 +1,8 @@
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
 import Styles from '../styles'
-//import MultipleAnswerSubmit from '../components/question/multipleAnswerSubmit'
-//import ShortAnswerDisplay from '../components/question/shortAnswerDisplay'
+import MultipleAnswerSubmit from '../components/question/multipleAnswerSubmit'
 import ShortAnswerSubmit from '../components/question/shortAnswerSubmit'
-import MultipleAnswerDisplay from '../components/question/multipleAnswerDisplay'
 import Deletor from '../components/question/deletor'
 
 const SHORT_ANSWER = "SA"
@@ -13,17 +11,20 @@ const MULTIPLE_CHOICE = 'MC'
 class ViewQuizApp extends React.Component {
 
   componentWillMount() {
-    let answerPane = undefined
+    let displayPane = undefined
 
     if(this.props.type === SHORT_ANSWER) {
-      answerPane = (
+      displayPane = (
         <ShortAnswerSubmit
+          index={this.props.index}
           value={this.props.value}
           answer={this.props.answer}/>
       )
+
     } else if (this.props.type === MULTIPLE_CHOICE) {
-      answerPane = (
-        <MultipleAnswerDisplay
+      displayPane = (
+        <multipleAnswerSubmit
+          index={this.props.index}
           value={this.props.value}
           answer={this.props.answer}
           option0={this.props.option0}
@@ -39,7 +40,8 @@ class ViewQuizApp extends React.Component {
       option1: this.props.option1,
       option2: this.props.option2,
       option3: this.props.option3,
-      pane: answerPane
+      pane: displayPane,
+      displayPane: displayPane
     })
   }
 
@@ -57,19 +59,12 @@ class ViewQuizApp extends React.Component {
     this.changeState = this.changeState.bind(this)
   }
 
-  changeState(obj) {
-    return (e) => {
-      e.preventDefault()
-      console.log(obj)
-      this.setState(obj)
-    }
-  }
-
   render() {
-
     return(
       <div>
+        <Row>
         {this.state.pane}
+        </Row>
       </div>
     )
   }
