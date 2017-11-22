@@ -24,7 +24,7 @@ const Styles = {
   backgroundSet: {
     // this is for the background
     width: '100%',
-    height: '100%',
+    //height: '100%',
     backgroundImage: 'url('+backgroundImage+')',
     backgroundSize: 'cover',
     overflow: 'hidden',
@@ -104,11 +104,14 @@ const Styles = {
 
   selectBar: {
     // this is for selectBar
-    fontFamily: 'Verdana',
-    fontSize: '18px',
-    width: '250px',
-    height: '35px',
-
+    // fontFamily: 'Verdana',
+    // fontSize: '18px',
+    // width: '250px',
+    // height: '35px',
+    width:'230px',
+    border: '1px solid blue',
+    padding:'5px',
+    margin: '10px',
   },
 };
 

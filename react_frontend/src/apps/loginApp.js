@@ -34,7 +34,7 @@ class LoginApp extends React.Component {
   render() {
     return(
       <BrowserRouter>
-        <div  style={Styles.backgroundSet}>
+        <div style={Styles.backgroundSet}>
           <LoginRouter/>
           <LoginSwitcher/>
         </div>
