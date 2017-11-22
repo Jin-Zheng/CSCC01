@@ -1,5 +1,21 @@
 # L02_07
 
+### 11/20/17
+- Code Review uploaded [here](./Deliverables/Code_Review.pdf)
+- Testing uploaded
+
+### 11/15/17
+- Sprint Backlog: Sprint 5 (Nov 16 - Nov 21) [here](./Deliverables/Sprint_Backlog-Sprint.pdf)
+- Completed Sprint 4:
+  * Edit and delete question from viewApp
+  * Set up instructor and student log in screen [Rework]
+  * Set up conditional display depending on user type [Rework]
+  * Set up quiz database and attempt database
+  * Change routes to API in backend
+  * Link frontend to backend API for quiz and attempt
+- 15/10/17 Team meeting document uploaded
+- Testing functionality for this sprint
+
 ### 11/08/17
 - Sprint Backlog: Sprint 4 (Nov 9 - Nov 14) [here](./Deliverables/Sprint_Backlog-Sprint.pdf)
 - Product Backlog: v2 updated [here](./Deliverables/Product_Backlog-User_Stories.pdf)
@@ -8,7 +24,7 @@
   * Write frontend http code to connect to backend
   * Create table for Users in DB
   * Create backend API for Users
-  * Create frontend UI for Users [Still in progress..]
+  * Create frontend layout for Users [Still in progress..]
   * Route backend to frontend
 - 11/08/17 Team meeting document uploaded
 
