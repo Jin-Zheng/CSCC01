@@ -15,10 +15,15 @@ class InstructorRouter extends React.Component{
     return (
       <div>
         <Row>
-          <Link to='/instructor/generateApp'>generate</Link>
+          <Link to='/instructor/generateApp'>
+
+            generate
+          </Link>
         </Row>
         <Row>
-          <Link to='/instructor/viewApp'>view/edit</Link>
+          <Link to='/instructor/viewApp'>
+              view/edit
+          </Link>
         </Row>
         <Row>
           <Link to='/instructor/attemptViewApp'>quiz attempt</Link>
