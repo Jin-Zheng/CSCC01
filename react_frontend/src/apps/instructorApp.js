@@ -35,10 +35,18 @@ class MainRouter extends React.Component{
     return (
       <div>
         <Row>
-          <Link to='/instructor/generateApp'>generate</Link>
+          <Link to='/instructor/generateApp'>
+            <button style={Styles.indexButton}>
+            generate
+            </button>
+          </Link>
         </Row>
         <Row>
-          <Link to='/instructor/viewApp'>view/edit</Link>
+          <Link to='/instructor/viewApp'>
+            <button style={Styles.indexButton}>
+              view/edit
+            </button>
+          </Link>
         </Row>
       </div>
     )
@@ -71,7 +79,7 @@ class MainApp extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div style={Styles.backgroundSet}>
+        <div>
           <Row style={Styles.title}>
             Lambda-Work
           </Row>

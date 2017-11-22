@@ -34,11 +34,7 @@ class LoginApp extends React.Component {
   render() {
     return(
       <BrowserRouter>
-        <div>
-          <Row style={Styles.title}>
-            Lambda-Work
-            <p/>
-          </Row>
+        <div  style={Styles.backgroundSet}>
           <LoginRouter/>
           <LoginSwitcher/>
         </div>

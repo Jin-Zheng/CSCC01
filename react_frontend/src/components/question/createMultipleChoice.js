@@ -117,7 +117,8 @@ class CreateMultipleChoice extends React.Component {
               Answer: {this.state.answer}
             </Row>
             <Row>
-              <select onChange={this.changeText('answer')}>
+              <select onChange={this.changeText('answer')}
+                style={Styles.selectBar}>
                 <option value={''}>
                 Which option is correct?
                 </option>
