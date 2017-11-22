@@ -57,7 +57,7 @@ class SelectQuestions extends React.Component {
             prev.set(next.qKey, next)
           ), Map({})),
           selected: res.reduce((prev, next) => (
-            prev.set(next.qKey, true)
+            prev.set(next.qKey, false)
           ), Map({}))
         }
       )

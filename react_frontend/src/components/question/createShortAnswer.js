@@ -55,23 +55,23 @@ class CreateShortAnswer extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <Row style={Styles.textSize}>
+          <Row>
             Value:
           </Row>
           <Row>
             <textarea value={this.state.value} onChange={this.valueUpdate}
-            style={Styles.textArea}/>
+            />
           </Row>
-          <Row style={Styles.textSize}>
+          <Row>
             Answer:
           </Row>
           <Row>
             <textarea value={this.state.answer} onChange={this.answerUpdate}
-            style={Styles.textArea}/>
+            />
           </Row>
           <Row>
             <button type={'submit'}
-              style={Styles.submitButton}>
+              >
               submit
             </button>
           </Row>

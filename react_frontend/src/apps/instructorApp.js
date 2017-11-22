@@ -13,24 +13,16 @@ class MainRouter extends React.Component{
   render() {
     const linksList = List([
       <Link to='/'>
-        <button style={Styles.indexButton}>
           home
-        </button>
       </Link>,
       <Link to='/generateApp'>
-        <button style={Styles.indexButton}>
           generate
-        </button>
       </Link>,
       <Link to='/viewApp'>
-        <button style={Styles.indexButton}>
-          view(alpha)
-        </button>
+          view/edit
       </Link>,
       <Link to='/signUpApp'>
-        <button style={Styles.indexButton}>
           sign up
-        </button>
       </Link>,
     ])
     return (
@@ -73,8 +65,8 @@ class MainApp extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div style={Styles.backgroundSet}>
-          <Row style={Styles.title}>
+        <div>
+          <Row>
             Lambda-Work
           </Row>
           <Row center={'xs'}>
