@@ -8,6 +8,7 @@ import {List} from 'immutable'
 import FormatListView from '../components/format/formatListView'
 import ListQuestions from '../components/format/listQuestions'
 import ViewApp from './viewApp'
+import QuizAttemptsApp from './quizAttemptsApp'
 
 class InstructorRouter extends React.Component{
   render() {
@@ -39,10 +40,9 @@ class InstructorSwitcher extends React.Component {
         <Route
           exact path='/instructor/viewApp'
           component={ViewApp}/>
-
         <Route
-          exact path='/signUpApp'
-          component={SignUpApp}/>
+          exact path='/instructor/attemptViewApp'
+          component={QuizAttemptsApp}/>
       </Switch>
 
     )

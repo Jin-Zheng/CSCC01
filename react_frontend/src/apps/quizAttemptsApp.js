@@ -1,13 +1,21 @@
-import React form 'react'
+import React from 'react'
 
-class quizAttemptRouter extends React.Component {
-
-}
-
-class quizAttemptSwticher extends React.Component {
+class QuizAttemptRouter extends React.Component {
 
 }
 
-class quizAttemptApp extends React.Component {
-  
+class QuizAttemptSwitcher extends React.Component {
+
 }
+
+class QuizAttemptApp extends React.Component {
+  render() {
+    return(
+      <div>
+        hi
+      </div>
+    )
+  }
+}
+
+export default QuizAttemptApp
