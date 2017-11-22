@@ -48,8 +48,6 @@ class MultipleAnswerSubmit extends React.Component {
 
   render() {
     const vList = List([
-      'index: ' + this.state.index,
-      'type: ' + this.state.type,
       'value: ' + this.state.value,
       'option0: ' + this.state.option0,
       'option1: ' + this.state.option1,
@@ -80,4 +78,4 @@ class MultipleAnswerSubmit extends React.Component {
   }
 }
 
-export default MultipleAnswerDisplay
+export default MultipleAnswerSubmit
