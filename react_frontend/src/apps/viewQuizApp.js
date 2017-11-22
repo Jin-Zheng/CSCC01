@@ -10,7 +10,7 @@ import Deletor from '../components/question/deletor'
 const SHORT_ANSWER = "SA"
 const MULTIPLE_CHOICE = 'MC'
 
-class ViewAnswerApp extends React.Component {
+class ViewQuizApp extends React.Component {
 
   componentWillMount() {
     let answerPane = undefined
@@ -75,4 +75,4 @@ class ViewAnswerApp extends React.Component {
   }
 }
 
-export default ViewAnswerApp
+export default ViewQuizApp
