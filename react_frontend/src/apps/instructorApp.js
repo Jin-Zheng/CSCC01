@@ -54,7 +54,7 @@ class InstructorApp extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div style={Styles.backgroundSet}>
+        <div >
           <Row style={Styles.title}>
             Lambda-Work
           </Row>
