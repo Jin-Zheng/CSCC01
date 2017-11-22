@@ -29,13 +29,16 @@ public class GroupSevenTests {
 
       driver.get("http://localhost:3000/");
       // Print a Log In message to the screen
+      Thread.sleep(500);
       System.out.println("Successfully opened the website");
+      // Run the tests
       buttonLinks();
       submitQuestion();
       checkQuestion();
       editQuestion();
       checkEditedQuestion();
       deleteQuestion();
+      driver.close();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -44,35 +47,54 @@ public class GroupSevenTests {
 
   public void buttonLinks() {
     System.out.println("Checking button links:");
-    driver.findElement(By.xpath("//button[contains(.,'generate')]")).click();
+    driver.findElement(By.partialLinkText("Instructor")).click();
+    //driver.findElement(By.xpath("//a[@href='/Instructor']")).click();
+    //driver.findElement(By.cssSelector("a[href*='generate']")).click();
+    //driver.findElement(By.partialLinkText("generate")).click();
     String currentURL = driver.getCurrentUrl();
-    System.out.println("view leads to: " + currentURL);
-    driver.findElement(By.xpath("//button[contains(.,'view(alpha)')]")).click();
+    boolean isCorrectURL = "http://localhost:3000/instructor".equals(currentURL);
+    System.out.println(isCorrectURL + ", Instructor leads to: " + currentURL);
+    driver.findElement(By.partialLinkText("generate")).click();
     currentURL = driver.getCurrentUrl();
-    System.out.println("view leads to: " + currentURL);
-    driver.findElement(By.xpath("//button[contains(.,'sign up')]")).click();
+    isCorrectURL = "http://localhost:3000/instructor/generateApp".equals(currentURL);
+    System.out.println(isCorrectURL + ", generate leads to: " + currentURL);
+    driver.findElement(By.partialLinkText("short answer")).click();
     currentURL = driver.getCurrentUrl();
-    System.out.println("sign up leads to: " + currentURL);
-    driver.findElement(By.xpath("//button[contains(.,'home')]")).click();
+    isCorrectURL = "http://localhost:3000/generateApp/createShortAnswer".equals(currentURL);
+    System.out.println(isCorrectURL + ", short answer leads to: " + currentURL);
+    driver.findElement(By.partialLinkText("view")).click();
     currentURL = driver.getCurrentUrl();
-    System.out.println("home leads to: " + currentURL);
+    isCorrectURL = "http://localhost:3000/instructor/viewApp".equals(currentURL);
+    System.out.println(isCorrectURL + ", view//edit leads to: " + currentURL);
+    driver.findElement(By.partialLinkText("Student")).click();
+    currentURL = driver.getCurrentUrl();
+    isCorrectURL = "http://localhost:3000/student".equals(currentURL);
+    System.out.println(isCorrectURL + ", Student leads to: " + currentURL);
   }
 
   public void submitQuestion() {
-    driver.findElement(By.xpath("//button[contains(.,'generate')]")).click();
-    driver.findElement(By.xpath("//button[contains(.,'short answer')]")).click();
+    System.out.println("");
+    driver.findElement(By.partialLinkText("Instructor")).click();
+    driver.findElement(By.partialLinkText("generate")).click();
+    driver.findElement(By.partialLinkText("short answer")).click();
     List<WebElement> textBoxes = driver.findElements(By.xpath("//textarea"));
     Iterator<WebElement> itr = textBoxes.iterator();
     WebElement valueBox = itr.next();
-    valueBox.sendKeys("What is the answer?");
+    String question = "What is the answer?";
+    valueBox.sendKeys(question);
     WebElement answerBox = itr.next();
-    answerBox.sendKeys("This is the answer  .");
+    String answer = "This is the answer.";
+    answerBox.sendKeys(answer);
     driver.findElement(By.xpath("//button[contains(.,'submit')]")).click();
-    System.out.println("Submitted Short Answer Question");
+    System.out.println("Submitted Short Answer Question, info below:");
+    System.out.println("Question: " + question);
+    System.out.println("Answer: " + answer);
   }
 
   public void checkQuestion() throws InterruptedException {
-    driver.findElement(By.xpath("//button[contains(.,'view(alpha)')]")).click();
+    System.out.println("");
+    driver.findElement(By.partialLinkText("Instructor")).click();
+    driver.findElement(By.partialLinkText("view")).click();
     Thread.sleep(500);
     // Loop through all the indices displayed
     List<WebElement> ids = driver.findElements(By.xpath("//*[text()[contains(.,'index')]]"));
@@ -89,7 +111,9 @@ public class GroupSevenTests {
   }
 
   public void editQuestion() throws InterruptedException {
-    driver.findElement(By.xpath("//button[contains(.,'view(alpha)')]")).click();
+    System.out.println("");
+    driver.findElement(By.partialLinkText("Instructor")).click();
+    driver.findElement(By.partialLinkText("view")).click();
     Thread.sleep(500);
     // Loop through all the indices displayed
     List<WebElement> ids = driver.findElements(By.xpath("//*[text()[contains(.,'edit')]]"));
@@ -100,23 +124,28 @@ public class GroupSevenTests {
     }
     // Press the last edit button
     lastElement.click();
-
     // Edit the values of the textboxes
+    String question = "What is the answer?";
+    String answer = "What is the actual answer?";
     List<WebElement> textBoxes = driver.findElements(By.xpath("//textarea"));
     itr = textBoxes.iterator();
     WebElement valueBox = itr.next();
     valueBox.clear();
-    valueBox.sendKeys("What is the actual answer?");
+    valueBox.sendKeys();
     WebElement answerBox = itr.next();
     answerBox.clear();
-    answerBox.sendKeys("This is the REAL answer.");
+    answerBox.sendKeys(answer);
     driver.findElement(By.xpath("//button[contains(.,'submit')]")).click();
-    System.out.println("Edited Short Answer Question");
+    System.out.println("Edited Short Answer Question, info below:");
+    System.out.println("Question: " + question);
+    System.out.println("Answer: " + answer);
   }
 
   public void checkEditedQuestion() throws InterruptedException {
-    driver.findElement(By.xpath("//button[contains(.,'view(alpha)')]")).click();
+    System.out.println("");
     driver.navigate().refresh();
+    driver.findElement(By.partialLinkText("Instructor")).click();
+    driver.findElement(By.partialLinkText("view")).click();
     Thread.sleep(500);
     // Loop through all the indices displayed
     List<WebElement> ids = driver.findElements(By.xpath("//*[text()[contains(.,'index')]]"));
@@ -133,7 +162,11 @@ public class GroupSevenTests {
   }
 
   public void deleteQuestion() throws InterruptedException {
-    driver.findElement(By.xpath("//button[contains(.,'view(alpha)')]")).click();
+    System.out.println("");
+    driver.findElement(By.partialLinkText("Instructor")).click();
+    driver.findElement(By.partialLinkText("view")).click();
+    
+    driver.findElement(By.xpath("//button[contains(.,'view')]")).click();
     Thread.sleep(500);
 
     // Get the last index item
@@ -144,7 +177,7 @@ public class GroupSevenTests {
       lastElement = itr.next();
     }
     String lastIndex = lastElement.getText().replaceAll("[^0-9]", "");
-
+    
     // Loop through all the questions displayed
     List<WebElement> deleteButtons = driver.findElements(By.xpath("//*[text()[contains(.,'delete')]]"));
     itr = deleteButtons.iterator();
@@ -163,13 +196,14 @@ public class GroupSevenTests {
     
     // Refresh
     driver.navigate().refresh();
-    Thread.sleep(50);
+    driver.findElement(By.partialLinkText("Instructor")).click();
+    driver.findElement(By.partialLinkText("view")).click();
 
     // Check for last element
     try {
       WebElement fan = driver.findElement(By.xpath("//*[text()[contains(.,'" + lastIndex + "')]]"));
-      System.out.println("Last question element is: " + fan.getText());
-    } catch(NoSuchElementException e) {
+      System.out.println("If empty, question with index is gone: " + fan.getText());
+    } catch(Exception e) {
       System.out.println("Question #" + lastIndex + " no longer exists.");
     }
   }

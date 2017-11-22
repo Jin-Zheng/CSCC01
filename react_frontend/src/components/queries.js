@@ -234,9 +234,9 @@ connection.connect()
   // });
 
   // ADD quiz
-  // var sqladd = 'INSERT INTO QuizContents (quizId, questionId) VALUES ?';;
+  // var sqladd = 'INSERT INTO Attempt (studentUsername, grade) VALUES ?';
 	// var values = [
-	// 	[2, 5],
+	// 	['jhin1', 95],
 	// ];
   // connection.query(sqladd, [values], function (err, result) {
   //   if (err) throw err;
@@ -244,14 +244,49 @@ connection.connect()
   // });
 
 
-  // connection.query('SELECT Quiz.quizKey, Quiz.quizName, Quiz.quizCreator, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
-	// 'FROM Quiz JOIN QuizContents ' +
-	// 'ON Quiz.quizKey = QuizContents.quizId ' +
-	// 'JOIN Question ON QuizContents.questionId = Question.qKey', function (err, result) {
+  // var sqladd = 'INSERT INTO AttemptContents (attemptId, questionId, answer) VALUES ?';
+  // var values = [
+  //   [3, 5, '4'],
+  // ];
+  // connection.query(sqladd, [values], function (err, result) {
+  //   if (err) throw err;
+  //   // console.log("Number of records deleted: " + result.affectedRows);
+  // });
+  //
+  // var sqladd = 'INSERT INTO AttemptContents (attemptId, questionId, answer) VALUES ?';
+  // var values = [
+  //   [3, 6, '3'],
+  // ];
+  // connection.query(sqladd, [values], function (err, result) {
+  //   if (err) throw err;
+  //   // console.log("Number of records deleted: " + result.affectedRows);
+  // });
+  //
+  // var sqladd = 'INSERT INTO AttemptContents (attemptId, questionId, answer) VALUES ?';
+  // var values = [
+  //   [3, 7, '2'],
+  // ];
+  // connection.query(sqladd, [values], function (err, result) {
+  //   if (err) throw err;
+  //   // console.log("Number of records deleted: " + result.affectedRows);
+  // });
+
+  connection.query('SELECT Attempt.attemptKey, Attempt.studentUsername, Attempt.grade, AttemptContents.answer AS studentAnswer, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
+	'FROM Attempt JOIN AttemptContents ' +
+	'ON Attempt.attemptKey = AttemptContents.attemptId ' +
+	'JOIN Question ON AttemptContents.questionId = Question.qKey', function (err, result) {
+    if (err) throw err;
+    // console.log("Number of records deleted: " + result.affectedRows);
+    console.log(result);
+  });
+
+  // connection.query('SELECT * FROM Attempt', function (err, result) {
   //   if (err) throw err;
   //   // console.log("Number of records deleted: " + result.affectedRows);
   //   console.log(result);
   // });
+
+
   //
   //
   // var sqlview =
