@@ -25,7 +25,7 @@ class Deletor extends React.Component {
         </Row>
         <Row>
           <button onClick={this.handleDelete}
-            style={Styles.submitButton}>
+            >
             DELETE
           </button>
         </Row>

@@ -74,7 +74,7 @@ class MultipleAnswerEditor extends React.Component {
         </Row>
         <Row>
           <textarea
-            style={Styles.textareaSimple}
+
             onChange={this.changeText('value')}
             value={this.state.value}/>
         </Row>
@@ -83,7 +83,7 @@ class MultipleAnswerEditor extends React.Component {
         </Row>
         <Row>
           <textarea
-            style={Styles.textareaSimple}
+
             onChange={this.changeText('option0')}
             value={this.state.option0}/>
         </Row>
@@ -92,7 +92,7 @@ class MultipleAnswerEditor extends React.Component {
         </Row>
         <Row>
           <textarea
-            style={Styles.textareaSimple}
+
             onChange={this.changeText('option1')}
             value={this.state.option1}/>
         </Row>
@@ -101,7 +101,7 @@ class MultipleAnswerEditor extends React.Component {
         </Row>
         <Row>
           <textarea
-            style={Styles.textareaSimple}
+
             onChange={this.changeText('option2')}
             value={this.state.option2}/>
         </Row>
@@ -110,7 +110,7 @@ class MultipleAnswerEditor extends React.Component {
         </Row>
         <Row>
           <textarea
-            style={Styles.textareaSimple}
+
             onChange={this.changeText('option3')}
             value={this.state.option3}/>
         </Row>
@@ -129,7 +129,7 @@ class MultipleAnswerEditor extends React.Component {
         </Row>
         <Row end='xs'>
           <button type={'submit'}
-            style={Styles.submitButton}>
+            >
             submit
           </button>
         </Row>

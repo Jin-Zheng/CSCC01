@@ -55,9 +55,6 @@ class InstructorApp extends React.Component {
     return (
       <BrowserRouter>
         <div >
-          <Row style={Styles.title}>
-            Lambda-Work
-          </Row>
           <Row center={'xs'}>
             <Col xs={3} sm={3} md={3} lg={3}>
               <InstructorRouter/>
