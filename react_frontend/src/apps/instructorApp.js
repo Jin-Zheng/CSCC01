@@ -9,30 +9,8 @@ import FormatListView from '../components/format/formatListView'
 import ListQuestions from '../components/format/listQuestions'
 import ViewApp from './viewApp'
 
-class MainRouter extends React.Component{
+class InstructorRouter extends React.Component{
   render() {
-    const linksList = List([
-      <Link to='/'>
-        <button style={Styles.indexButton}>
-          home
-        </button>
-      </Link>,
-      <Link to='/generateApp'>
-        <button style={Styles.indexButton}>
-          generate
-        </button>
-      </Link>,
-      <Link to='/viewApp'>
-        <button style={Styles.indexButton}>
-          view(alpha)
-        </button>
-      </Link>,
-      <Link to='/signUpApp'>
-        <button style={Styles.indexButton}>
-          sign up
-        </button>
-      </Link>,
-    ])
     return (
       <div>
         <Row>
@@ -41,12 +19,15 @@ class MainRouter extends React.Component{
         <Row>
           <Link to='/instructor/viewApp'>view/edit</Link>
         </Row>
+        <Row>
+          <Link to='/instructor/attemptViewApp'>quiz attempt</Link>
+        </Row>
       </div>
     )
   }
 }
 
-class MainSwitcher extends React.Component {
+class InstructorSwitcher extends React.Component {
   render() {
     return(
       <Switch>
@@ -69,7 +50,7 @@ class MainSwitcher extends React.Component {
 }
 
 
-class MainApp extends React.Component {
+class InstructorApp extends React.Component {
   render() {
     return (
       <BrowserRouter>
@@ -79,10 +60,10 @@ class MainApp extends React.Component {
           </Row>
           <Row center={'xs'}>
             <Col xs={3} sm={3} md={3} lg={3}>
-              <MainRouter/>
+              <InstructorRouter/>
             </Col>
             <Col xs={7} sm={7} md={7} lg={7}>
-              <MainSwitcher/>
+              <InstructorSwitcher/>
             </Col>
           </Row>
         </div>
@@ -91,4 +72,4 @@ class MainApp extends React.Component {
   }
 }
 
-export default MainApp
+export default InstructorApp
