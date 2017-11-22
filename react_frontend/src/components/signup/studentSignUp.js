@@ -57,53 +57,54 @@ class StudentSignUp extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <Row>
+          <Row style={Styles.textSize}>
             Username:
           </Row>
           <Row>
             <textarea
               username={this.state.username}
               onChange={this.changeText('username')}
-              style={Styles.textareaSimple}/>
+              style={Styles.textArea}/>
           </Row>
-          <Row>
+          <Row style={Styles.textSize}>
             Password:
           </Row>
           <Row>
             <textarea
               password={this.state.password}
               onChange={this.changeText('password')}
-              style={Styles.textareaSimple}/>
+              style={Styles.textArea}/>
           </Row>
-          <Row>
+          <Row style={Styles.textSize}>
             Email:
           </Row>
           <Row>
             <textarea
               email={this.state.email}
               onChange={this.changeText('email')}
-              style={Styles.textareaSimple}/>
+              style={Styles.textArea}/>
           </Row>
-          <Row>
+          <Row style={Styles.textSize}>
             First Name:
           </Row>
           <Row>
             <textarea
               firstname={this.state.firstname}
               onChange={this.changeText('firstname')}
-              style={Styles.textareaSimple}/>
+              style={Styles.textArea}/>
           </Row>
-          <Row>
+          <Row style={Styles.textSize}>
             Last Name:
           </Row>
           <Row>
             <textarea
               lastname={this.state.lastname}
               onChange={this.changeText('lastname')}
-              style={Styles.textareaSimple}/>
+              style={Styles.textArea}/>
           </Row>
           <Row>
-            <button type={'submit'}>
+            <button type={'submit'}
+              style={Styles.submitButton}>
               submit
             </button>
           </Row>

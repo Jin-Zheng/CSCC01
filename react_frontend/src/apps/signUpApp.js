@@ -1,6 +1,7 @@
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
 import {BrowserRouter, Route, Link, Switch} from 'react-router-dom'
+import Styles from '../styles'
 import InstructorSignUp from '../components/signup/instructorSignUp'
 import StudentSignUp from '../components/signup/studentSignUp'
 
@@ -24,16 +25,14 @@ class SignUpRouter extends React.Component {
   render() {
     return(
       <Row>
-        <button>
-          <Link to='/SignUpApp/InstructorSignUp'>
-            instructor sign up
-          </Link>
-        </button>
-        <button>
-          <Link to='/SignUpApp/StudentSignUp'>
-            student sign up
-          </Link>
-        </button>
+        <Link to='/SignUpApp/InstructorSignUp'
+          style={Styles.subIndexLink}>
+          instructor sign up
+        </Link>
+        <Link to='/SignUpApp/StudentSignUp'
+          style={Styles.subIndexLink}>
+          student sign up
+        </Link>
       </Row>
     )
   }

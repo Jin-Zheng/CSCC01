@@ -1,53 +1,46 @@
 import React from 'react'
-import ViewEditApp from './viewEditApp'
+import {BrowserRouter, Link, Route, Switch} from 'react-router-dom'
+import {Row} from 'react-flexbox-grid'
+import ListQuestions from '../components/format/listQuestions'
+import ListQuizzes from '../components/format/listQuizzes'
 
-class ViewApp extends React.Component {
-
-  componentWillMount() {
-    fetch('/questionApi/get/all')
-      .then((res) => (
-        res.json()
-      ))
-      .then((res) => {
-        this.setState({questions:res})
-        console.log(this.state.questions)
-      })
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      questions: undefined
-    }
-  }
-
-  wrap(q) {
+class ViewRouter extends React.Component {
+  render() {
     return(
-      <ViewEditApp
-        index={q.qKey}
-        type={q.qType}
-        value={q.qValue}
-        answer={q.answer}
-        option0={q.candidate1}
-        option1={q.candidate2}
-        option2={q.candidate3}
-        option3={q.candidate4}/>
+      <Row>
+        <Route
+          exact path='/viewApp/questions'
+          component={ListQuestions}/>
+        <Route
+          exact path='/viewApp/quizzes'
+          component={ListQuizzes}/>
+      </Row>
     )
   }
+}
 
+class ViewSwitcher extends React.Component {
   render() {
-    let qList = undefined
-    if (this.state.questions) {
-      qList = this.state.questions.map((q) => (
-        this.wrap(q)
-      ))
-    } else {
-      qList = undefined
-    }
-    return (
-      <div>
-        {qList}
-      </div>
+    return(
+      <Switch>
+        <Row>
+          <Link to='/viewApp/questions'>questions|</Link>
+          <Link to='/viewApp/quizzes'>quizzes</Link>
+        </Row>
+      </Switch>
+    )
+  }
+}
+
+class ViewApp extends React.Component {
+  render() {
+    return(
+      <BrowserRouter>
+        <div>
+          <ViewSwitcher/>
+          <ViewRouter/>
+        </div>
+      </BrowserRouter>
     )
   }
 }

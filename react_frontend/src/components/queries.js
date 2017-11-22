@@ -10,6 +10,44 @@ var connection = mysql.createConnection({
 
 connection.connect()
   console.log('Connected!')
+  // DESCRIPTION OF ALL TABLES
+  // Question:
+   connection.query('describe Question', function (error, results, fields) {
+    if (error) throw error;
+    console.log("Question:")
+    console.log(results)
+  });
+
+  connection.query('describe User', function (error, results, fields) {
+   if (error) throw error;
+     console.log("\nUser:")
+   console.log(results)
+  });
+
+  connection.query('describe Quiz', function (error, results, fields) {
+   if (error) throw error;
+     console.log("\nQuiz:")
+   console.log(results)
+  });
+
+
+  connection.query('describe QuizContents', function (error, results, fields) {
+   if (error) throw error;
+     console.log("\nQuizContents:")
+   console.log(results)
+  });
+
+  connection.query('describe Attempt', function (error, results, fields) {
+   if (error) throw error;
+     console.log("\nAttempt:")
+   console.log(results)
+  });
+
+  connection.query('describe AttemptContents', function (error, results, fields) {
+   if (error) throw error;
+     console.log("\nAttemptContents:")
+   console.log(results)
+  });
 
 //connection.query('CREATE TABLE Question (qKey INTEGER AUTO_INCREMENT PRIMARY KEY, qType VARCHAR(20) NOT NULL, Qvalue VARCHAR(9999) NOT NULL, answer VARCHAR(9999) NOT NULL, candidate1 VARCHAR(9999), candidate2 VARCHAR(9999), candidate3 VARCHAR(9999), candidate4 VARCHAR(9999))', function (error, results, fields) {
 //   if (error) throw error;
@@ -146,22 +184,85 @@ connection.connect()
  // })
 
 
- // Testing Attempt Queries
- // Example Add:
- var attemptSqlAdd = "INSERT INTO Attempt (studentUsername, answers, grade) VALUES ?";
- var attemptValues = [
-   ['sohee101', '2!1!3!42.45!', 82.50]
- ];
- connection.query(attemptSqlAdd, [attemptValues], function (err, result) {
-   if (err) throw err;
-   // console.log("Number of records deleted: " + result.affectedRows);
- });
+ // // Testing Attempt Queries
+ // // Example Add:
+ // var attemptSqlAdd = "INSERT INTO Attempt (studentUsername, answers, grade) VALUES ?";
+ // var attemptValues = [
+ //   ['sohee101', '2!1!3!42.45!', 82.50]
+ // ];
+ // connection.query(attemptSqlAdd, [attemptValues], function (err, result) {
+ //   if (err) throw err;
+ //   // console.log("Number of records deleted: " + result.affectedRows);
+ // });
  //
  // // Example View:
  // // View the Attempts
- connection.query("SELECT * FROM Attempt", function (err, result, fields) {
-   console.log("\nViewing User Database:\n");
-   if (err) throw err;
-   console.log(result);
- });
+ // connection.query("SELECT * FROM Attempt", function (err, result, fields) {
+ //   console.log("\nViewing User Database:\n");
+ //   if (err) throw err;
+ //   console.log(result);
+ // });
+
+ // Change QUIZ TABLE
+ // var sqlQuizCol = "ALTER TABLE Quiz CHANGE `questionIds` `quizName` VARCHAR(255)";
+ //   connection.query(sqlQuizCol, function (error, results, fields) {
+ //   if (error) throw  error;
+ // });
+
+ // CREATE QuizContents TABLE
+ // var sqlQuiz = "CREATE TABLE QuizContents (quizId INTEGER NOT NULL, questionId INTEGER NOT NULL)";
+ //   connection.query(sqlQuiz, function (error, results, fields) {
+ //   if (error) throw  error;
+ // });
+
+
+ // Change Attempt TABLE
+ // var sqlQuizCol = "ALTER TABLE Attempt DROP answers";
+ //   connection.query(sqlQuizCol, function (error, results, fields) {
+ //   if (error) throw  error;
+ // });
+
+  //  connection.query('describe AttemptContents', function (error, results, fields) {
+  //   if (error) throw error;
+  //   console.log(results)
+  // });
+
+  // CREATE AttemptContents TABLE
+  // var sqlQuiz = "CREATE TABLE AttemptContents (attemptId INTEGER NOT NULL, questionId INTEGER NOT NULL, answer VARCHAR(9999) NOT NULL)";
+  //   connection.query(sqlQuiz, function (error, results, fields) {
+  //   if (error) throw  error;
+  // });
+
+  // ADD quiz
+  // var sqladd = 'INSERT INTO QuizContents (quizId, questionId) VALUES ?';;
+	// var values = [
+	// 	[2, 5],
+	// ];
+  // connection.query(sqladd, [values], function (err, result) {
+  //   if (err) throw err;
+  //   // console.log("Number of records deleted: " + result.affectedRows);
+  // });
+
+
+  // connection.query('SELECT Quiz.quizKey, Quiz.quizName, Quiz.quizCreator, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
+	// 'FROM Quiz JOIN QuizContents ' +
+	// 'ON Quiz.quizKey = QuizContents.quizId ' +
+	// 'JOIN Question ON QuizContents.questionId = Question.qKey', function (err, result) {
+  //   if (err) throw err;
+  //   // console.log("Number of records deleted: " + result.affectedRows);
+  //   console.log(result);
+  // });
+  //
+  //
+  // var sqlview =
+	// 'SELECT Attempt.studentUsername, Attempt.grade, AttemptContents.answer AS studentAnswer, Question.qKey, Question.qValue, Question.qType, Question.answer, Question.candidate1, Question.candidate2, Question.candidate3, Question.candidate4 ' +
+	// 'FROM Attempt JOIN AttemptContents ' +
+	// 'ON Attempt.attemptKey = AttemptContents.attemptId ' +
+	// 'JOIN Question ON AttemptContents.questionId = Question.qKey ' +
+	// 'WHERE Attempt.attemptKey = ' + 2;
+  // connection.query(sqlview, function (err, result, fields) {
+  //   console.log("\nViewing Attempt Database:\n");
+  //   if (err) throw err;
+  //   console.log(result);
+  // });
 connection.end()

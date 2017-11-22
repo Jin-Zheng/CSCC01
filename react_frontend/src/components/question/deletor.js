@@ -1,5 +1,6 @@
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
+import Styles from '../../styles'
 
 class Deletor extends React.Component {
 
@@ -23,7 +24,8 @@ class Deletor extends React.Component {
           This cannot be undone.
         </Row>
         <Row>
-          <button onClick={this.handleDelete}>
+          <button onClick={this.handleDelete}
+            style={Styles.submitButton}>
             DELETE
           </button>
         </Row>
