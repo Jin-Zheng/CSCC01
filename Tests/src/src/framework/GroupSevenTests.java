@@ -48,9 +48,6 @@ public class GroupSevenTests {
   public void buttonLinks() {
     System.out.println("Checking button links:");
     driver.findElement(By.partialLinkText("Instructor")).click();
-    //driver.findElement(By.xpath("//a[@href='/Instructor']")).click();
-    //driver.findElement(By.cssSelector("a[href*='generate']")).click();
-    //driver.findElement(By.partialLinkText("generate")).click();
     String currentURL = driver.getCurrentUrl();
     boolean isCorrectURL = "http://localhost:3000/instructor".equals(currentURL);
     System.out.println(isCorrectURL + ", Instructor leads to: " + currentURL);
@@ -66,6 +63,10 @@ public class GroupSevenTests {
     currentURL = driver.getCurrentUrl();
     isCorrectURL = "http://localhost:3000/instructor/viewApp".equals(currentURL);
     System.out.println(isCorrectURL + ", view//edit leads to: " + currentURL);
+    driver.findElement(By.partialLinkText("questions")).click();
+    currentURL = driver.getCurrentUrl();
+    isCorrectURL = "http://localhost:3000/viewApp/questions".equals(currentURL);
+    System.out.println(isCorrectURL + ", questions leads to: " + currentURL);
     driver.findElement(By.partialLinkText("Student")).click();
     currentURL = driver.getCurrentUrl();
     isCorrectURL = "http://localhost:3000/student".equals(currentURL);
@@ -95,6 +96,7 @@ public class GroupSevenTests {
     System.out.println("");
     driver.findElement(By.partialLinkText("Instructor")).click();
     driver.findElement(By.partialLinkText("view")).click();
+    driver.findElement(By.partialLinkText("questions")).click();
     Thread.sleep(500);
     // Loop through all the indices displayed
     List<WebElement> ids = driver.findElements(By.xpath("//*[text()[contains(.,'index')]]"));
@@ -114,6 +116,7 @@ public class GroupSevenTests {
     System.out.println("");
     driver.findElement(By.partialLinkText("Instructor")).click();
     driver.findElement(By.partialLinkText("view")).click();
+    driver.findElement(By.partialLinkText("questions")).click();
     Thread.sleep(500);
     // Loop through all the indices displayed
     List<WebElement> ids = driver.findElements(By.xpath("//*[text()[contains(.,'edit')]]"));
@@ -146,6 +149,7 @@ public class GroupSevenTests {
     driver.navigate().refresh();
     driver.findElement(By.partialLinkText("Instructor")).click();
     driver.findElement(By.partialLinkText("view")).click();
+    driver.findElement(By.partialLinkText("questions")).click();
     Thread.sleep(500);
     // Loop through all the indices displayed
     List<WebElement> ids = driver.findElements(By.xpath("//*[text()[contains(.,'index')]]"));
@@ -165,6 +169,7 @@ public class GroupSevenTests {
     System.out.println("");
     driver.findElement(By.partialLinkText("Instructor")).click();
     driver.findElement(By.partialLinkText("view")).click();
+    driver.findElement(By.partialLinkText("questions")).click();
     
     driver.findElement(By.xpath("//button[contains(.,'view')]")).click();
     Thread.sleep(500);
@@ -198,6 +203,7 @@ public class GroupSevenTests {
     driver.navigate().refresh();
     driver.findElement(By.partialLinkText("Instructor")).click();
     driver.findElement(By.partialLinkText("view")).click();
+    driver.findElement(By.partialLinkText("questions")).click();
 
     // Check for last element
     try {
