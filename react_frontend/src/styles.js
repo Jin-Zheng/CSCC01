@@ -1,5 +1,3 @@
-import backgroundImage from './back.jpg'
-
 const Styles = {
   title: {
     // for the title
@@ -21,14 +19,14 @@ const Styles = {
 
   },
 
-  backgroundSet: {
-    // this is for the background
-    width: '100%',
-    //height: '100%',
-    backgroundImage: 'url('+backgroundImage+')',
-    backgroundSize: 'cover',
-    overflow: 'hidden',
-  },
+  // backgroundSet: {
+  //   // this is for the background
+  //   width: '100%',
+  //   height: '100%',
+  //   backgroundImage: 'url('+backgroundImage+')',
+  //   backgroundSize: 'cover',
+  //   overflow: 'hidden',
+  // },
 
   // backgroundList: {
   //   width: '100%',
