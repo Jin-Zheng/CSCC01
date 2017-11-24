@@ -5,7 +5,7 @@ const Styles = {
     // for the title
     fontFamily:'monospace',
     fontSize:50,
-    color: 'white',
+    color: '#4d2600',
     margin: 20,
   },
 
@@ -16,18 +16,18 @@ const Styles = {
     resize: 'none',
     height: 60,
     fontSize: '12px',
-    color: '#e6e6e6',
-    backgroundColor: '#666666',
+    color: 'black',
+    backgroundColor: 'white',
 
   },
 
   backgroundSet: {
     // this is for the background
     width: '100%',
-    height: '100%',
+    //height: '100%',
     backgroundImage: 'url('+backgroundImage+')',
     backgroundSize: 'cover',
-    overflow:'hidden',
+    overflow: 'hidden',
   },
 
   // backgroundList: {
@@ -47,15 +47,17 @@ const Styles = {
 
   indexButton: {
     // this is for index Button
+    fontFamily: 'Garamond',
+    fontWeight: 'bold',
     marginBottom: 10,
-    color: '#d9d9d9',
-    background: '#666666',
+    color: 'white',
+    background: '#d9d9d9',
     underlayColor: '#4169e1',
     margin: '5px',
-    fontSize: '15px',
-    width: '150px',
-    height: '45px',
-    borderRadius: 5,
+    fontSize: '18px',
+    width: '120px',
+    height: '40px',
+    borderRadius: 20,
     borderColor: '#e6e6e6',
     borderWidth: 0.3,
   },
@@ -63,8 +65,8 @@ const Styles = {
   subIndexLink: {
     // this is for subIndex like short answer, mulitple answer
     margin: 10,
-    fontSize: '25px',
-    color: '#e6e6e6',
+    fontSize: '30px',
+    color: '#666699',
   },
 
   editButton: {
@@ -80,11 +82,12 @@ const Styles = {
 
   submitButton: {
     // this is for submit button
-    color: '#d9d9d9',
-    background: '#666666',
+    fontFamily: 'Verdana',
+    color: '#8585ad',
+    background: '#e1e1ea',
     underlayColor: '#4169e1',
     margin: '5px',
-    fontSize: '14px',
+    fontSize: '15px',
     width: '80px',
     height: '35px',
     borderRadius: 5,
@@ -93,9 +96,22 @@ const Styles = {
   },
 
   textSize: {
-    // this is the for question text
-    color: '#e6e6e6',
+    // this is for question text
+    fontFamily: 'Verdana',
+    color: '#8585ad',
     fontSize: '18px',
+  },
+
+  selectBar: {
+    // this is for selectBar
+    // fontFamily: 'Verdana',
+    // fontSize: '18px',
+    // width: '250px',
+    // height: '35px',
+    width:'230px',
+    border: '1px solid blue',
+    padding:'5px',
+    margin: '10px',
   },
 };
 

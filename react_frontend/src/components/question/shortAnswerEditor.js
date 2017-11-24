@@ -70,7 +70,6 @@ class ShortAnswerEditor extends React.Component {
         </Row>
         <Row>
           <textarea
-            style={Styles.textareaSimple}
             value={this.state.value}
             onChange={this.changeText('value')}/>
         </Row>
@@ -79,7 +78,6 @@ class ShortAnswerEditor extends React.Component {
         </Row>
         <Row>
           <textarea
-            style={Styles.textareaSimple}
             value={this.state.answer}
             onChange={this.changeText('answer')}/>
         </Row>
@@ -87,8 +85,8 @@ class ShortAnswerEditor extends React.Component {
           <p/>
         </Row>
         <Row end='xs'>
-          <button type={'submit'}
-            style={Styles.submitButton}>
+          <button type={'submit'}>
+            
             submit
           </button>
         </Row>
