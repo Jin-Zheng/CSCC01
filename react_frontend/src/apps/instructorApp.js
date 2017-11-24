@@ -12,6 +12,20 @@ import QuizAttemptsApp from './quizAttemptsApp'
 
 class InstructorRouter extends React.Component{
   render() {
+    const linksList = List([
+      <Link to='/'>
+          home
+      </Link>,
+      <Link to='/generateApp'>
+          generate
+      </Link>,
+      <Link to='/viewApp'>
+          view/edit
+      </Link>,
+      <Link to='/signUpApp'>
+          sign up
+      </Link>,
+    ])
     return (
       <div>
         <Row>
@@ -63,7 +77,7 @@ class InstructorApp extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div >
+        <div>
           <Row center={'xs'}>
             <Col xs={3} sm={3} md={3} lg={3}>
               <InstructorRouter/>

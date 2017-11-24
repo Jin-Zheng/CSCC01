@@ -1,8 +1,8 @@
 import React from 'react'
 import {Row} from 'react-flexbox-grid'
 import {Set, List} from 'immutable'
-import ShortAnswerDisplay from '../question/shortAnswerDisplay'
-import MultipleAnswerDisplay from '../question/multipleAnswerDisplay'
+import ShortAnswerSubmit from '../question/shortAnswerSubmit'
+import MultipleAnswerSubmit from '../question/multipleAnswerSubmit'
 
 const SHORT_ANSWER = 'SA'
 const MULTIPLE_CHOICE = 'MC'
@@ -12,14 +12,14 @@ class GetQuestionDisplay extends React.Component {
     let res = undefined
     if(this.props.data.qType === SHORT_ANSWER) {
       res = (
-        <ShortAnswerDisplay
+        <ShortAnswerSubmit
           index = {this.props.data.qKey}
           value = {this.props.data.qValue}
           answer = {this.props.data.answer}/>
       )
     } else if(this.props.data.qType === MULTIPLE_CHOICE) {
       res = (
-        <MultipleAnswerDisplay
+        <MultipleAnswerSubmit
           index = {this.props.data.qKey}
           value = {this.props.data.qValue}
           answer = {this.props.data.answer}
@@ -59,7 +59,14 @@ class QuizDisplay extends React.Component {
 
   wrap(q) {
     return (
-      <GetQuestionDisplay data={q}/>
+      <div>
+      <form>
+        <GetQuestionDisplay data={q}/>
+        <button type={'submit'}>
+        submit
+        </button>
+      </form>
+      </div>
     )
   }
 
@@ -78,14 +85,14 @@ class QuizDisplay extends React.Component {
   }
 }
 
-class ListQuizzes extends React.Component {
+class ListStudentQuiz extends React.Component {
 
   componentWillMount() {
-    fetch('/quizApi/quiz/get/all')
+    fetch('/quizApi/quiz/get/all/')
     .then((res) => (res.json()))
     .then((res) => (
       this.setState({quizzes: this.format(res)})
-    )).then((res) => (console.log(this.state.quizzes.toJSON())))
+    ))
     .catch((err) => (console.log(err)))
   }
 
@@ -134,4 +141,4 @@ class ListQuizzes extends React.Component {
   }
 }
 
-export default ListQuizzes
+export default ListStudentQuiz
