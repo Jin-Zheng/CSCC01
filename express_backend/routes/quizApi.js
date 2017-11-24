@@ -6,6 +6,19 @@ router.use(function (req, res, next) {
 	next();
 })
 
+router.get('/quiz/max', function(req, res, next) {
+	console.log('Getting max quiz value')
+	var sqlview =
+	'SELECT MAX(quizKey) from Quiz';
+	res.locals.connection.connect()
+	res.locals.connection.query(sqlview, function (error, results, fields) {
+		if (error) throw error;
+		res.send(JSON.stringify(results));
+	});
+	res.locals.connection.end()
+})
+
+
 router.get('/quiz/get/all', function(req, res, next) {
 	console.log('Viewing all quiz info:')
 	var sqlview =
@@ -66,6 +79,7 @@ router.post('/quiz/insert', function(req, res, next) {
 	res.locals.connection.connect()
 	res.locals.connection.query(sqladd, [values], function (error, results, fields) {
 		if (error) throw error;
+		console.log(results);
 		res.send(JSON.stringify(results));
 	});
 	res.locals.connection.end()

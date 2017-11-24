@@ -6,6 +6,18 @@ router.use(function (req, res, next) {
 	next();
 })
 
+router.get('/attempt/max', function(req, res, next) {
+	console.log('Getting max attempt value')
+	var sqlview =
+	'SELECT MAX(attemptKey) from Attempt';
+	res.locals.connection.connect()
+	res.locals.connection.query(sqlview, function (error, results, fields) {
+		if (error) throw error;
+		res.send(JSON.stringify(results));
+	});
+	res.locals.connection.end()
+})
+
 router.get('/attempt/get/all', function(req, res, next) {
 	console.log('Viewing all attempts info:')
 	var sqlview =
