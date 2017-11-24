@@ -95,11 +95,11 @@ class ViewEditApp extends React.Component {
       <div>
         <Row>
           <button onClick={this.changeState({pane:this.state.viewPane})}
-            style={Styles.editButton}>view</button>
+            style={Styles.editButtonfront}>view</button>
           <button onClick={this.changeState({pane:this.state.editPane})}
             style={Styles.editButton}>edit</button>
           <button onClick={this.changeState({pane:this.state.deletePane})}
-            style={Styles.editButton}>delete</button>
+            style={Styles.editButtonlast}>delete</button>
         </Row>
         {this.state.pane}
       </div>
@@ -150,7 +150,7 @@ class ListQuestions extends React.Component {
       qList = undefined
     }
     return (
-      <div>
+      <div style={Styles.borderSize}>
         {qList}
       </div>
     )
