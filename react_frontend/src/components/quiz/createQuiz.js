@@ -122,10 +122,11 @@ class CreateQuiz extends React.Component {
       quizCreator: this.state.creator,
       quizName: this.state.name
     }
+
     fetch('/quizApi/quiz/insert', {
+      method: 'POST',
       data: JSON.stringify(metaData)
-    })
-    console.log('submitted')
+    }).then((res) => (console.log('submitted?')))
   }
 
   render() {
