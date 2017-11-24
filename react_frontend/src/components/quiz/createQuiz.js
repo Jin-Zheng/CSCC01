@@ -32,7 +32,8 @@ class GetQuestionDisplay extends React.Component {
     }
 
     this.setState({
-      pane: pane
+      pane: pane,
+
     })
   }
 
@@ -45,7 +46,7 @@ class GetQuestionDisplay extends React.Component {
   }
 }
 
-class SelectQuestions extends React.Component {
+class CreateQuiz extends React.Component {
   componentWillMount() {
     fetch('/questionApi/get/all')
     .then((res) => (
@@ -75,7 +76,18 @@ class SelectQuestions extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.state = {
       questions: undefined,
-      selected: undefined
+      selected: undefined,
+      creator: undefined,
+      name: undefined
+    }
+  }
+
+  changeText(field) {
+    return (e) => {
+      e.preventDefault()
+      this.setState({
+          [field]: e.target.value
+        })
     }
   }
 
@@ -116,6 +128,12 @@ class SelectQuestions extends React.Component {
     }
     return(
       <div>
+        <Row>
+          Creator:
+        </Row>
+        <Row><textarea value={this.state.creator}/></Row>
+        <Row>Quiz Name:</Row>
+        <Row><textarea value={this.state.name}/></Row>
         {qList}
         <Row>
           <button onClick={this.handleSubmit}>
@@ -127,4 +145,4 @@ class SelectQuestions extends React.Component {
   }
 }
 
-export default SelectQuestions
+export default CreateQuiz

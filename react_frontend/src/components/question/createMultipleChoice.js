@@ -68,11 +68,7 @@ class CreateMultipleChoice extends React.Component {
     return (
       <div>
           <form onSubmit={this.handleSubmit}>
-<<<<<<< HEAD
-            <Row>
-=======
             <Row >
->>>>>>> master
               Value:
             </Row>
             <Row>
@@ -90,7 +86,7 @@ class CreateMultipleChoice extends React.Component {
                 onChange={this.changeText('option0')}
                 />
             </Row>
-            <Row >
+            <Row>
               Option B:
             </Row>
             <Row>

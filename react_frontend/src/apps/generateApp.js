@@ -4,7 +4,7 @@ import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 import Styles from '../styles'
 import CreateShortAnswer from '../components/question/createShortAnswer'
 import CreateMultipleChoice from '../components/question/createMultipleChoice'
-import SelectQuestions from '../components/quiz/selectQuestions'
+import SelectQuestions from '../components/quiz/createQuiz'
 
 class GenerateRouter extends React.Component {
   render() {

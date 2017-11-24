@@ -12,7 +12,6 @@ import QuizAttemptsApp from './quizAttemptsApp'
 
 class InstructorRouter extends React.Component{
   render() {
-<<<<<<< HEAD
     const linksList = List([
       <Link to='/'>
           home
@@ -27,8 +26,6 @@ class InstructorRouter extends React.Component{
           sign up
       </Link>,
     ])
-=======
->>>>>>> master
     return (
       <div>
         <Row>
@@ -76,14 +73,7 @@ class InstructorApp extends React.Component {
   render() {
     return (
       <BrowserRouter>
-<<<<<<< HEAD
         <div>
-          <Row>
-            Lambda-Work
-          </Row>
-=======
-        <div >
->>>>>>> master
           <Row center={'xs'}>
             <Col xs={3} sm={3} md={3} lg={3}>
               <InstructorRouter/>
