@@ -3,7 +3,6 @@ import {Row} from 'react-flexbox-grid'
 import Styles from '../styles'
 import MultipleAnswerSubmit from '../components/question/multipleAnswerSubmit'
 import ShortAnswerSubmit from '../components/question/shortAnswerSubmit'
-import Deletor from '../components/question/deletor'
 
 const SHORT_ANSWER = "SA"
 const MULTIPLE_CHOICE = 'MC'
@@ -56,14 +55,28 @@ class ViewQuizApp extends React.Component {
       option3: undefined,
       pane: undefined
     }
+    this.submitAnswer = this.submitAnswer.bind(this)
+  }
+
+  submitAnswer(e) {
+    e.preventDefault()
+    const data = {
+      answer: this.props.answer
+    }
+    console.log(data)
   }
 
   render() {
     return(
       <div>
+      <form onSubmit={this.submitAnswer}>
         <Row>
-        {this.state.pane}
+          {this.state.pane}
         </Row>
+        <button type={'submit'}>
+          submit
+        </button>
+      </form>
       </div>
     )
   }

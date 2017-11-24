@@ -31,6 +31,7 @@ class ShortAnswerSubmit extends React.Component {
     const data = {
       answer: this.state.answer
     }
+    console.log(data)
     /* fetch - submit answer to student field?
              - may need ID for quiz
     */
@@ -38,27 +39,19 @@ class ShortAnswerSubmit extends React.Component {
 
   render() {
     const value = List([
-      'Question: ' + this.state.value,
+      'Question: ' + this.state.value
     ])
     return (
       <div>
-        <form onSubmit={this.submitAnswer}>
-          <SpacedListView list={value}/>
-          <Row>
-            Type your Answer:
-          </Row>
-          <Row>
-            <textarea
-              style={Styles.textareaSimple}
-              value={this.state.answer}/>
-          </Row>
-          <Row end='xs'>
-            <button type={'submit'}
-              style={Styles.submitButton}>
-              submit
-            </button>
-          </Row>
-        </form>
+        <SpacedListView list={value}/>
+        <Row>
+          Type your Answer:
+        </Row>
+        <Row>
+          <textarea
+            style={Styles.textareaSimple}
+            value={this.state.answer}/>
+        </Row>
       </div>
     )
   }

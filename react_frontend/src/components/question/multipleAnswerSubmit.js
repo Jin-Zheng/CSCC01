@@ -43,6 +43,7 @@ class MultipleAnswerSubmit extends React.Component {
       candidate3: this.props.option2,
       candidate4: this.props.option3
     }
+    console.log(data)
     /*fetch  - submit answer to student field?
              - may need ID for quiz
     */
@@ -58,24 +59,16 @@ class MultipleAnswerSubmit extends React.Component {
     ])
     return (
       <div>
-        <form onSubmit={this.submitAnswer}>
-          <SpacedListView list={vList}/>
-          <Row>
-            <select>
-              <option value={''}>Select an Answer</option>
-              <option value={0}>A</option>
-              <option value={1}>B</option>
-              <option value={2}>C</option>
-              <option value={3}>D</option>
-            </select>
-          </Row>
-          <Row>
-            <button type={'submit'}
-              style={Styles.submitButton}>
-              submit
-            </button>
-          </Row>
-        </form>
+        <SpacedListView list={vList}/>
+        <Row>
+          <select>
+            <option value={''}>Select an Answer</option>
+            <option value={0}>A</option>
+            <option value={1}>B</option>
+            <option value={2}>C</option>
+            <option value={3}>D</option>
+          </select>
+        </Row>
       </div>
     )
   }

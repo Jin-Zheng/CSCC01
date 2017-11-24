@@ -6,15 +6,8 @@ import {List} from 'immutable'
 import FormatListView from '../components/format/formatListView'
 import ViewQuizApp from './viewQuizApp'
 
-class StudentRouter extends React.Component{
+class StudentRouter extends React.Component {
   render() {
-    const linksList = List([
-      <Link to='/student/ViewQuizApp'>
-        <button style={Styles.indexButton}>
-          generate
-        </button>
-      </Link>
-    ])
     return (
       <div>
         <Row>
