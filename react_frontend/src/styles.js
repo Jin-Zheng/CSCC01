@@ -71,11 +71,34 @@ const Styles = {
     // this is for edit button
     marginBottom: 0,
     color: 'black',
-    backgroundColor: 'e6e6e6',
-    borderRadius: '90%',
-    padding: '5',
+    backgroundColor: '#f2f2f2',
     fontSize: '15px',
-    marginRight: '5px',
+    width: '55px',
+    borderWidth: 0.5,
+  },
+
+  editButtonfront: {
+    // this is for first edit button
+    marginBottom: 0,
+    color: 'black',
+    backgroundColor: '#f2f2f2',
+    borderBottomLeftRadius: '20px',
+    borderTopLeftRadius: '20px',
+    fontSize: '15px',
+    width: '55px',
+    borderWidth: 0.5,
+  },
+
+  editButtonlast: {
+    // this is for last edit button
+    marginBottom: 0,
+    color: 'black',
+    backgroundColor: '#f2f2f2',
+    borderBottomRightRadius: '20px',
+    borderTopRightRadius: '20px',
+    fontSize: '15px',
+    width: '55px',
+    borderWidth: 0.5,
   },
 
   submitButton: {
@@ -105,12 +128,19 @@ const Styles = {
     // fontFamily: 'Verdana',
     // fontSize: '18px',
     // width: '250px',
-    // height: '35px',
-    width:'230px',
-    border: '1px solid blue',
-    padding:'5px',
-    margin: '10px',
+    height: '35px',
+    width:'300px',
+    //border: '2px solid blue',
+    //padding:'5px',
+    //margin: '30px',
   },
+
+  borderSize:{
+    // this is for view edit border
+    width:'500px',
+    border: '2px solid blue',
+
+  }
 };
 
 export default Styles;
