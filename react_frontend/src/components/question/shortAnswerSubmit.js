@@ -18,6 +18,7 @@ class ShortAnswerSubmit extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      studentAnswer: undefined,
       answer: undefined,
       value: undefined,
       index: undefined,
@@ -32,9 +33,6 @@ class ShortAnswerSubmit extends React.Component {
       answer: this.state.answer
     }
     console.log(data)
-    /* fetch - submit answer to student field?
-             - may need ID for quiz
-    */
   }
 
   render() {
