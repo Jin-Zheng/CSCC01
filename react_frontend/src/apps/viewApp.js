@@ -1,6 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom'
 import {Row} from 'react-flexbox-grid'
+import Styles from '../styles'
 import ListQuestions from '../components/format/listQuestions'
 import ListQuizzes from '../components/format/listQuizzes'
 
@@ -24,8 +25,14 @@ class ViewSwitcher extends React.Component {
     return(
       <Switch>
         <Row>
-          <Link to='/viewApp/questions'>questions|</Link>
-          <Link to='/viewApp/quizzes'>quizzes</Link>
+          <Link to='/viewApp/questions'
+            style={Styles.subIndexLink}>
+            questions
+          </Link>
+          <Link to='/viewApp/quizzes'
+            style={Styles.subIndexLink}>
+            quizzes
+          </Link>
         </Row>
       </Switch>
     )

@@ -7,9 +7,10 @@ import Styles from '../styles'
 class LoginRouter extends React.Component {
   render() {
     return(
-      <Row>
+      <Row style={Styles.loginSet}>
         Login as:
-        <Link to='/instructor'>Instructor|</Link>
+        <Link to='/instructor'>Instructor</Link>
+        |
         <Link to='/student'>Student</Link>
       </Row>
     )
@@ -29,6 +30,7 @@ class LoginSwitcher extends React.Component {
    )
  }
 }
+
 
 class LoginApp extends React.Component {
   render() {

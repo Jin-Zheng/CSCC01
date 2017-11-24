@@ -16,17 +16,24 @@ class InstructorRouter extends React.Component{
       <div>
         <Row>
           <Link to='/instructor/generateApp'>
-
-            generate
+            <button style={Styles.indexButton}>
+              generate
+            </button>
           </Link>
         </Row>
         <Row>
           <Link to='/instructor/viewApp'>
+            <button style={Styles.indexButton}>
               view/edit
+            </button>
           </Link>
         </Row>
         <Row>
-          <Link to='/instructor/attemptViewApp'>quiz attempt</Link>
+          <Link to='/instructor/attemptViewApp'>
+            <button style={Styles.indexButton}>
+              quiz attempt
+            </button>
+          </Link>
         </Row>
       </div>
     )
@@ -37,8 +44,6 @@ class InstructorSwitcher extends React.Component {
   render() {
     return(
       <Switch>
-        <Route
-          exact path='/'/>
         <Route
           exact path='/instructor/generateApp'
           component={GenerateApp}/>
@@ -53,7 +58,6 @@ class InstructorSwitcher extends React.Component {
     )
   }
 }
-
 
 class InstructorApp extends React.Component {
   render() {
