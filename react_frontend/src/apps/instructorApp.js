@@ -7,45 +7,33 @@ import SignUpApp from '../apps/signUpApp'
 import {List} from 'immutable'
 import FormatListView from '../components/format/formatListView'
 import ListQuestions from '../components/format/listQuestions'
+import ViewApp from './viewApp'
+import QuizAttemptsApp from './quizAttemptsApp'
 
-class MainRouter extends React.Component{
+class InstructorRouter extends React.Component{
   render() {
-    const linksList = List([
-      <Link to='/'>
-        <button style={Styles.indexButton}>
-          home
-        </button>
-      </Link>,
-      <Link to='/generateApp'>
-        <button style={Styles.indexButton}>
-          generate
-        </button>
-      </Link>,
-      <Link to='/viewApp'>
-        <button style={Styles.indexButton}>
-          view(alpha)
-        </button>
-      </Link>,
-      <Link to='/signUpApp'>
-        <button style={Styles.indexButton}>
-          sign up
-        </button>
-      </Link>,
-    ])
     return (
       <div>
         <Row>
-          <Link to='/instructor/generateApp'>generate</Link>
+          <Link to='/instructor/generateApp'>
+
+            generate
+          </Link>
         </Row>
         <Row>
-          <Link to='/instructor/viewApp'>view/edit</Link>
+          <Link to='/instructor/viewApp'>
+              view/edit
+          </Link>
+        </Row>
+        <Row>
+          <Link to='/instructor/attemptViewApp'>quiz attempt</Link>
         </Row>
       </div>
     )
   }
 }
 
-class MainSwitcher extends React.Component {
+class InstructorSwitcher extends React.Component {
   render() {
     return(
       <Switch>
@@ -56,10 +44,10 @@ class MainSwitcher extends React.Component {
           component={GenerateApp}/>
         <Route
           exact path='/instructor/viewApp'
-          component={ListQuestions}/>
+          component={ViewApp}/>
         <Route
-          exact path='/signUpApp'
-          component={SignUpApp}/>
+          exact path='/instructor/attemptViewApp'
+          component={QuizAttemptsApp}/>
       </Switch>
 
     )
@@ -67,20 +55,17 @@ class MainSwitcher extends React.Component {
 }
 
 
-class MainApp extends React.Component {
+class InstructorApp extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div style={Styles.backgroundSet}>
-          <Row style={Styles.title}>
-            Lambda-Work
-          </Row>
+        <div >
           <Row center={'xs'}>
             <Col xs={3} sm={3} md={3} lg={3}>
-              <MainRouter/>
+              <InstructorRouter/>
             </Col>
             <Col xs={7} sm={7} md={7} lg={7}>
-              <MainSwitcher/>
+              <InstructorSwitcher/>
             </Col>
           </Row>
         </div>
@@ -89,4 +74,4 @@ class MainApp extends React.Component {
   }
 }
 
-export default MainApp
+export default InstructorApp

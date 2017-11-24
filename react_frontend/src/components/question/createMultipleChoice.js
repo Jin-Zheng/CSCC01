@@ -68,56 +68,57 @@ class CreateMultipleChoice extends React.Component {
     return (
       <div>
           <form onSubmit={this.handleSubmit}>
-            <Row style={Styles.textSize}>
+            <Row >
               Value:
             </Row>
             <Row>
               <textarea
                 value={this.state.value}
                 onChange={this.changeText('value')}
-                style={Styles.textArea}/>
+                />
             </Row>
-            <Row style={Styles.textSize}>
+            <Row >
               Option A:
             </Row>
             <Row>
               <textarea
                 value={this.state.option0}
                 onChange={this.changeText('option0')}
-                style={Styles.textArea}/>
+                />
             </Row>
-            <Row style={Styles.textSize}>
+            <Row >
               Option B:
             </Row>
             <Row>
               <textarea
                 value={this.state.option1}
                 onChange={this.changeText('option1')}
-                style={Styles.textArea}/>
+                />
             </Row>
-            <Row style={Styles.textSize}>
+            <Row >
               Option C:
             </Row>
             <Row>
               <textarea
                 value={this.state.option2}
                 onChange={this.changeText('option2')}
-                style={Styles.textArea}/>
+                />
             </Row>
-            <Row style={Styles.textSize}>
+            <Row >
               Option D:
             </Row>
             <Row>
               <textarea
                 value={this.state.option3}
                 onChange={this.changeText('option3')}
-                style={Styles.textArea}/>
+                />
             </Row>
-            <Row style={Styles.textSize}>
+            <Row >
               Answer: {this.state.answer}
             </Row>
             <Row>
-              <select onChange={this.changeText('answer')}>
+              <select onChange={this.changeText('answer')}
+                style={Styles.selectBar}>
                 <option value={''}>
                 Which option is correct?
                 </option>
@@ -128,7 +129,7 @@ class CreateMultipleChoice extends React.Component {
               </select>
             </Row>
             <Row>
-              <button style={Styles.submitButton}>submit</button>
+              <button >submit</button>
             </Row>
           </form>
 

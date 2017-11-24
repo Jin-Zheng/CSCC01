@@ -11,7 +11,7 @@ class Deletor extends React.Component {
 
   handleDelete(e) {
     e.preventDefault()
-    fetch('questionApi/delete/' + this.props.index)
+    fetch('/questionApi/delete/' + this.props.index)
     .catch((err) => (
       console.log(err)
     ))
@@ -25,7 +25,7 @@ class Deletor extends React.Component {
         </Row>
         <Row>
           <button onClick={this.handleDelete}
-            style={Styles.submitButton}>
+            >
             DELETE
           </button>
         </Row>

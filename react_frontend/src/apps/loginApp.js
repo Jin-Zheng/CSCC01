@@ -37,10 +37,6 @@ class LoginApp extends React.Component {
     return(
       <BrowserRouter>
         <div>
-          <Row style={Styles.title}>
-            Lambda-Work
-            <p/>
-          </Row>
           <LoginRouter/>
           <LoginSwitcher/>
         </div>

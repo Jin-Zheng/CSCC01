@@ -10,11 +10,11 @@ class GenerateRouter extends React.Component {
     return(
       <Row>
         <Link to='/generateApp/createShortAnswer'
-          style={Styles.subIndexLink}>
-          short answer
+          >
+          short answer|
         </Link>
         <Link to='/generateApp/createMultipleChoice'
-          style={Styles.subIndexLink}>
+          >
           multiple choice
         </Link>
       </Row>
