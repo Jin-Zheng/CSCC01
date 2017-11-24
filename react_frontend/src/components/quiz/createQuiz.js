@@ -118,6 +118,13 @@ class CreateQuiz extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    const metaData = {
+      quizCreator: this.state.creator,
+      quizName: this.state.name
+    }
+    fetch('/quizApi/quiz/insert', {
+      data: JSON.stringify(metaData)
+    })
     console.log('submitted')
   }
 
