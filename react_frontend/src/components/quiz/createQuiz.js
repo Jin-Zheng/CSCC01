@@ -74,6 +74,7 @@ class CreateQuiz extends React.Component {
     super(props)
     this.wrap = this.wrap.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.changeText = this.changeText.bind(this)
     this.state = {
       questions: undefined,
       selected: undefined,
@@ -89,6 +90,7 @@ class CreateQuiz extends React.Component {
           [field]: e.target.value
         })
     }
+
   }
 
   checkItem(n) {
@@ -96,7 +98,6 @@ class CreateQuiz extends React.Component {
       const old = this.state
       const up = old.selected.set(n, e.target.checked)
       this.setState({selected: up})
-      console.log(this.state.selected.toJSON())
     }
   }
 
@@ -118,6 +119,7 @@ class CreateQuiz extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    console.log(this.state.creator, this.state.name)
     const metaData = {
       quizCreator: this.state.creator,
       quizName: this.state.name
@@ -125,8 +127,36 @@ class CreateQuiz extends React.Component {
 
     fetch('/quizApi/quiz/insert', {
       method: 'POST',
-      data: JSON.stringify(metaData)
-    }).then((res) => (console.log('submitted?')))
+      body: JSON.stringify(metaData),
+      headers: {'Content-Type': 'application/json'}
+    })
+    .then((res) => (
+      fetch('/quizApi/quiz/max')
+      .then((res) => (
+        res.json()
+      ))
+      .then((res) => {
+        res[0]['MAX(quizKey)']
+      })
+      .then((res) => (
+        this.state.questions.map((q) => {
+          if(this.state.selected.get(q.qKey)) {
+            console.log('true:', q.qKey)
+            const data = {
+              quizId: res,
+              questionId: q.qKey
+            }
+            fetch('/quizApi/quizContents/insert/'+res, {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify(data)
+            })
+          } else {
+            console.log('false:', q.qKey)
+          }
+        })
+      ))
+    ))
   }
 
   render() {
@@ -139,9 +169,17 @@ class CreateQuiz extends React.Component {
         <Row>
           Creator:
         </Row>
-        <Row><textarea value={this.state.creator}/></Row>
+        <Row>
+        <textarea
+          value={this.state.creator}
+          onChange={this.changeText('creator')}/>
+        </Row>
         <Row>Quiz Name:</Row>
-        <Row><textarea value={this.state.name}/></Row>
+        <Row>
+        <textarea
+          value={this.state.name}
+          onChange={this.changeText('name')}/>
+        </Row>
         {qList}
         <Row>
           <button onClick={this.handleSubmit}>

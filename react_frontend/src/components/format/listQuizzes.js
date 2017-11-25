@@ -85,7 +85,7 @@ class ListQuizzes extends React.Component {
     .then((res) => (res.json()))
     .then((res) => (
       this.setState({quizzes: this.format(res)})
-    )).then((res) => (console.log(this.state.quizzes.toJSON())))
+    ))
     .catch((err) => (console.log(err)))
   }
 
@@ -99,6 +99,7 @@ class ListQuizzes extends React.Component {
   }
 
   format(data) {
+    console.log(data)
     const tags = Set(
         data.map((datum) => (
         datum.quizKey
