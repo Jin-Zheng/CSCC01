@@ -1,5 +1,6 @@
 import React from 'react'
 import {List} from 'immutable'
+import Styles from '../../styles'
 import SpacedListView from '../format/spacedListView.js'
 
 class ShortAnswerDisplay extends React.Component {
@@ -32,7 +33,7 @@ class ShortAnswerDisplay extends React.Component {
       'answer: ' + this.state.answer
     ])
     return (
-      <div>
+      <div style={Styles.viewText}>
         <SpacedListView list={values}/>
       </div>
     )

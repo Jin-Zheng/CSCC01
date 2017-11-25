@@ -7,16 +7,12 @@ const Styles = {
     margin: 20,
   },
 
-  textArea: {
-    // this is for textArea
-    fontFamily: 'monospace',
-    width: '100%',
-    resize: 'none',
-    height: 60,
-    fontSize: '12px',
-    color: 'black',
-    backgroundColor: 'white',
-
+  loginSet: {
+    // this is for login border
+    fontFamily:'monospace',
+    fontSize:20,
+    color: '#4d2600',
+    margin: 30,
   },
 
   // backgroundSet: {
@@ -57,7 +53,7 @@ const Styles = {
     height: '40px',
     borderRadius: 20,
     borderColor: '#e6e6e6',
-    borderWidth: 0.3,
+    borderWidth: 0.5,
   },
 
   subIndexLink: {
@@ -67,36 +63,64 @@ const Styles = {
     color: '#666699',
   },
 
-  editButton: {
-    // this is for edit button
-    marginBottom: 0,
+  textSize: {
+    // this is for question text
+    fontFamily: 'Verdana',
+    color: '#8585ad',
+    fontSize: '18px',
+  },
+
+  textArea: {
+    // this is for textArea
+    fontFamily: 'monospace',
+    width: '100%',
+    resize: 'none',
+    height: 60,
+    fontSize: '15px',
     color: 'black',
     backgroundColor: '#f2f2f2',
+  },
+
+  viewText: {
+    // this is for view text
+    fontFamily: 'Verdana',
+    color: 'black',
     fontSize: '15px',
+  },
+
+  editButton: {
+    // this is for edit button
+    fontSize: '16px',
+    fontFamily: 'Lucida Sans Unicode',
+    marginBottom: 0,
+    color: 'black',
+    backgroundColor: '#e6e6e6',
     width: '55px',
     borderWidth: 0.5,
   },
 
   editButtonfront: {
     // this is for first edit button
+    fontSize: '16px',
+    fontFamily: 'Lucida Sans Unicode',
     marginBottom: 0,
     color: 'black',
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#e6e6e6',
     borderBottomLeftRadius: '20px',
     borderTopLeftRadius: '20px',
-    fontSize: '15px',
     width: '55px',
     borderWidth: 0.5,
   },
 
   editButtonlast: {
     // this is for last edit button
+    fontSize: '16px',
+    fontFamily: 'Lucida Sans Unicode',
     marginBottom: 0,
     color: 'black',
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#e6e6e6',
     borderBottomRightRadius: '20px',
     borderTopRightRadius: '20px',
-    fontSize: '15px',
     width: '55px',
     borderWidth: 0.5,
   },
@@ -113,23 +137,17 @@ const Styles = {
     height: '35px',
     borderRadius: 5,
     borderColor: '#e6e6e6',
-    borderWidth: 0.3,
-  },
-
-  textSize: {
-    // this is for question text
-    fontFamily: 'Verdana',
-    color: '#8585ad',
-    fontSize: '18px',
+    borderWidth: 0.5,
   },
 
   selectBar: {
     // this is for selectBar
-    // fontFamily: 'Verdana',
-    // fontSize: '18px',
-    // width: '250px',
+    fontFamily: 'Verdana',
+    fontSize: '15px',
     height: '35px',
-    width:'300px',
+    width:'230px',
+    backgroundColor: '#f2f2f2',
+    //justifyContent: 'center',
     //border: '2px solid blue',
     //padding:'5px',
     //margin: '30px',
@@ -138,7 +156,7 @@ const Styles = {
   borderSize:{
     // this is for view edit border
     width:'500px',
-    border: '2px solid blue',
+    border: '5px solid #cccccc',
 
   }
 };
