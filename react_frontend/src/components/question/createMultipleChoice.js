@@ -68,53 +68,53 @@ class CreateMultipleChoice extends React.Component {
     return (
       <div>
           <form onSubmit={this.handleSubmit}>
-            <Row >
-              Value:
+            <Row style={Styles.textSize}>
+              Question:
             </Row>
             <Row>
               <textarea
                 value={this.state.value}
                 onChange={this.changeText('value')}
-                />
+                style={Styles.textArea}/>
             </Row>
-            <Row >
+            <Row style={Styles.textSize}>
               Option A:
             </Row>
             <Row>
               <textarea
                 value={this.state.option0}
                 onChange={this.changeText('option0')}
-                />
+                style={Styles.textArea}/>
             </Row>
-            <Row>
+            <Row style={Styles.textSize}>
               Option B:
             </Row>
             <Row>
               <textarea
                 value={this.state.option1}
                 onChange={this.changeText('option1')}
-                />
+                style={Styles.textArea}/>
             </Row>
-            <Row >
+            <Row style={Styles.textSize}>
               Option C:
             </Row>
             <Row>
               <textarea
                 value={this.state.option2}
                 onChange={this.changeText('option2')}
-                />
+                style={Styles.textArea}/>
             </Row>
-            <Row >
+            <Row style={Styles.textSize}>
               Option D:
             </Row>
             <Row>
               <textarea
                 value={this.state.option3}
                 onChange={this.changeText('option3')}
-                />
+                style={Styles.textArea}/>
             </Row>
-            <Row >
-              Answer: {this.state.answer}
+            <Row style={Styles.textSize}>
+              Answer:
             </Row>
             <Row>
               <select onChange={this.changeText('answer')}
@@ -129,7 +129,7 @@ class CreateMultipleChoice extends React.Component {
               </select>
             </Row>
             <Row>
-              <button >submit</button>
+              <button style={Styles.submitButton}>submit</button>
             </Row>
           </form>
 

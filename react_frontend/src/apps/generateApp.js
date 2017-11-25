@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 import Styles from '../styles'
 import CreateShortAnswer from '../components/question/createShortAnswer'
 import CreateMultipleChoice from '../components/question/createMultipleChoice'
+import GenerateInstruction from '../instructions/generateInstruction'
 import SelectQuestions from '../components/quiz/createQuiz'
 
 class GenerateRouter extends React.Component {
@@ -11,12 +12,12 @@ class GenerateRouter extends React.Component {
     return(
       <Row>
         <Link to='/generateApp/createShortAnswer'
-          >
-          short answer|
+          style={Styles.subIndexLink}>
+          short answer
         </Link>
         <Link to='/generateApp/createMultipleChoice'
-          >
-          multiple choice|
+          style={Styles.subIndexLink}>
+          multiple choice
         </Link>
         <Link to='/generateApp/createQuiz'>
           quiz
@@ -30,6 +31,9 @@ class GenerateSwitcher extends React.Component {
   render() {
     return(
       <Switch>
+        <Route
+          exact path='/generateApp'
+          component={GenerateInstruction}/>
         <Route
           exact path='/generateApp/createShortAnswer'
           component={CreateShortAnswer}/>
