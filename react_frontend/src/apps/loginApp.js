@@ -39,7 +39,6 @@ class LoginApp extends React.Component {
     return(
       <BrowserRouter>
         <div>
-          <LoginRouter/>
           <LoginSwitcher/>
         </div>
       </BrowserRouter>
