@@ -136,14 +136,14 @@ class CreateQuiz extends React.Component {
         res.json()
       ))
       .then((res) => {
-        res[0]['MAX(quizKey)']
+        return res[0]['MAX(quizKey)']
       })
       .then((res) => (
         this.state.questions.map((q) => {
           if(this.state.selected.get(q.qKey)) {
-            console.log('true:', q.qKey)
+            console.log('true:', res, q.qKey)
             const data = {
-              quizId: res,
+              id: res,
               questionId: q.qKey
             }
             fetch('/quizApi/quizContents/insert/'+res, {
