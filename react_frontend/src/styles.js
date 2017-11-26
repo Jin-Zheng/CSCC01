@@ -112,6 +112,7 @@ const Styles = {
     fontFamily: 'Verdana',
     color: 'black',
     fontSize: '15px',
+    margin: '15px',
     border: '2px solid #b3b3b3',
     width: '450px',
   },
