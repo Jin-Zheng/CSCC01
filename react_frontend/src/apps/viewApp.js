@@ -4,18 +4,21 @@ import {Row} from 'react-flexbox-grid'
 import Styles from '../styles'
 import ListQuestions from '../components/format/listQuestions'
 import ListQuizzes from '../components/format/listQuizzes'
+import ViewInstructions from '../instructions/viewInstructions'
 
 class ViewRouter extends React.Component {
   render() {
     return(
-      <Row>
+      <div>
         <Route
           exact path='/viewApp/questions'
           component={ListQuestions}/>
         <Route
           exact path='/viewApp/quizzes'
           component={ListQuizzes}/>
-      </Row>
+        <Route
+          component={ViewInstructions}/>
+      </div>
     )
   }
 }

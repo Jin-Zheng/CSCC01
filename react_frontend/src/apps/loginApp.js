@@ -4,31 +4,21 @@ import {Row} from 'react-flexbox-grid'
 import InstructorApp from './instructorApp'
 import StudentApp from './studentApp'
 import Styles from '../styles'
-
-class LoginRouter extends React.Component {
-  render() {
-    return(
-      <Row style={Styles.loginSet}>
-        Login as:
-        <Link to='/instructor'>Instructor</Link>
-        |
-        <Link to='/student'>Student</Link>
-      </Row>
-    )
-  }
-}
+import LoginInstructions from '../instructions/loginInstructions'
 
 class LoginSwitcher extends React.Component {
  render() {
    return(
      <Switch>
-      <Route
-        exact path='/instructor'
-        component={InstructorApp}/>
-      <Route
-        exact path='/student'
-        component={StudentApp}/>
-     </Switch>
+        <Route
+          exact path='/instructor'
+          component={InstructorApp}/>
+        <Route
+          exact path='/student'
+          component={StudentApp}/>
+        <Route
+          conponent={LoginInstructions}/>
+    </Switch>
    )
  }
 }

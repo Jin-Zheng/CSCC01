@@ -9,23 +9,10 @@ import FormatListView from '../components/format/formatListView'
 import ListQuestions from '../components/format/listQuestions'
 import ViewApp from './viewApp'
 import QuizAttemptsApp from './quizAttemptsApp'
+import InstructorInstructions from '../instructions/instructorInstructions'
 
 class InstructorRouter extends React.Component{
   render() {
-    const linksList = List([
-      <Link to='/'>
-          home
-      </Link>,
-      <Link to='/generateApp'>
-          generate
-      </Link>,
-      <Link to='/viewApp'>
-          view/edit
-      </Link>,
-      <Link to='/signUpApp'>
-          sign up
-      </Link>,
-    ])
     return (
       <div>
         <Row>
@@ -58,6 +45,7 @@ class InstructorSwitcher extends React.Component {
   render() {
     return(
       <Switch>
+
         <Route
           exact path='/instructor/generateApp'
           component={GenerateApp}/>
@@ -67,6 +55,8 @@ class InstructorSwitcher extends React.Component {
         <Route
           exact path='/instructor/attemptViewApp'
           component={QuizAttemptsApp}/>
+          <Route
+            component={InstructorInstructions}/>
       </Switch>
 
     )

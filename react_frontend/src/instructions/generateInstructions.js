@@ -1,16 +1,16 @@
 import React from 'react'
 import Styles from '../styles'
 
-class GenerateInstruction extends React.Component {
+class GenerateInstructions extends React.Component {
   render() {
     const instruction = 'Welcome';
     console.log('hi mom')
     return(
       <div style={Styles.viewText}>
-        instruction
+        these are the generate app instrutions
       </div>
     )
   }
 }
 
-export default GenerateInstruction
+export default GenerateInstructions

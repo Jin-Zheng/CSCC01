@@ -4,7 +4,7 @@ import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 import Styles from '../styles'
 import CreateShortAnswer from '../components/question/createShortAnswer'
 import CreateMultipleChoice from '../components/question/createMultipleChoice'
-import GenerateInstruction from '../instructions/generateInstruction'
+import GenerateInstructions from '../instructions/generateInstructions'
 import SelectQuestions from '../components/quiz/createQuiz'
 
 class GenerateRouter extends React.Component {
@@ -32,9 +32,6 @@ class GenerateSwitcher extends React.Component {
     return(
       <Switch>
         <Route
-          exact path='/generateApp'
-          component={GenerateInstruction}/>
-        <Route
           exact path='/generateApp/createShortAnswer'
           component={CreateShortAnswer}/>
         <Route
@@ -43,6 +40,9 @@ class GenerateSwitcher extends React.Component {
         <Route
           exact path='/generateApp/createQuiz'
           component={SelectQuestions}/>
+        <Route
+          path=''
+          component={GenerateInstructions}/>
       </Switch>
     )
   }
