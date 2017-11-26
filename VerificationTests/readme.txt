@@ -1,7 +1,8 @@
 How to Run Verification Tests
 1. cd VerificationTests
 2. npm install mocha #installs the module mocha used for the testing
-3. mocha #runs the test file, shows all the test case information
+3. npm install mysql #installs mysql for the queries used
+4. mocha #runs the test file, shows all the test case information
 
 -----
 
