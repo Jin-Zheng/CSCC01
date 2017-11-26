@@ -60,32 +60,60 @@ const Styles = {
     // this is for subIndex like short answer, mulitple answer
     margin: 10,
     fontSize: '30px',
-    color: '#666699',
+    color: '#b3b3b3',
+    textDecoration: 'none',
+    width: '190px',
+    border: '2px solid #b3b3b3',
+    borderRadius: '0.5rem',
   },
 
   textSize: {
     // this is for question text
     fontFamily: 'Verdana',
-    color: '#8585ad',
+    color: '#8c8c8c',
     fontSize: '18px',
   },
 
   textArea: {
     // this is for textArea
     fontFamily: 'monospace',
-    width: '100%',
+    width: '200px',
     resize: 'none',
-    height: 60,
+    height: '25px',
+    fontSize: '15px',
+    color: 'black',
+    backgroundColor: '#f2f2f2',
+  },
+
+  questionArea: {
+    // this is for question generate Area
+    fontFamily: 'monospace',
+    width: '600px',
+    resize: 'none',
+    height: '80px',
+    fontSize: '15px',
+    color: 'black',
+    backgroundColor: '#f2f2f2',
+  },
+
+  editQuestionArea: {
+    // this is for question generate Area
+    fontFamily: 'monospace',
+    width: '400px',
+    resize: 'none',
+    height: '50px',
     fontSize: '15px',
     color: 'black',
     backgroundColor: '#f2f2f2',
   },
 
   viewText: {
-    // this is for view text
+    // this is for edit text
     fontFamily: 'Verdana',
     color: 'black',
     fontSize: '15px',
+    border: '2px solid #b3b3b3',
+    width: '450px',
   },
 
   editButton: {
@@ -93,7 +121,7 @@ const Styles = {
     fontSize: '16px',
     fontFamily: 'Lucida Sans Unicode',
     marginBottom: 0,
-    color: 'black',
+    color: '#a6a6a6',
     backgroundColor: '#e6e6e6',
     width: '55px',
     borderWidth: 0.5,
@@ -104,7 +132,7 @@ const Styles = {
     fontSize: '16px',
     fontFamily: 'Lucida Sans Unicode',
     marginBottom: 0,
-    color: 'black',
+    color: '#a6a6a6',
     backgroundColor: '#e6e6e6',
     borderBottomLeftRadius: '20px',
     borderTopLeftRadius: '20px',
@@ -117,7 +145,7 @@ const Styles = {
     fontSize: '16px',
     fontFamily: 'Lucida Sans Unicode',
     marginBottom: 0,
-    color: 'black',
+    color: '#a6a6a6',
     backgroundColor: '#e6e6e6',
     borderBottomRightRadius: '20px',
     borderTopRightRadius: '20px',
@@ -128,13 +156,28 @@ const Styles = {
   submitButton: {
     // this is for submit button
     fontFamily: 'Verdana',
-    color: '#8585ad',
-    background: '#e1e1ea',
+    color: '#a6a6a6',
+    background: '#f2f2f2',
     underlayColor: '#4169e1',
     margin: '5px',
     fontSize: '15px',
     width: '80px',
     height: '35px',
+    borderRadius: 5,
+    borderColor: '#e6e6e6',
+    borderWidth: 0.5,
+  },
+
+  smallButton: {
+    // this is for small button: edit spoiler
+    fontFamily: 'Verdana',
+    color: '#a6a6a6',
+    background: '#f2f2f2',
+    underlayColor: '#4169e1',
+    marginLeft: '5px',
+    fontSize: '12px',
+    width: '60px',
+    height: '20px',
     borderRadius: 5,
     borderColor: '#e6e6e6',
     borderWidth: 0.5,
@@ -147,18 +190,32 @@ const Styles = {
     height: '35px',
     width:'230px',
     backgroundColor: '#f2f2f2',
-    //justifyContent: 'center',
-    //border: '2px solid blue',
-    //padding:'5px',
-    //margin: '30px',
   },
 
-  borderSize:{
+  editSelectBar: {
+    // this is for selectBar
+    fontFamily: 'Verdana',
+    fontSize: '14px',
+    height: '20px',
+    width:'210px',
+    backgroundColor: '#f2f2f2',
+  },
+
+  borderSize: {
     // this is for view edit border
     width:'500px',
     border: '5px solid #cccccc',
+  },
 
-  }
+  instructionSize: {
+    // this is for instruction fontSize
+    fontFamily: 'Lucida Sans Unicode',
+    fontSize: '20px',
+    color: '#006666',
+    width: '500px',
+    height: '500px',
+    border: '2px solid #a6a6a6',
+  },
 };
 
 export default Styles;

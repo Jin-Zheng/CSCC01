@@ -6,7 +6,7 @@ class GenerateInstructions extends React.Component {
     const instruction = 'Welcome';
     console.log('hi mom')
     return(
-      <div style={Styles.viewText}>
+      <div style={Styles.instructionSize}>
         these are the generate app instrutions
       </div>
     )

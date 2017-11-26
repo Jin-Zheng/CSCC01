@@ -75,7 +75,7 @@ class CreateMultipleChoice extends React.Component {
               <textarea
                 value={this.state.value}
                 onChange={this.changeText('value')}
-                style={Styles.textArea}/>
+                style={Styles.questionArea}/>
             </Row>
             <Row style={Styles.textSize}>
               Option A:
@@ -84,7 +84,7 @@ class CreateMultipleChoice extends React.Component {
               <textarea
                 value={this.state.option0}
                 onChange={this.changeText('option0')}
-                style={Styles.textArea}/>
+                style={Styles.questionArea}/>
             </Row>
             <Row style={Styles.textSize}>
               Option B:
@@ -93,7 +93,7 @@ class CreateMultipleChoice extends React.Component {
               <textarea
                 value={this.state.option1}
                 onChange={this.changeText('option1')}
-                style={Styles.textArea}/>
+                style={Styles.questionArea}/>
             </Row>
             <Row style={Styles.textSize}>
               Option C:
@@ -102,7 +102,7 @@ class CreateMultipleChoice extends React.Component {
               <textarea
                 value={this.state.option2}
                 onChange={this.changeText('option2')}
-                style={Styles.textArea}/>
+                style={Styles.questionArea}/>
             </Row>
             <Row style={Styles.textSize}>
               Option D:
@@ -111,7 +111,7 @@ class CreateMultipleChoice extends React.Component {
               <textarea
                 value={this.state.option3}
                 onChange={this.changeText('option3')}
-                style={Styles.textArea}/>
+                style={Styles.questionArea}/>
             </Row>
             <Row style={Styles.textSize}>
               Answer:

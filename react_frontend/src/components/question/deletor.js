@@ -19,14 +19,14 @@ class Deletor extends React.Component {
 
   render() {
     return(
-      <div>
+      <div style={Styles.viewText}>
         <Row>
           This cannot be undone.
         </Row>
         <Row>
           <button onClick={this.handleDelete}
-            >
-            DELETE
+            style={Styles.smallButton}>
+            delete
           </button>
         </Row>
       </div>

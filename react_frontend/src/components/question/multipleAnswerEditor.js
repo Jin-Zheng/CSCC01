@@ -68,58 +68,60 @@ class MultipleAnswerEditor extends React.Component {
   render() {
     return (
       <form
-        onSubmit = {this.updateQuestion}>
-        <Row>
+        onSubmit = {this.updateQuestion}
+        style={Styles.viewText}>
+        <Row style={Styles.textSize}>
           Value:
         </Row>
         <Row>
           <textarea
-
             onChange={this.changeText('value')}
-            value={this.state.value}/>
+            value={this.state.value}
+            style={Styles.editQuestionArea}/>
         </Row>
-        <Row>
+        <Row style={Styles.textSize}>
           Option0:
         </Row>
         <Row>
           <textarea
-
             onChange={this.changeText('option0')}
-            value={this.state.option0}/>
+            value={this.state.option0}
+            style={Styles.editQuestionArea}/>
         </Row>
-        <Row>
+        <Row style={Styles.textSize}>
           Option1:
         </Row>
         <Row>
           <textarea
-
             onChange={this.changeText('option1')}
-            value={this.state.option1}/>
+            value={this.state.option1}
+            style={Styles.editQuestionArea}/>
         </Row>
-        <Row>
+        <Row style={Styles.textSize}>
           Option2:
         </Row>
         <Row>
           <textarea
-
             onChange={this.changeText('option2')}
-            value={this.state.option2}/>
+            value={this.state.option2}
+            style={Styles.editQuestionArea}/>
         </Row>
-        <Row>
+        <Row style={Styles.textSize}>
           Option3:
         </Row>
         <Row>
           <textarea
-
             onChange={this.changeText('option3')}
-            value={this.state.option3}/>
+            value={this.state.option3}
+            style={Styles.editQuestionArea}/>
         </Row>
-        <Row>
+        <Row style={Styles.textSize}>
           Answer: {this.state.answer}
         </Row>
         <Row>
           <select
-            onChange={this.changeText('answer')}>
+            onChange={this.changeText('answer')}
+            style={Styles.editSelectBar}>
             <option value={''}>Which option is correct?</option>
             <option value={0}>0</option>
             <option value={1}>1</option>
@@ -129,7 +131,7 @@ class MultipleAnswerEditor extends React.Component {
         </Row>
         <Row end='xs'>
           <button type={'submit'}
-            >
+            style={Styles.smallButton}>
             submit
           </button>
         </Row>

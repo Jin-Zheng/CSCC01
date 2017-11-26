@@ -83,7 +83,8 @@ class AttemptView extends React.Component {
       <div>
         <Row>
           attempt:{this.props.data[0].attemptKey}
-          <button onClick={this.handleSpoiler}>spoiler</button>
+          <button onClick={this.handleSpoiler}
+            style={Styles.smallButton}>spoiler</button>
         </Row>
         {this.state.pane}
       </div>

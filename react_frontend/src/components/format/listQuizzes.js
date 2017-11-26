@@ -3,6 +3,7 @@ import {Row} from 'react-flexbox-grid'
 import {Set, List} from 'immutable'
 import ShortAnswerDisplay from '../question/shortAnswerDisplay'
 import MultipleAnswerDisplay from '../question/multipleAnswerDisplay'
+import Styles from '../../styles'
 
 const SHORT_ANSWER = 'SA'
 const MULTIPLE_CHOICE = 'MC'
@@ -66,9 +67,10 @@ class QuizDisplay extends React.Component {
   render() {
     return (
       <div>
-        <Row>
+        <Row style={Styles.textSize}>
           Quiz: {this.props.data[0].quizName}
-          <button onClick={this.handleSpoiler}>
+          <button onClick={this.handleSpoiler}
+            style={Styles.smallButton}>
             spoiler
           </button>
         </Row>

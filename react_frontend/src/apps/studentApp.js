@@ -11,7 +11,11 @@ class StudentRouter extends React.Component {
     return (
       <div>
         <Row>
-          <Link to='/student/listStudentQuiz'>Select Quiz</Link>
+          <Link to='/student/listStudentQuiz'>
+            <button style={Styles.indexButton}>
+              Select Quiz
+            </button>
+          </Link>
         </Row>
       </div>
     )
@@ -37,9 +41,6 @@ class StudentApp extends React.Component {
     return (
       <BrowserRouter>
         <div style={Styles.backgroundSet}>
-          <Row style={Styles.title}>
-            Lambda-Work
-          </Row>
           <Row center={'xs'}>
             <Col xs={3} sm={3} md={3} lg={3}>
               <StudentRouter/>
