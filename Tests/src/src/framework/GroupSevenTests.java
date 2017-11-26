@@ -20,8 +20,14 @@ public class GroupSevenTests {
       // BEFORE RUNNING THIS PROGRAM, READ readme.txt IN selenium-tests
       
       String projectDirectory = System.getProperty("user.dir");
-      String exePath = projectDirectory + "\\ChromeDriver\\chromedriver.exe";
-      System.setProperty("webdriver.chrome.driver", exePath);
+      String exePathWin = projectDirectory + "\\ChromeDriver\\chromedriver.exe";
+      String exePathMac = projectDirectory + "/ChromeDriver/chromedriver";
+      String os = System.getProperty("os.name").toLowerCase();
+      if (os.contains("mac")) {
+        System.setProperty("webdriver.chrome.driver", exePathMac);
+      } else {
+        System.setProperty("webdriver.chrome.driver", exePathWin);
+      }
       driver = new ChromeDriver();
       driver.manage().deleteAllCookies();
       driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -73,11 +79,14 @@ public class GroupSevenTests {
     System.out.println(isCorrectURL + ", Student leads to: " + currentURL);
   }
 
-  public void submitQuestion() {
+  public void submitQuestion() throws InterruptedException {
     System.out.println("");
     driver.findElement(By.partialLinkText("Instructor")).click();
+    Thread.sleep(20);
     driver.findElement(By.partialLinkText("generate")).click();
+    Thread.sleep(20);
     driver.findElement(By.partialLinkText("short answer")).click();
+    Thread.sleep(20);
     List<WebElement> textBoxes = driver.findElements(By.xpath("//textarea"));
     Iterator<WebElement> itr = textBoxes.iterator();
     WebElement valueBox = itr.next();
@@ -95,7 +104,9 @@ public class GroupSevenTests {
   public void checkQuestion() throws InterruptedException {
     System.out.println("");
     driver.findElement(By.partialLinkText("Instructor")).click();
+    Thread.sleep(20);
     driver.findElement(By.partialLinkText("view")).click();
+    Thread.sleep(20);
     driver.findElement(By.partialLinkText("questions")).click();
     Thread.sleep(500);
     // Loop through all the indices displayed
@@ -115,11 +126,13 @@ public class GroupSevenTests {
   public void editQuestion() throws InterruptedException {
     System.out.println("");
     driver.findElement(By.partialLinkText("Instructor")).click();
+    Thread.sleep(20);
     driver.findElement(By.partialLinkText("view")).click();
+    Thread.sleep(20);
     driver.findElement(By.partialLinkText("questions")).click();
     Thread.sleep(500);
     // Loop through all the indices displayed
-    List<WebElement> ids = driver.findElements(By.xpath("//*[text()[contains(.,'edit')]]"));
+    List<WebElement> ids = driver.findElements(By.xpath("//button[contains(.,'edit')]"));
     Iterator<WebElement> itr = ids.iterator();
     WebElement lastElement = null;
     while(itr.hasNext()) {
@@ -128,8 +141,8 @@ public class GroupSevenTests {
     // Press the last edit button
     lastElement.click();
     // Edit the values of the textboxes
-    String question = "What is the answer?";
-    String answer = "What is the actual answer?";
+    String question = "What is the actual answer?";
+    String answer = "This is the actual answer.";
     List<WebElement> textBoxes = driver.findElements(By.xpath("//textarea"));
     itr = textBoxes.iterator();
     WebElement valueBox = itr.next();
@@ -146,9 +159,12 @@ public class GroupSevenTests {
 
   public void checkEditedQuestion() throws InterruptedException {
     System.out.println("");
+    Thread.sleep(1000);
     driver.navigate().refresh();
     driver.findElement(By.partialLinkText("Instructor")).click();
+    Thread.sleep(20);
     driver.findElement(By.partialLinkText("view")).click();
+    Thread.sleep(20);
     driver.findElement(By.partialLinkText("questions")).click();
     Thread.sleep(500);
     // Loop through all the indices displayed
@@ -168,7 +184,9 @@ public class GroupSevenTests {
   public void deleteQuestion() throws InterruptedException {
     System.out.println("");
     driver.findElement(By.partialLinkText("Instructor")).click();
+    Thread.sleep(20);
     driver.findElement(By.partialLinkText("view")).click();
+    Thread.sleep(20);
     driver.findElement(By.partialLinkText("questions")).click();
     
     driver.findElement(By.xpath("//button[contains(.,'view')]")).click();
@@ -184,7 +202,7 @@ public class GroupSevenTests {
     String lastIndex = lastElement.getText().replaceAll("[^0-9]", "");
     
     // Loop through all the questions displayed
-    List<WebElement> deleteButtons = driver.findElements(By.xpath("//*[text()[contains(.,'delete')]]"));
+    List<WebElement> deleteButtons = driver.findElements(By.xpath("//button[contains(.,'delete')]"));
     itr = deleteButtons.iterator();
     WebElement lastDelete = null;
     while(itr.hasNext()) {
@@ -196,7 +214,7 @@ public class GroupSevenTests {
     lastDelete.click();
     
     // Go through final delete
-    driver.findElement(By.xpath("//*[text()[contains(.,'DELETE')]]")).click();
+    driver.findElement(By.xpath("//button[contains(.,'delete')]")).click();
     Thread.sleep(100);
     
     // Refresh
