@@ -13,15 +13,15 @@ class GenerateRouter extends React.Component {
       <Row>
         <Link to='/generateApp/createShortAnswer'
           style={Styles.subIndexLink}>
-          short answer
+          Short Answer
         </Link>
         <Link to='/generateApp/createMultipleChoice'
           style={Styles.subIndexLink}>
-          multiple choice
+          Multiple Choice
         </Link>
         <Link to='/generateApp/createQuiz'
           style={Styles.subIndexLink}>
-          quiz
+          Quiz
         </Link>
       </Row>
     )

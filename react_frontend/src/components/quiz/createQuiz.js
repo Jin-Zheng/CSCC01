@@ -183,10 +183,10 @@ class CreateQuiz extends React.Component {
           onChange={this.changeText('name')}
           style={Styles.textArea}/>
         </Row>
-        {qList}
+        <div style={Styles.borderSet}>{qList}</div>
         <Row>
           <button onClick={this.handleSubmit} style={Styles.submitButton}>
-            submit
+            Submit
           </button>
         </Row>
       </div>

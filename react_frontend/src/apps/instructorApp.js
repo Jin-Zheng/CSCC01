@@ -18,21 +18,21 @@ class InstructorRouter extends React.Component{
         <Row>
           <Link to='/instructor/generateApp'>
             <button style={Styles.indexButton}>
-              generate
+              Generate
             </button>
           </Link>
         </Row>
         <Row>
           <Link to='/instructor/viewApp'>
             <button style={Styles.indexButton}>
-              view/edit
+              View/Edit
             </button>
           </Link>
         </Row>
         <Row>
           <Link to='/instructor/attemptViewApp'>
             <button style={Styles.indexButton}>
-              quiz attempt
+              Quiz Attempt
             </button>
           </Link>
         </Row>

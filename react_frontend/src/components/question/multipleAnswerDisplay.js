@@ -34,18 +34,20 @@ class MultipleAnswerDisplay extends React.Component {
 
   render() {
     const vList = List([
-      'index: ' + this.state.index,
-      'type: ' + this.state.type,
-      'value: ' + this.state.value,
-      'option0: ' + this.state.option0,
-      'option1: ' + this.state.option1,
-      'option2: ' + this.state.option2,
-      'option3: ' + this.state.option3,
-      'answer: ' + this.state.answer
+      'Index: ' + this.state.index,
+      'Type: ' + this.state.type,
+      'Value: ' + this.state.value,
+      'Option0: ' + this.state.option0,
+      'Option1: ' + this.state.option1,
+      'Option2: ' + this.state.option2,
+      'Option3: ' + this.state.option3,
+      'Answer: ' + this.state.answer
     ])
     return (
-      <div style={Styles.viewText}>
-        <SpacedListView list={vList}/>
+      <div style={Styles.questionBorder}>
+        <div style={Styles.viewText}>
+          <SpacedListView list={vList}/>
+        </div>
       </div>
     )
   }

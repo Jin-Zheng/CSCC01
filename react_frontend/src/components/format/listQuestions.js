@@ -93,7 +93,7 @@ class ViewEditApp extends React.Component {
 
     return(
       <div>
-        <Row>
+        <Row style={Styles.marginSet}>
           <button onClick={this.changeState({pane:this.state.viewPane})}
             style={Styles.editButtonfront}>view</button>
           <button onClick={this.changeState({pane:this.state.editPane})}
@@ -150,7 +150,7 @@ class ListQuestions extends React.Component {
       qList = undefined
     }
     return (
-      <div style={Styles.borderSize}>
+      <div style={Styles.borderSet}>
         {qList}
       </div>
     )

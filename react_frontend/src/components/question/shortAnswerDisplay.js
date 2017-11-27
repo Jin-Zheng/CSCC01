@@ -27,14 +27,16 @@ class ShortAnswerDisplay extends React.Component {
 
   render() {
     const values = List([
-      'index: ' + this.state.index,
-      'type: ' + this.state.type,
-      'value: ' + this.state.value,
-      'answer: ' + this.state.answer
+      'Index: ' + this.state.index,
+      'Type: ' + this.state.type,
+      'Value: ' + this.state.value,
+      'Answer: ' + this.state.answer
     ])
     return (
-      <div style={Styles.viewText}>
-        <SpacedListView list={values}/>
+      <div style={Styles.questionBorder}>
+        <div style={Styles.viewText}>
+          <SpacedListView list={values}/>
+        </div>
       </div>
     )
   }

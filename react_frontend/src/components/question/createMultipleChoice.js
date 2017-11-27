@@ -129,7 +129,7 @@ class CreateMultipleChoice extends React.Component {
               </select>
             </Row>
             <Row>
-              <button style={Styles.submitButton}>submit</button>
+              <button style={Styles.submitButton}>Submit</button>
             </Row>
           </form>
 

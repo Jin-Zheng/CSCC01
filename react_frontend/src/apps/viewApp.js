@@ -30,11 +30,11 @@ class ViewSwitcher extends React.Component {
         <Row>
           <Link to='/viewApp/questions'
             style={Styles.subIndexLink}>
-            questions
+            Questions
           </Link>
           <Link to='/viewApp/quizzes'
             style={Styles.subIndexLink}>
-            quizzes
+            Quizzes
           </Link>
         </Row>
       </Switch>

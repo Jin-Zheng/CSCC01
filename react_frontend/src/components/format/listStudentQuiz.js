@@ -60,14 +60,14 @@ class QuizDisplay extends React.Component {
 
   wrap(q) {
     return (
-      <div>
-      <form style = {Styles.borderSize}>
-        <GetQuestionDisplay data={q}/>
-        <button type={'submit'}
-          style={Styles.smallButton}>
-        submit
-        </button>
-      </form>
+      <div style={Styles.borderSet}>
+        <form style = {Styles.questionBorder}>
+          <GetQuestionDisplay data={q}/>
+          <button type={'submit'}
+            style={Styles.smallButton}>
+            Submit
+          </button>
+        </form>
       </div>
     )
   }

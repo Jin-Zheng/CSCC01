@@ -71,7 +71,7 @@ class CreateShortAnswer extends React.Component {
           </Row>
           <Row>
             <button style={Styles.submitButton}>
-              submit
+              Submit
             </button>
           </Row>
 
