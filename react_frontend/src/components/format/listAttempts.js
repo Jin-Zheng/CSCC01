@@ -97,7 +97,11 @@ class AttemptView extends React.Component {
             style={Styles.smallButton}>spoiler</button>
         </Row>
         {this.state.pane}
-        {this.state.pane && <Row>grade:{this.state.grade}</Row>}
+        {this.state.pane &&
+          <div style={Styles.questionBorder}>
+            <Row style={Styles.viewText} borderRadius={2}>grade:{this.state.grade}</Row>
+          </div>
+        }
       </div>
     )
   }

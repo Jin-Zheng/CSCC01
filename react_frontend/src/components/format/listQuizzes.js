@@ -66,7 +66,7 @@ class QuizDisplay extends React.Component {
 
   render() {
     return (
-      <div style={Styles.borderSet}>
+      <div>
         <Row style={Styles.textSize}>
           Quiz: {this.props.data[0].quizName}
           <button onClick={this.handleSpoiler}
@@ -131,7 +131,7 @@ class ListQuizzes extends React.Component {
       qList = this.state.quizzes.map(this.wrap)
     }
     return(
-      <div>
+      <div style={Styles.borderSet}>
         {qList}
       </div>
     )
