@@ -60,14 +60,14 @@ class CreateShortAnswer extends React.Component {
           </Row>
           <Row>
             <textarea value={this.state.value} onChange={this.valueUpdate}
-            style={Styles.textArea}/>
+            style={Styles.questionArea}/>
           </Row>
           <Row style={Styles.textSize}>
             Answer:
           </Row>
           <Row>
             <textarea value={this.state.answer} onChange={this.answerUpdate}
-            style={Styles.textArea}/>
+            style={Styles.questionArea}/>
           </Row>
           <Row>
             <button style={Styles.submitButton}>

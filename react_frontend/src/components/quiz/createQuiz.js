@@ -3,6 +3,7 @@ import {List, Map} from 'immutable'
 import ShortAnswerDisplay from '../question/shortAnswerDisplay'
 import MultipleAnswerDisplay from '../question/multipleAnswerDisplay'
 import {Row, Col} from 'react-flexbox-grid'
+import Styles from '../../styles.js'
 
 const SHORT_ANSWER = 'SA'
 const MULTIPLE_CHOICE = 'MC'
@@ -166,23 +167,25 @@ class CreateQuiz extends React.Component {
     }
     return(
       <div>
-        <Row>
+        <Row style={Styles.textSize}>
           Creator:
         </Row>
         <Row>
         <textarea
           value={this.state.creator}
-          onChange={this.changeText('creator')}/>
+          onChange={this.changeText('creator')}
+          style={Styles.textArea}/>
         </Row>
-        <Row>Quiz Name:</Row>
+        <Row style={Styles.textSize}>Quiz Name:</Row>
         <Row>
         <textarea
           value={this.state.name}
-          onChange={this.changeText('name')}/>
+          onChange={this.changeText('name')}
+          style={Styles.textArea}/>
         </Row>
         {qList}
         <Row>
-          <button onClick={this.handleSubmit}>
+          <button onClick={this.handleSubmit} style={Styles.submitButton}>
             submit
           </button>
         </Row>

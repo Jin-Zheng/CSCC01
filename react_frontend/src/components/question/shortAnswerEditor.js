@@ -63,30 +63,33 @@ class ShortAnswerEditor extends React.Component {
     //])
     const debugList = []
     return (
-      <form onSubmit={this.updateQuestion}>
+      <form onSubmit={this.updateQuestion}
+        style={Styles.viewText}>
         <FormatListView list={debugList}/>
-        <Row>
+        <Row style={Styles.textSize}>
           Value:
         </Row>
         <Row>
           <textarea
             value={this.state.value}
-            onChange={this.changeText('value')}/>
+            onChange={this.changeText('value')}
+            style={Styles.editQuestionArea}/>
         </Row>
-        <Row>
+        <Row style={Styles.textSize}>
           Answer:
         </Row>
         <Row>
           <textarea
             value={this.state.answer}
-            onChange={this.changeText('answer')}/>
+            onChange={this.changeText('answer')}
+            style={Styles.editQuestionArea}/>
         </Row>
         <Row>
           <p/>
         </Row>
         <Row end='xs'>
-          <button type={'submit'}>
-            
+          <button type={'submit'}
+            style={Styles.smallButton}>
             submit
           </button>
         </Row>
