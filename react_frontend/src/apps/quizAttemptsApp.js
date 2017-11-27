@@ -13,7 +13,7 @@ class QuizAttemptSwitcher extends React.Component {
 class QuizAttemptApp extends React.Component {
   render() {
     return(
-      <div style={Styles.textSize}>
+      <div style={Styles.borderSet}>
         <ListAttempts/>
       </div>
     )

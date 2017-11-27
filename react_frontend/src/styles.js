@@ -20,7 +20,7 @@ borderSet: {
 questionBorder: {
   // this is for one single question border
   width:'450px',
-  margin: '15px',
+  margin: '10px 21px',
   border: '2px solid #cccccc',
 },
 
@@ -171,13 +171,12 @@ editButtonlast: {
 },
 
 //========Edit Text Part========
-viewText: {
+editText: {
   // this is for edit Text
   fontFamily: 'Verdana',
   color: 'black',
   fontSize: '15px',
-  margin: '20px',
-  width: '450px',
+  margin: '25px',
 },
 
 editQuestionArea: {
@@ -207,7 +206,7 @@ smallButton: {
   color: '#737373',
   background: '#f2f2f2',
   underlayColor: '#4169e1',
-  margin: '5px',
+  margin: '0px 5px',
   fontSize: '12px',
   width: '60px',
   height: '20px',
@@ -222,7 +221,14 @@ marginSet: {
 },
 
 //================View Part================
+viewText: {
+    // this is for edit Text
+    fontFamily: 'Verdana',
+    color: 'black',
+    fontSize: '15px',
+    margin: '5px 20px',
 
+},
 
   // backgroundSet: {
   //   // this is for the background

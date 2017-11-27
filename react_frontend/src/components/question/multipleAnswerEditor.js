@@ -70,7 +70,7 @@ class MultipleAnswerEditor extends React.Component {
       <div style={Styles.questionBorder}>
         <form
           onSubmit = {this.updateQuestion}
-          style={Styles.viewText}>
+          style={Styles.editText}>
           <Row style={Styles.textSize}>
             Value:
           </Row>

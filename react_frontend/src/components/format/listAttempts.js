@@ -81,7 +81,7 @@ class AttemptView extends React.Component {
   render() {
     return(
       <div>
-        <Row>
+        <Row style={Styles.viewText}>
           attempt:{this.props.data[0].attemptKey}
           <button onClick={this.handleSpoiler}
             style={Styles.smallButton}>spoiler</button>

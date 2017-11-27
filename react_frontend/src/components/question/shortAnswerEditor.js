@@ -65,7 +65,7 @@ class ShortAnswerEditor extends React.Component {
     return (
       <div style={Styles.questionBorder}>
         <form onSubmit={this.updateQuestion}
-          style={Styles.viewText}>
+          style={Styles.editText}>
           <FormatListView list={debugList}/>
           <Row style={Styles.textSize}>
             Value:

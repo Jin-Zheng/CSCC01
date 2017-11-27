@@ -20,7 +20,7 @@ class Deletor extends React.Component {
   render() {
     return(
       <div style={Styles.questionBorder}>
-        <div style={Styles.viewText}>
+        <div style={Styles.editText}>
           <Row>
             This cannot be undone.
           </Row>
