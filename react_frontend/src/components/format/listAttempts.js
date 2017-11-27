@@ -53,6 +53,16 @@ class GetQuestionDisplay extends React.Component {
 
 class AttemptView extends React.Component {
 
+  componentWillMount() {
+    fetch('/attemptApi/attempt/get/'+this.props.data[0].attemptKey)
+    .then((res) => (res.json()))
+    .then((res) => (
+      this.setState({
+        grade: res[0].grade
+      })
+    ))
+  }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -87,6 +97,7 @@ class AttemptView extends React.Component {
             style={Styles.smallButton}>spoiler</button>
         </Row>
         {this.state.pane}
+        {this.state.pane && <Row>grade:{this.state.grade}</Row>}
       </div>
     )
   }
@@ -122,7 +133,7 @@ class ListAttempts extends React.Component {
     )
     const formattedData = tags.map((tag) => (
       data.filter((datum) => (
-        datum.attemptKey !== tag
+        datum.attemptKey === tag
       ))
     ))
     return formattedData

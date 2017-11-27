@@ -6,10 +6,10 @@ import ListQuestions from '../components/format/listQuestions'
 import ListQuizzes from '../components/format/listQuizzes'
 import ViewInstructions from '../instructions/viewInstructions'
 
-class ViewRouter extends React.Component {
+class ViewSwitcher extends React.Component {
   render() {
     return(
-      <div>
+      <Switch>
         <Route
           exact path='/viewApp/questions'
           component={ListQuestions}/>
@@ -17,16 +17,16 @@ class ViewRouter extends React.Component {
           exact path='/viewApp/quizzes'
           component={ListQuizzes}/>
         <Route
+          path=''
           component={ViewInstructions}/>
-      </div>
+      </Switch>
     )
   }
 }
 
-class ViewSwitcher extends React.Component {
+class ViewRouter extends React.Component {
   render() {
     return(
-      <Switch>
         <Row>
           <Link to='/viewApp/questions'
             style={Styles.subIndexLink}>
@@ -37,7 +37,6 @@ class ViewSwitcher extends React.Component {
             Quizzes
           </Link>
         </Row>
-      </Switch>
     )
   }
 }
@@ -47,8 +46,8 @@ class ViewApp extends React.Component {
     return(
       <BrowserRouter>
         <div>
-          <ViewSwitcher/>
           <ViewRouter/>
+          <ViewSwitcher/>
         </div>
       </BrowserRouter>
     )
