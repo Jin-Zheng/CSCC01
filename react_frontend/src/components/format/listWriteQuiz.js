@@ -1,5 +1,5 @@
 import React from 'react'
-import {List, Set} from 'immutable'
+import {List, Set, Map} from 'immutable'
 import {Row} from 'react-flexbox-grid'
 
 const SHORT_ANSWER = 'SA'
@@ -44,9 +44,9 @@ class WriteQuiz extends React.Component {
 
   componentWillMount() {
     this.setState({
-      responses: this.props.data.map((res) => (
-        undefined
-      ))
+      responses: this.props.data.reduce((prev, next) => (
+        prev.set(next.qKey, '')
+      ), Map())
     })
   }
 
@@ -54,18 +54,87 @@ class WriteQuiz extends React.Component {
     super(props)
     this.state = {
       pane: undefined,
-      responses: undefined
+      responses: undefined,
+      name: ''
     }
     this.handleSpoiler = this.handleSpoiler.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.changeText = this.changeText.bind(this)
+    this.calculateGrade = this.calculateGrade.bind(this)
   }
 
-  changeText(field, n=undefined) {
+  changeText(field) {
     return (e) => {
       e.preventDefault()
       this.setState({
         [field]: e.target.value
       })
+    }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    const metaData = {
+      studentUsername: this.state.name,
+      grade: this.calculateGrade()
+    }
+
+    fetch('/attemptApi/attempt/insert', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(metaData)
+    })
+    .then((res) => (
+      fetch('/attemptApi/attempt/max')
+    ))
+    .then((res) => (res.json()))
+    .then((res) => (res[0]['MAX(attemptKey)']))
+    .then((res) => (
+      this.state.responses.mapKeys((key) => {
+        const metaData = {
+          id: res,
+          questionId: key,
+          answer: this.state.responses.get(key)
+        }
+        console.log(JSON.stringify(metaData))
+        fetch('/attemptApi/attemptContents/insert/'+res, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(metaData)
+        })
+      })
+    ))
+  }
+
+  calculateGrade() {
+    return(
+      100*this.state.responses.mapKeys((key) => {
+      const ans = this.props.data.filter((entry) => (
+        entry.qKey === key
+      ))[0].answer
+      console.log(ans)
+      if(this.state.responses.get(key) === ans) {
+        return 1
+      } else {
+        return 0
+      }
+      })
+      .reduce((a, b) => (
+        a + b
+      ), 0)/this.state.responses.size
+    )
+  }
+
+
+  changeResponse(n) {
+    return (e) => {
+      e.preventDefault()
+      const prev = this.state.responses
+      const next = prev.set(n, e.target.value)
+      this.setState({
+        responses: next
+      })
+      console.log(this.state.responses.get(n))
     }
   }
 
@@ -79,10 +148,10 @@ class WriteQuiz extends React.Component {
       this.setState({
         pane: this.props.data.map((q) => {
           const saResponse = (
-            <Row><textarea/></Row>
+            <Row onChange={this.changeResponse(q.qKey)}><textarea/></Row>
           )
           const mcResponse = (
-            <select onChange={this.changeText('answer')}>
+            <select onChange={this.changeResponse(q.qKey)}>
               <option value={''}>
               Which option is correct?
               </option>
@@ -104,12 +173,6 @@ class WriteQuiz extends React.Component {
     }
   }
 
-  handleChange(n) {
-    return (e) => {
-      e.preventDefault()
-    }
-  }
-
   render() {
     return(
       <div>
@@ -117,7 +180,13 @@ class WriteQuiz extends React.Component {
           {this.props.data[0].quizName}
           <button onClick={this.handleSpoiler}>spoiler</button>
         </Row>
+        {this.state.pane && <div>name:</div>}
+        {
+          this.state.pane &&
+          <Row><textarea value={this.state.name} onChange={this.changeText('name')}/></Row>
+        }
         {this.state.pane}
+        {this.state.pane && <Row><button onClick={this.handleSubmit}>submit</button></Row>}
       </div>
     )
   }
