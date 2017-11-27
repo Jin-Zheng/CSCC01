@@ -1,5 +1,22 @@
 # L02_07
 
+### 11/27/17
+- Completed Sprint 6 [here](./Deliverables/Sprint_Backlog-Sprint.pdf)
+
+### 11/22/17
+- Sprint Backlog: Sprint 6 (Nov 23 - Nov 27) [here](./Deliverables/Sprint_Backlog-Sprint.pdf)
+- Completed Sprint 5:
+  * Create layout for quiz creation [Still in progress..]
+  * Write Selenium test cases for unit testing
+  * Create a design mockup for our website in photoshop
+  * Create layout for viewing quizzes [Still in progress..]
+  * Create layout for writing quiz [Still in progress..]
+  * Rework sign in layout
+  * Create layout for viewing problem set results [Still in progress..]
+  * Write Peer review docs
+- Currently, testing each functionality and looking for bugs/typos
+- Sprint 6 (last sprint) to complete previous tasks that have not been finished.
+
 ### 11/20/17
 - Code Review uploaded [here](./Deliverables/Code_Review.pdf)
 - Testing uploaded
