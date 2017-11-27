@@ -78,6 +78,7 @@ class WriteQuiz extends React.Component {
       studentUsername: this.state.name,
       grade: this.calculateGrade()
     }
+    console.log(metaData.grade)
 
     fetch('/attemptApi/attempt/insert', {
       method: 'POST',
@@ -96,7 +97,6 @@ class WriteQuiz extends React.Component {
           questionId: key,
           answer: this.state.responses.get(key)
         }
-        console.log(JSON.stringify(metaData))
         fetch('/attemptApi/attemptContents/insert/'+res, {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
@@ -107,22 +107,14 @@ class WriteQuiz extends React.Component {
   }
 
   calculateGrade() {
-    return(
-      100*this.state.responses.mapKeys((key) => {
-      const ans = this.props.data.filter((entry) => (
-        entry.qKey === key
-      ))[0].answer
-      console.log(ans)
-      if(this.state.responses.get(key) === ans) {
-        return 1
+    const grade = this.state.responses.reduce((prev, val, key) => {
+      if(val === this.props.data.filter((q) => (q.qKey === key))[0].answer) {
+        return prev + 1
       } else {
-        return 0
+        return prev
       }
-      })
-      .reduce((a, b) => (
-        a + b
-      ), 0)/this.state.responses.size
-    )
+    },0)
+    return (grade*100)/this.state.responses.size
   }
 
 
@@ -134,12 +126,10 @@ class WriteQuiz extends React.Component {
       this.setState({
         responses: next
       })
-      console.log(this.state.responses.get(n))
     }
   }
 
   handleSpoiler(e) {
-    console.log('spoiler data:', this.props.data)
     e.preventDefault()
     if(this.state.pane) {
       this.setState({pane: undefined})
@@ -201,7 +191,6 @@ class ListWriteQuiz extends React.Component {
     .then((res) => (
       this.setState({data: this.format(res)})
     ))
-    .then((res) => (console.log('listWriteQuiz data', this.state.data.toJSON())))
   }
 
   constructor(props) {
@@ -214,7 +203,6 @@ class ListWriteQuiz extends React.Component {
   }
 
   format(data) {
-    console.log(data)
     const tags = Set(
         data.map((datum) => (
         datum.quizKey
