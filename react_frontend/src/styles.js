@@ -24,6 +24,13 @@ questionBorder: {
   border: '2px solid #cccccc',
 },
 
+quizBorder: {
+  // this is for one quiz write border
+  width:'450px',
+  //margin: '10px 21px',
+  border: '2px solid #cccccc',
+},
+
 //================Login Part================
   loginSet: {
     // this is for login border
@@ -64,11 +71,11 @@ instructionSize: {
 
   subIndexLink: {
     // this is for subIndex like short answer, mulitple answer
-    margin: '15px 15px 15px 0px',
-    fontSize: '28px',
+    margin: '15px 8px 15px 0px',
+    fontSize: '26px',
     color: '#b3b3b3',
     textDecoration: 'none',
-    width: '200px',
+    width: '210px',
     border: '2px solid #b3b3b3',
     borderRadius: '0.5rem',
   },
@@ -217,7 +224,7 @@ smallButton: {
 
 marginSet: {
   // this is for stand margin set
-  margin: '5px 25px',
+  margin: '10px 25px',
 },
 
 //================View Part================
@@ -226,7 +233,7 @@ viewText: {
     fontFamily: 'Verdana',
     color: 'black',
     fontSize: '15px',
-    margin: '5px 20px',
+    margin: '10px 20px',
 
 },
 

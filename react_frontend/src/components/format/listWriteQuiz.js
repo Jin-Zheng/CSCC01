@@ -1,6 +1,7 @@
 import React from 'react'
 import {List, Set, Map} from 'immutable'
 import {Row} from 'react-flexbox-grid'
+import Styles from '../../styles'
 
 const SHORT_ANSWER = 'SA'
 const MULTIPLE_CHOICE = 'MC'
@@ -15,13 +16,13 @@ class QuestionPrompt extends React.Component {
   paneOf(type) {
     if(type === SHORT_ANSWER) {
       return(
-        <div>
+        <div style={Styles.viewText}>
           <Row>value:{this.props.data.qValue}</Row>
         </div>
       )
     } else if(type === MULTIPLE_CHOICE) {
       return(
-        <div>
+        <div style={Styles.viewText}>
           <Row>value:{this.props.data.qValue}</Row>
           <Row>option A:{this.props.data.candidate1}</Row>
           <Row>option B:{this.props.data.candidate2}</Row>
@@ -138,18 +139,23 @@ class WriteQuiz extends React.Component {
       this.setState({
         pane: this.props.data.map((q) => {
           const saResponse = (
-            <Row onChange={this.changeResponse(q.qKey)}><textarea/></Row>
+            <Row onChange={this.changeResponse(q.qKey)}
+              style={Styles.marginSet}>
+              <textarea style={Styles.editQuestionArea}/></Row>
           )
           const mcResponse = (
-            <select onChange={this.changeResponse(q.qKey)}>
-              <option value={''}>
-              Which option is correct?
-              </option>
-              <option value={0}>A</option>
-              <option value={1}>B</option>
-              <option value={2}>C</option>
-              <option value={3}>D</option>
-            </select>
+            <Row style={Styles.marginSet}>
+              <select onChange={this.changeResponse(q.qKey)}
+                style={Styles.editSelectBar}>
+                <option value={''}>
+                Which option is correct?
+                </option>
+                <option value={0}>A</option>
+                <option value={1}>B</option>
+                <option value={2}>C</option>
+                <option value={3}>D</option>
+              </select>
+            </Row>
           )
           return(
             <div>
@@ -165,18 +171,26 @@ class WriteQuiz extends React.Component {
 
   render() {
     return(
-      <div>
+      <div style={Styles.viewText}>
         <Row>
           {this.props.data[0].quizName}
-          <button onClick={this.handleSpoiler}>spoiler</button>
+          <button onClick={this.handleSpoiler}
+            style={Styles.smallButton}>spoiler</button>
         </Row>
-        {this.state.pane && <div>name:</div>}
-        {
-          this.state.pane &&
-          <Row><textarea value={this.state.name} onChange={this.changeText('name')}/></Row>
-        }
-        {this.state.pane}
-        {this.state.pane && <Row><button onClick={this.handleSubmit}>submit</button></Row>}
+
+        {this.state.pane && <div style={Styles.quizBorder}>
+          <div>
+            <Row style={Styles.viewText}>name:</Row>
+            <Row style={Styles.marginSet}><textarea value={this.state.name}
+              onChange={this.changeText('name')}
+              style={Styles.editQuestionArea}/></Row>
+          </div>
+          {this.state.pane}
+          <div>
+            <Row style={Styles.marginSet}><button onClick={this.handleSubmit}
+              style={Styles.smallButton}>Submit</button></Row>
+          </div>
+        </div>}
       </div>
     )
   }
@@ -231,7 +245,7 @@ class ListWriteQuiz extends React.Component {
       qList = this.state.data.map(this.wrap)
     }
     return(
-      <div>
+      <div style={Styles.borderSet}>
         {qList}
       </div>
     )

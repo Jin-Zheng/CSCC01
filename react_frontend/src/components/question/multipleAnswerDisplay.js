@@ -33,15 +33,18 @@ class MultipleAnswerDisplay extends React.Component {
   }
 
   render() {
+    const answerMap = {
+      '0': 'A', '1': 'B', '2': 'C', '3': 'D'
+    }
     const vList = List([
       'Index: ' + this.state.index,
       'Type: ' + this.state.type,
       'Value: ' + this.state.value,
-      'Option0: ' + this.state.option0,
-      'Option1: ' + this.state.option1,
-      'Option2: ' + this.state.option2,
-      'Option3: ' + this.state.option3,
-      'Answer: ' + this.state.answer
+      'Option A: ' + this.state.option0,
+      'Option B: ' + this.state.option1,
+      'Option C: ' + this.state.option2,
+      'Option D: ' + this.state.option3,
+      'Answer: ' + answerMap[this.state.answer]
     ])
     return (
       <div style={Styles.questionBorder}>

@@ -81,7 +81,7 @@ class MultipleAnswerEditor extends React.Component {
               style={Styles.editQuestionArea}/>
           </Row>
           <Row style={Styles.textSize}>
-            Option0:
+            Option A:
           </Row>
           <Row>
             <textarea
@@ -90,7 +90,7 @@ class MultipleAnswerEditor extends React.Component {
               style={Styles.editQuestionArea}/>
           </Row>
           <Row style={Styles.textSize}>
-            Option1:
+            Option B:
           </Row>
           <Row>
             <textarea
@@ -99,7 +99,7 @@ class MultipleAnswerEditor extends React.Component {
               style={Styles.editQuestionArea}/>
           </Row>
           <Row style={Styles.textSize}>
-            Option2:
+            Option C:
           </Row>
           <Row>
             <textarea
@@ -108,7 +108,7 @@ class MultipleAnswerEditor extends React.Component {
               style={Styles.editQuestionArea}/>
           </Row>
           <Row style={Styles.textSize}>
-            Option3:
+            Option D:
           </Row>
           <Row>
             <textarea

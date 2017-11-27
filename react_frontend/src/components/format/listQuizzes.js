@@ -67,7 +67,7 @@ class QuizDisplay extends React.Component {
   render() {
     return (
       <div>
-        <Row style={Styles.textSize}>
+        <Row style={Styles.viewText}>
           Quiz: {this.props.data[0].quizName}
           <button onClick={this.handleSpoiler}
             style={Styles.smallButton}>

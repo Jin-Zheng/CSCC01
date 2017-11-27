@@ -1,9 +1,10 @@
 import React from 'react'
+import Styles from '../styles'
 
 class StudentInstructions extends React.Component {
   render() {
     return(
-      <div>
+      <div style={Styles.instructionSize}>
         these are the student instructions
       </div>
     )

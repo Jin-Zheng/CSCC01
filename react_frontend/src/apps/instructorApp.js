@@ -67,16 +67,14 @@ class InstructorApp extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
-          <Row center={'xs'}>
-            <Col xs={3} sm={3} md={3} lg={3}>
-              <InstructorRouter/>
-            </Col>
-            <Col xs={7} sm={7} md={7} lg={7}>
-              <InstructorSwitcher/>
-            </Col>
-          </Row>
-        </div>
+        <Row center={'xs'}>
+          <Col xs={3} sm={3} md={3} lg={3}>
+            <InstructorRouter/>
+          </Col>
+          <Col xs={7} sm={7} md={7} lg={7}>
+            <InstructorSwitcher/>
+          </Col>
+        </Row>
       </BrowserRouter>
     )
   }
