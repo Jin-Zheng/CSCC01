@@ -1,4 +1,5 @@
 import React from 'react'
+import {List} from 'immutable'
 
 class QuestionPrompt extends React.Component {
 
@@ -15,6 +16,10 @@ class ListWriteQuiz extends React.Component {
   componentWillMount() {
     fetch('/quizApi/quiz/get/all')
     .then((res) => (res.json()))
+    .then((res) => {
+      this.setState({data: res})
+      return res
+    })
     .then((res) => (console.log(res)))
   }
 
@@ -23,13 +28,31 @@ class ListWriteQuiz extends React.Component {
     this.state = {
       data: undefined
     }
+    this.format = this.format.bind(this)
+  }
+
+  format(data) {
+    console.log(data)
+    const tags = Set(
+        data.map((datum) => (
+        datum.quizKey
+      ))
+    )
+
+    const setData = tags.map((tag) => (
+      data.filter((datum) => (
+        datum.quizKey === tag
+      ))
+    ))
+
+    const formattedData = List(setData).sort()
+    return formattedData
   }
 
   render() {
-    console.log('dappa')
     return(
       <div>
-        hi
+        {this.state.data && JSON.stringify(this.state.data)}
       </div>
     )
   }

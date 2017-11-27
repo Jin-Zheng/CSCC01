@@ -108,11 +108,12 @@ class ListQuizzes extends React.Component {
 
     const setData = tags.map((tag) => (
       data.filter((datum) => (
-        datum.quizKey !== tag
+        datum.quizKey === tag
       ))
     ))
 
-    const formattedData = List(setData).sort()
+    const formattedData = List(setData)
+    console.log(formattedData.toArray())
     return formattedData
   }
 
